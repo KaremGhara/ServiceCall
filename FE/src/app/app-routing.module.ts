@@ -22,22 +22,22 @@ const routes: Routes = [
           import('./admin/admin.module').then((m) => m.AdminModule),
       },
       {
-        path: 'teacher',
+        path: 'customer',
         canActivate: [AuthGuard],
         data: {
-          role: Role.Teacher,
+          role: Role.Customer,
         },
         loadChildren: () =>
-          import('./teacher/teacher.module').then((m) => m.TeacherModule),
+          import('./customer/customer.module').then((m) => m.CustomerModule),
       },
       {
-        path: 'student',
+        path: 'technician',
         canActivate: [AuthGuard],
         data: {
-          role: Role.Student,
+          role: Role.Technician,
         },
         loadChildren: () =>
-          import('./student/student.module').then((m) => m.StudentModule),
+          import('./technician/technician.module').then((m) => m.TechnicianModule),
       },
 
       // Extra components

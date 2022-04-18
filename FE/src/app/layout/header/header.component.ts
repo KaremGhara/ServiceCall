@@ -110,9 +110,9 @@ export class HeaderComponent
 
     if (userRole === Role.Admin) {
       this.homePage = 'admin/dashboard/main';
-    } else if (userRole === Role.Teacher) {
-      this.homePage = 'teacher/dashboard';
-    } else if (userRole === Role.Student) {
+    } else if (userRole === Role.Customer) {
+      this.homePage = 'customer/customer-details';
+    } else if (userRole === Role.Technician) {
       this.homePage = 'student/dashboard';
     } else {
       this.homePage = 'admin/dashboard/main';

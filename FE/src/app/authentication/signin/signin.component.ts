@@ -29,25 +29,14 @@ export class SigninComponent
 
   ngOnInit() {
     this.authForm = this.formBuilder.group({
-      username: ['admin@school.org', Validators.required],
-      password: ['admin@123', Validators.required],
+      username: ['karem@123.com', Validators.required],
+      password: ['karem', Validators.required],
     });
   }
   get f() {
     return this.authForm.controls;
   }
-  adminSet() {
-    this.authForm.get('username').setValue('admin@school.org');
-    this.authForm.get('password').setValue('admin@123');
-  }
-  teacherSet() {
-    this.authForm.get('username').setValue('teacher@school.org');
-    this.authForm.get('password').setValue('teacher@123');
-  }
-  studentSet() {
-    this.authForm.get('username').setValue('student@school.org');
-    this.authForm.get('password').setValue('student@123');
-  }
+  
   onSubmit() {
     this.submitted = true;
     this.loading = true;
@@ -65,9 +54,9 @@ export class SigninComponent
                 const role = this.authService.currentUserValue.role;
                 if (role === Role.All || role === Role.Admin) {
                   this.router.navigate(['/admin/dashboard/main']);
-                } else if (role === Role.Teacher) {
-                  this.router.navigate(['/teacher/dashboard']);
-                } else if (role === Role.Student) {
+                } else if (role === Role.Customer) {
+                  this.router.navigate(['/customer/customerDetails']);
+                } else if (role === Role.Technician) {
                   this.router.navigate(['/student/dashboard']);
                 } else {
                   this.router.navigate(['/authentication/signin']);

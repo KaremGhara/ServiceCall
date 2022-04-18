@@ -1,0 +1,134 @@
+<app-screen-cont [title]="'הצג תכנאים'" [breadscrums]="breadscrums">
+
+<div class="mat-elevation-z8">
+        <div class="materialTableHeader">
+            <div class="row">
+              <div class="col-8">
+                <ul class="header-buttons-left ml-0">
+                  <li class="dropdown">
+                    <h2>
+                      <strong>כל התכנאים</strong></h2>
+                  </li>
+                 
+                </ul>
+              </div>
+              <div class="col-4">
+                <ul class="header-buttons">
+                 
+                  <li>
+                    <div class="icon-button-demo">
+                      <button mat-mini-fab color="primary" (click)="addTechinician()">
+                        <mat-icon class="col-white">add</mat-icon>
+                      </button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="icon-button-demo">
+                      <button mat-mini-fab color="primary" (click)="getAllTechinician()">
+                        <mat-icon class="col-white">refresh
+                        </mat-icon>
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+                
+          <mat-table #table [dataSource]="dataSource" matSort class="mat-cell" >   
+           
+           <!--  NAME Column -->
+           <ng-container matColumnDef="name">
+             <mat-header-cell *matHeaderCellDef mat-sort-header>שם
+             </mat-header-cell>
+             <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+           </ng-container>
+           <!-- socialId Column -->
+           <ng-container matColumnDef="socialId">
+             <mat-header-cell *matHeaderCellDef mat-sort-header>תעודה זהות
+             </mat-header-cell>
+             <mat-cell *matCellDef="let row"> {{row.socialId}}
+             </mat-cell>
+           </ng-container>
+           <!-- phone  Column -->
+           <ng-container matColumnDef="phone">
+             <mat-header-cell *matHeaderCellDef mat-sort-header>נייד
+             </mat-header-cell>
+             <mat-cell *matCellDef="let row"> {{row.phone}}
+             </mat-cell>
+           </ng-container>
+           <!-- address Column -->
+           <ng-container matColumnDef="address">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>כתובת
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+             {{row.address}}</mat-cell>
+          </ng-container>
+<!-- email Column -->
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>דואר אלקטרוני
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+               {{row.email}}</mat-cell>
+          </ng-container>
+
+          <!-- workerType Column -->
+          <ng-container matColumnDef="workerType">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>סוג תכנאי
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              {{row.workerType}}</mat-cell>
+          </ng-container>
+<!-- jobRole Column -->
+          <ng-container matColumnDef="jobRole">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>תפקיד עובד
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              {{row.jobRole}}</mat-cell>
+          </ng-container>
+
+ <!-- actions -->
+ <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef>Actions
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row;">
+      <button mat-icon-button color="primary" 
+      (click)="updateTechnician(row)">
+        <mat-icon aria-label="Edit">edit
+        </mat-icon>
+      </button>
+      <button mat-icon-button class="btn btn-outline-warning"
+      (click)="AboutTechnician(row)">
+      <mat-icon aria-label="description">description
+      </mat-icon>
+      </button>  
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <br>
+       <button mat-icon-button color="warn" 
+       (click)="deleteTechnician(row)">
+       
+        <mat-icon>delete</mat-icon>
+      </button> 
+     </div>
+    </mat-cell>
+  </ng-container>
+                       <mat-header-row *matHeaderRowDef="displayedColumns">
+                       </mat-header-row>
+                       <!-- <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
+                       <mat-row *matRowDef="let row; columns: displayedColumns;"
+                         [style.cursor]="'pointer'" matRipple>
+                       </mat-row>
+                     </mat-table>
+  
+  
+   <!-- Loading spinner -->
+   <div *ngIf="isTblLoading" class="tbl-spinner">
+    <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate">
+    </mat-progress-spinner>
+  </div>
+  
+  
+  <mat-paginator [pageSizeOptions]="[ 5, 10, 50,100]" aria-label="בחר דף לתכנאים"></mat-paginator>
+      </div>
+  
+    </app-screen-cont>

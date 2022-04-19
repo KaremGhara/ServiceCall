@@ -20,7 +20,11 @@ export class CustomerService {
     return this.http.get<Customer>(APP_URL+"customers/get-customer-By-Id?id="+id);
   }
 
-  getAllTechnician(): Observable<Customer[]> {
+  getAllCustomers(): Observable<Customer[]> {
     return this.http.get<Customer[]>(APP_URL+ "customers/get-all-customer")
+}
+
+deleteCustomerById(id: number): Observable<Customer> {
+  return this.http.delete<Customer>(APP_URL+"customers/delete-customer?id="+id);
 }
 }

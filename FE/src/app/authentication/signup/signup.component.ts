@@ -68,7 +68,7 @@ export class SignupComponent implements OnInit {
 
         
         );
-        this.router.navigate(['/admin/dashboard/main'])
+        this.router.navigate(['/authentication/signin'])
         }
         
         if(!res){

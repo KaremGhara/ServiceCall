@@ -30,6 +30,7 @@ import {
   HTTP_INTERCEPTORS,
   HttpClient,
 } from '@angular/common/http';
+import { ComponentsModule } from './shared/components/components.module';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -42,6 +43,7 @@ export function createTranslateLoader(http: HttpClient): any {
 
 @NgModule({
     declarations: [
+       
         AppComponent,
         HeaderComponent,
         PageLoaderComponent,
@@ -49,6 +51,8 @@ export function createTranslateLoader(http: HttpClient): any {
         RightSidebarComponent,
         AuthLayoutComponent,
         MainLayoutComponent,
+        
+        
     ],
     imports: [
         BrowserModule,

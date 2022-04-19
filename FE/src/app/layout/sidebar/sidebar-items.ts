@@ -33,19 +33,32 @@ export const ROUTES: RouteInfo[] = [
 
 
   
-  // Teacher Modules
+  // Customer Modules
 
   {
-    path: '/teacher/dashboard',
-    title: 'MENUITEMS.TEACHER.LIST.DASHBOARD',
-    moduleName: 'dashboard',
+    path: '/customer/customerDetails',
+    title: 'Profile',
+    moduleName: 'customer',
+    iconType: 'material-icons-two-tone',
+    icon: 'person',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    role: ['Customer'],
+    submenu: [],
+  },
+  {
+    path: '/customer/requestTech',
+    title: 'Request Technician',
+    moduleName: 'customer',
     iconType: 'material-icons-two-tone',
     icon: 'space_dashboard',
     class: '',
     groupTitle: false,
     badge: '',
     badgeClass: '',
-    role: ['Teacher'],
+    role: ['Customer'],
     submenu: [],
   },
 

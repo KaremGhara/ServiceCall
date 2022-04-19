@@ -4,11 +4,7 @@ import { AddTechnicianComponent } from './add-technician/add-technician.componen
 import { AllTechnicianComponent } from './all-technician/all-technician.component';
 
 const routes: Routes = [
-  {
-    path: 'dashboard',
-    loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
-  },
+  
   {
     path:"allTechnician",
     component:AllTechnicianComponent

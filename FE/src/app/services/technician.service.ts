@@ -23,4 +23,12 @@ export class TechnicianService {
 deleteTechnician(id: number): Observable<Technician> {
   return this.http.delete<Technician>(APP_URL + "technicianController/delete-technician?id=" + id);
 }
+
+getTechnicianById(idRow: number):Observable<Technician> {
+  return this.http.get<Technician>(APP_URL+"technicianController/get-technician-By-Id?id="+idRow)
+}
+
+updateTechnician(technician:Technician):Observable<Technician> {
+  return this.http.put<Technician>(APP_URL+"technicianController/update-technician",technician)
+}
 }

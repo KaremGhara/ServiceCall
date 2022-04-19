@@ -25,12 +25,14 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenContComponent } from '../screen-cont/screen-cont.component';
 import { AddTechnicianComponent } from './add-technician/add-technician.component';
+import { UpdateTechnicianComponent } from './update-technician/update-technician.component';
 
 @NgModule({
   declarations: [
     AllTechnicianComponent,
     ScreenContComponent,
-    AddTechnicianComponent
+    AddTechnicianComponent,
+    UpdateTechnicianComponent
   ],
   imports: [CommonModule,
      AdminRoutingModule,

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddTechnicianComponent } from './add-technician/add-technician.component';
 import { AllTechnicianComponent } from './all-technician/all-technician.component';
+import { UpdateTechnicianComponent } from './update-technician/update-technician.component';
 
 const routes: Routes = [
   
@@ -13,7 +14,11 @@ const routes: Routes = [
     {
       path:"addTechnician",
       component:AddTechnicianComponent
-      },
+    },
+    {
+      path:"updateTechnician/:idrow",
+      component:UpdateTechnicianComponent
+    },
  
 ];
 

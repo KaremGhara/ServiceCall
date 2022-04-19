@@ -39,9 +39,7 @@ export class AllTechnicianComponent implements OnInit {
     this.getAllTechinician();
   }
 
-  addTechinician(){
-    this.router.navigate(['admin/addTechnician'])
-  }
+  
   getAllTechinician(){
     this.techinicianService.getAllTechnician().subscribe(data => {
       this.isTblLoading = false;
@@ -78,13 +76,16 @@ export class AllTechnicianComponent implements OnInit {
 
 }
 
+addTechinician(){
+  this.router.navigate(['admin/addTechnician'])
+}
 
 AboutTechnician(row){
-  // this.router.navigate([ProgramManagerURL+'/details',id])
+  // this.router.navigate(['admin/addTechnician'])
 }
 
 
 updateTechnician(row){
-  // this.router.navigate([ProgramManagerURL+'/edit-program',id])
+  this.router.navigate(['admin/updateTechnician',row.id])
 }
 }

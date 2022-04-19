@@ -23,6 +23,7 @@ org.sonarlint.eclipse.core.prefs
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 *.class
+.class
 
 # Log file
 *.log

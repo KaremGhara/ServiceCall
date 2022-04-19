@@ -26,13 +26,17 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenContComponent } from '../screen-cont/screen-cont.component';
 import { AddTechnicianComponent } from './add-technician/add-technician.component';
 import { UpdateTechnicianComponent } from './update-technician/update-technician.component';
+import { AllCustomersComponent } from './all-customers/all-customers.component';
+import { AllRequestsComponent } from './all-requests/all-requests.component';
 
 @NgModule({
   declarations: [
     AllTechnicianComponent,
     ScreenContComponent,
     AddTechnicianComponent,
-    UpdateTechnicianComponent
+    UpdateTechnicianComponent,
+    AllCustomersComponent,
+    AllRequestsComponent
   ],
   imports: [CommonModule,
      AdminRoutingModule,

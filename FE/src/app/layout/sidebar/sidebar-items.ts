@@ -19,7 +19,7 @@ export const ROUTES: RouteInfo[] = [
  
   {
     path: '/admin/allTechnician',
-    title: 'הצג תכנאים',
+    title: 'תכנאים',
     moduleName: 'Show technician',
     iconType: 'material-icons-two-tone',
     icon: 'space_dashboard',
@@ -30,7 +30,32 @@ export const ROUTES: RouteInfo[] = [
     role: ['Admin'],
     submenu: [],
   },
-
+  {
+    path: '/admin/allCustomers',
+    title: 'לקחות',
+    moduleName: 'Show technician',
+    iconType: 'material-icons-two-tone',
+    icon: 'space_dashboard',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    role: ['Admin'],
+    submenu: [],
+  },
+  {
+    path: '/admin/allRequests',
+    title: 'פניות',
+    moduleName: 'Show technician',
+    iconType: 'material-icons-two-tone',
+    icon: 'space_dashboard',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    role: ['Admin'],
+    submenu: [],
+  },
 
   
   // Customer Modules

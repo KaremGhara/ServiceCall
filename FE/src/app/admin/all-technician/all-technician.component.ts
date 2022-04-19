@@ -56,25 +56,25 @@ export class AllTechnicianComponent implements OnInit {
   }
   deleteTechnician(row) {
         
-    // Swal.fire({
-    //   title: "?אתה בטוח רוצה למחוק ",
-    //   text: row.name,
-    //   icon: 'warning',
-    //   showCancelButton: true,
-    //   confirmButtonColor:'#d33' ,
-    //   cancelButtonColor: '#3085d6',
-    //   confirmButtonText: 'כן',
-    // }).then((result) => {
-    //   if (result.value) {            
-    //     this.techinicianService.deleteTechnician(row.id).subscribe(res =>{
-    //       if(res){
-    //         this.getAllTechinician();
-    //         Swal.fire('מחוק!', row.name+' נמחק.', 'success');                
-    //       }
-    //     }) 
-    //   }
-    //   this.getAllTechinician();
-    // });    
+    Swal.fire({
+      title: "?אתה בטוח רוצה למחוק ",
+      text: row.name,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor:'#d33' ,
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'כן',
+    }).then((result) => {
+      if (result.value) {            
+        this.techinicianService.deleteTechnician(row.id).subscribe(res =>{
+          if(res){
+            this.getAllTechinician();
+            Swal.fire('מחוק!', row.name+' נמחק.', 'success');                
+          }
+        }) 
+      }
+      this.getAllTechinician();
+    });    
 
 }
 

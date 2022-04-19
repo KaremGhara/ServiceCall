@@ -51,6 +51,7 @@ public class Customer {
 	private String password;
 	
 	private String Image;
+	private String role="Customer";
 	
 	@JsonIgnore
     @OneToMany(cascade=CascadeType.REMOVE, mappedBy="customer")

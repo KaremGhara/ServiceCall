@@ -4,7 +4,7 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
 import { RequestTechComponent } from './request-tech/request-tech.component';
 
 const routes: Routes = [
-  {path:"customerDetails",component:CustomerDetailsComponent},
+  {path:"customerDetails/:id",component:CustomerDetailsComponent},
   {path:"requestTech",component:RequestTechComponent}
 ];
 

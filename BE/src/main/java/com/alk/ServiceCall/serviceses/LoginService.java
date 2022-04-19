@@ -38,9 +38,9 @@ public class LoginService {
 		return false;
 	}
 	
-	public Customer userLogin1(LoginUsers userLoginData) {
-		Optional<Customer> user = customerRepo.findByEmailEquals(userLoginData.getEmail());
-		if (user.isEmpty() || !user.get().getPassword().equals(userLoginData.getPassword())) {
+	public Customer userLogin1(String userName,String password) {
+		Optional<Customer> user = customerRepo.findByEmailEquals(userName);
+		if (user.isEmpty() || !user.get().getPassword().equals(password)) {
 			return null;
 		}
 		return user.get();

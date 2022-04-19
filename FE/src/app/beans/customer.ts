@@ -5,6 +5,7 @@ export class Customer {
         public  address?: string,
         public  email?: string,
         public  password?: string,
-        public photo?:String
+        public photo?:String,
+        public role?: string
        ){}
 }

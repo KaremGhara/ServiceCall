@@ -4,6 +4,8 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user';
 import { environment } from 'src/environments/environment';
+import {Login}from 'src/app/beans/login'
+import { APP_URL } from 'src/app/beans/global-constant';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +24,12 @@ export class AuthService {
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
+
+
+  ourLogin(username: string, password: string):Observable<Login>{
+    return this.http.post(APP_URL+"login/login1",{username,password});
+  }
+
 
   login(username: string, password: string) {
     return this.http

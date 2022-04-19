@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { Role } from 'src/app/core/models/role';
 import { UnsubscribeOnDestroyAdapter } from 'src/app/shared/UnsubscribeOnDestroyAdapter';
+import { Login } from 'src/app/beans/login';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -18,6 +19,7 @@ export class SigninComponent
   loading = false;
   error = '';
   hide = true;
+  loginUser:Login=new Login();
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -36,6 +38,7 @@ export class SigninComponent
   get f() {
     return this.authForm.controls;
   }
+
   
   onSubmit() {
     this.submitted = true;
@@ -46,7 +49,7 @@ export class SigninComponent
       return;
     } else {
       this.subs.sink = this.authService
-        .login(this.f.username.value, this.f.password.value)
+        .ourLogin(this.f.username.value, this.f.password.value)
         .subscribe(
           (res) => {
             if (res) {
@@ -55,7 +58,7 @@ export class SigninComponent
                 if (role === Role.All || role === Role.Admin) {
                   this.router.navigate(['/admin/dashboard/main']);
                 } else if (role === Role.Customer) {
-                  this.router.navigate(['/customer/customerDetails']);
+                  this.router.navigate(['/customer/customerDetails',res.id]);
                 } else if (role === Role.Technician) {
                   this.router.navigate(['/student/dashboard']);
                 } else {

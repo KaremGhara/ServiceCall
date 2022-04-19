@@ -34,7 +34,7 @@ public class LoginController {
 	  
 	  
 	  @PostMapping("login1")
-	    public Customer login1(@RequestBody LoginUsers user) {
-	        return loginService.userLogin1(user);
+	    public Customer login1(String userName,String password) {
+	        return loginService.userLogin1(userName,password);
 	    }
 }

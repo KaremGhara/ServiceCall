@@ -7,21 +7,20 @@
     </div>
     <div class="row">
       <mat-card class="example-card">
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        <mat-card-title>Shiba Inu</mat-card-title>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-subtitle>{{customer.email}}</mat-card-subtitle>
+        <mat-card-title>{{customer.name}}</mat-card-title>
         <mat-card-content>
-          <p>This card has divider and indeterminate progress as footer</p>
-          <p>Karem</p>
+          <p>Address: {{customer.address}}</p>
+          <p>Phone: {{customer.phone}}</p>
         </mat-card-content>
-        <mat-divider inset></mat-divider>
         <mat-card-actions>
-          <button mat-button>Edit</button>
+          <button mat-button><mat-icon aria-label="Edit">edit
+          </mat-icon></button>
         </mat-card-actions>
         <mat-card-footer>
-          <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
         </mat-card-footer>
       </mat-card>
-
   </div>
 </div>
 </section>

@@ -11,6 +11,10 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 import { User } from '../models/user';
 import { Role } from '../models/role';
+import { CustomerService } from 'src/app/services/customer.service';
+
+const AllUser:User[]=[];
+
 
 const users: User[] = [
   {
@@ -47,6 +51,8 @@ const users: User[] = [
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
+  constructor(private customerService:CustomerService){}
+  
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
@@ -54,7 +60,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     const { url, method, headers, body } = request;
     // wrap in delayed observable to simulate server api call
     return of(null).pipe(mergeMap(handleRoute));
-
+   
     function handleRoute() {
       switch (true) {
         case url.endsWith('/authenticate') && method === 'POST':
@@ -68,6 +74,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     // route functions
 
     function authenticate() {
+      
       const { username, password } = body;
       const user = users.find(
         (x) => x.username === username && x.password === password
@@ -87,6 +94,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
 
     // helper functions
+    // function getAllCustomer(){
+    //   this.customerService.getAllCustomer();
+    //   console.log(this.customerService.getAllCustomer());      
+    // }
 
     function ok(body?) {
       return of(new HttpResponse({ status: 200, body }));

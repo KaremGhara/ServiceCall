@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RequserCustomer } from '../beans/requser-customer';
+import { RequsetCustomer } from '../beans/requset-customer';
 import { Observable } from 'rxjs';
 import { APP_URL } from '../beans/global-constant';
 
@@ -11,20 +11,20 @@ export class RequserCustomerService {
 
   constructor(private http: HttpClient) { }
 
-  addRequestCustomer(requestCustomer: RequserCustomer,costomerId:number):Observable<RequserCustomer> {
-    return this.http.post<RequserCustomer>(APP_URL+'requestCustomer/add-request_customer?costomerId='+costomerId,requestCustomer)
+  addRequestCustomer(requestCustomer: RequsetCustomer,costomerId:number):Observable<RequsetCustomer> {
+    return this.http.post<RequsetCustomer>(APP_URL+'requestCustomer/add-request_customer?costomerId='+costomerId,requestCustomer)
+  }RequsetCustomer
+
+  getAllRequestCustomerBycostomerId(costomerId:number):Observable<RequsetCustomer[]> {
+    return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-request_customer-By-IdCostomer?costomerId='+costomerId)
   }
 
-  getAllRequestCustomerBycostomerId(costomerId:number):Observable<RequserCustomer[]> {
-    return this.http.get<RequserCustomer[]>(APP_URL+'requestCustomer/get-request_customer-By-IdCostomer?costomerId='+costomerId)
+  getAllRequestCustomers():Observable<RequsetCustomer[]> {
+    return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-all-request_customer')
   }
 
-  getAllRequestCustomers():Observable<RequserCustomer[]> {
-    return this.http.get<RequserCustomer[]>(APP_URL+'requestCustomer/get-all-request_customer')
-  }
-
-  deleteRequestCustomerbyid(id: number): Observable<RequserCustomer> {
-    return this.http.delete<RequserCustomer>(APP_URL+"requestCustomer/delete-request_customer?id="+id);
+  deleteRequestCustomerbyid(id: number): Observable<RequsetCustomer> {
+    return this.http.delete<RequsetCustomer>(APP_URL+"requestCustomer/delete-request_customer?id="+id);
   }
 
 }

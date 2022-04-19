@@ -1,12 +1,7 @@
-import { SelectionModel } from '@angular/cdk/collections';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import { Technician } from 'src/app/beans/technician';
-import { TechnicianService } from 'src/app/services/technician.service';
+import { Customer } from 'src/app/beans/customer';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-customer-details',
@@ -21,12 +16,12 @@ export class CustomerDetailsComponent implements OnInit {
       active: 'Show technician',
     },
   ];
+  customer:Customer=new Customer();
   
 
-  constructor(){}
+  constructor(private router: Router,private customerService: CustomerService){}
   ngOnInit(): void {
-
-   
+       
   }
 
   

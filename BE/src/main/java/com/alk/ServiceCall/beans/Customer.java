@@ -50,6 +50,7 @@ public class Customer {
 	@Size(min = 6, max = 10, message = "Invalid Password!")
 	private String password;
 	
+	private String Image;
 	
 	@JsonIgnore
     @OneToMany(cascade=CascadeType.REMOVE, mappedBy="customer")

@@ -6,7 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { RequserCustomerService } from '../../services/requser-customer.service';
-import { RequserCustomer } from 'src/app/beans/requser-customer';
+import { RequsetCustomer } from 'src/app/beans/requset-customer';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -22,12 +22,12 @@ export class AllRequestsComponent implements OnInit {
       active: 'All requests',
     },
   ];
-  requserCustomer:RequserCustomer[];
+  requserCustomer:RequsetCustomer[];
   isTblLoading = true;
   displayedColumns=['action','id','repier','description','phoneDescription','phoneType','email','phone','name','isComplete']
   RequserCustomerDatabase: RequserCustomerService | null;
-  dataSource:MatTableDataSource<RequserCustomer>;
-  selection = new SelectionModel<RequserCustomer>(true, []);
+  dataSource:MatTableDataSource<RequsetCustomer>;
+  selection = new SelectionModel<RequsetCustomer>(true, []);
 
 
   constructor(private router: Router,

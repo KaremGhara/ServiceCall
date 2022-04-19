@@ -21,6 +21,8 @@ import { SharedModule } from '../shared/shared.module';
 import {MatCardModule} from '@angular/material/card';
 import { ComponentsModule } from '../shared/components/components.module';
 import { RequestTechComponent } from './request-tech/request-tech.component';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 // import { MatTableModule } from '@angular/material/table';
 // import { MatSnackBarModule } from '@angular/material/snack-bar';
 // import { MatToolbarModule } from '@angular/material/toolbar';
@@ -37,7 +39,9 @@ import { RequestTechComponent } from './request-tech/request-tech.component';
     CustomerRoutingModule,
     SharedModule,
     ComponentsModule,
-    MatCardModule
+    MatCardModule,
+    MatOptionModule,
+    MatSelectModule,
     
     
   ]

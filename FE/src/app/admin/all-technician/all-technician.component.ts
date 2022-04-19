@@ -40,7 +40,7 @@ export class AllTechnicianComponent implements OnInit {
   }
 
   addTechinician(){
-    // this.router.navigate(['/addTechnician'])
+    this.router.navigate(['admin/addTechnician'])
   }
   getAllTechinician(){
     this.techinicianService.getAllTechnician().subscribe(data => {
@@ -51,7 +51,9 @@ export class AllTechnicianComponent implements OnInit {
     })
   }
 
-
+  applyFilter($event:any){
+    this.dataSource.filter=$event.target.value;
+  }
   deleteTechnician(row) {
         
     // Swal.fire({

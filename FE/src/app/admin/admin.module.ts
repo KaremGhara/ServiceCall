@@ -24,11 +24,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenContComponent } from '../screen-cont/screen-cont.component';
+import { AddTechnicianComponent } from './add-technician/add-technician.component';
 
 @NgModule({
   declarations: [
     AllTechnicianComponent,
-    ScreenContComponent
+    ScreenContComponent,
+    AddTechnicianComponent
   ],
   imports: [CommonModule,
      AdminRoutingModule,

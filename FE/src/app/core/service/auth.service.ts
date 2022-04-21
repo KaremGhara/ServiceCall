@@ -6,6 +6,7 @@ import { User } from '../models/user';
 import { environment } from 'src/environments/environment';
 import {Login}from 'src/app/beans/login'
 import { APP_URL } from 'src/app/beans/global-constant';
+import { Customer } from 'src/app/beans/customer';
 
 @Injectable({
   providedIn: 'root',
@@ -26,8 +27,8 @@ export class AuthService {
   }
 
 
-  ourLogin(username: string, password: string):Observable<Login>{
-    return this.http.post(APP_URL+"login/login1",{username,password});
+  ourLogin(login:Customer):Observable<Customer>{
+    return this.http.post(APP_URL+"login/login",{login});
   }
 
 

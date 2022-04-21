@@ -13,7 +13,7 @@ public interface CustomerRepo extends JpaRepository<Customer,Integer>{
 	public Customer findById(int Id);
 
 	public Customer findByEmail(String email);
-	public Customer findByPassword(String password);
+	public Customer findByuserPassword(String password);
 	public Optional<Customer> findByEmailEquals(String email);
 
 	

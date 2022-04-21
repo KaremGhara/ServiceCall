@@ -20,13 +20,12 @@ public class AnswerTechnician {
 	@Column(name="answer_technician_id")
 	private int id;
 	
-	private String employeeId;
 	
-	private String code;
+	private String RepairCode;
 	
 	@NotBlank(message = "Can't Enter Empty Coment!")
-	private String coment;
+	private String repairInfo;
 	
-	private String date;
+	private String Answerdate;
 
 }

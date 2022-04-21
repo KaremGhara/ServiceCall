@@ -32,7 +32,8 @@ public class RequestCustomer {
 	private int id;
 	
 	@NotBlank(message = "Can't Enter Empty Name!")
-	private String name;
+	@Column(name="cust_name")
+	private String CustomerName;
 	
 	@Size(min = 10, max = 10, message = "Invalid Phone Number!")
 	@Digits(integer = 10, fraction = 0)
@@ -43,25 +44,25 @@ public class RequestCustomer {
 	private String email;
 	
 //	@NotBlank(message = "Can't Enter Empty Phone Description!")
-	private String phoneDescription;
+	private String problemDescription;
 	
 //	@NotBlank(message = "Can't Enter Empty Phone Type!")
-	private String phoneType;
+	private String deviceType;
 	
 //	@NotBlank(message = "Can't Enter Empty Description!")
-	private String description;
+	private String deviceName;
 	
 	private LocalDate date;
 	
 	private boolean isComplete=false;
 	
 //	@NotBlank(message = "Can't Enter Empty Phone Repier!")
-	private String repier;
+	private String repairType;
 	
 
-	@ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
-	@JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
-	@JsonIgnoreProperties(value = {"requestCustomer", "hibernateLazyInitializer"})
-	private Customer customer;
+//	@ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
+//	@JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
+//	@JsonIgnoreProperties(value = {"requestCustomer", "hibernateLazyInitializer"})
+//	private Customer customer;
 
 }

@@ -1,11 +1,13 @@
-export class Customer {
-    constructor (public id?: number,
-        public name?: string,
-        public phone?: string,
-        public  address?: string,
-        public  email?: string,
-        public  password?: string,
-        public photo?:String,
-        public role?: string
-       ){}
+import {User} from 'src/app/beans/User'
+export class Customer extends User {
+    // constructor (public id?: number,
+    //     public userName?: string,
+    //     public userPassword?:string,
+    //     public socialId?: string,
+    //     public userPhone?: string,
+    //     public userAddress?: string,
+    //     public userRole?: string,
+    //     public email?: string,
+    //     public image?: string
+    //    ){}
 }

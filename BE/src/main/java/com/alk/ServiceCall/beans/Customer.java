@@ -20,40 +20,25 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import net.bytebuddy.implementation.bind.annotation.Super;
 
 @Data
 @Entity
 @Table(name = "customers")
-public class Customer {
+@EqualsAndHashCode(callSuper=false)
+public class Customer extends User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="customer_id")
 	private int id; 
 	
-	
-	@NotBlank(message = "Can't Enter Empty Name!")
-	private String name;
-	
-	@Size(min = 10, max = 10, message = "Invalid Phone Number!")
-	@Digits(integer = 10, fraction = 0)
-	private String phone;
-	
-	@NotBlank (message = "Address Can't be empty")
-	private String address;
-	
-	@Email(message = "Invalid Email!")
-	@NotBlank(message = "Can't Enter Empty Email!")
-	private String email;
-	
-	@NotBlank(message = "Can't Enter Empty Password!")
-	@Size(min = 6, max = 10, message = "Invalid Password!")
-	private String password;
-	
 	private String Image;
-	private String role="Customer";
+
+
 	
-	@JsonIgnore
-    @OneToMany(cascade=CascadeType.REMOVE, mappedBy="customer")
-	private List<RequestCustomer> requestCustomer;
+//	@JsonIgnore
+//    @OneToMany(cascade=CascadeType.REMOVE, mappedBy="customer")
+//	private List<RequestCustomer> requestCustomer;
 }

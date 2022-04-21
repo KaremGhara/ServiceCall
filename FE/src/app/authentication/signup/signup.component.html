@@ -14,7 +14,7 @@
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>שם משתמש</mat-label>
-                  <input matInput formControlName="username" [(ngModel)]="newCustomer.name" required>
+                  <input matInput formControlName="username" [(ngModel)]="newCustomer.userName" required>
                   <mat-icon matSuffix>face</mat-icon>
                   <mat-error *ngIf="authForm.get('username').hasError('required')">
                     יש לרשום את שם משתמש
@@ -41,7 +41,7 @@
               <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>מספר נייד</mat-label>
-                  <input matInput formControlName="phone" [(ngModel)]="newCustomer.phone" required>
+                  <input matInput formControlName="phone" [(ngModel)]="newCustomer.userPhone" required>
                   <mat-icon matSuffix>
                     phone
                   </mat-icon>
@@ -56,7 +56,7 @@
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>כתובת</mat-label>
-                  <input matInput formControlName="username" [(ngModel)]="newCustomer.address" required>
+                  <input matInput formControlName="username" [(ngModel)]="newCustomer.userAddress" required>
                   <mat-icon matSuffix>address</mat-icon>
                   <mat-error *ngIf="authForm.get('address').hasError('required')">
                     יש לרשום את מספר כתובת
@@ -70,7 +70,7 @@
               <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>סיסמה</mat-label>
-                  <input matInput formControlName="password" [(ngModel)]="newCustomer.password" [type]="hide ? 'password' : 'text'" required>
+                  <input matInput formControlName="password" [(ngModel)]="newCustomer.userPassword" [type]="hide ? 'password' : 'text'" required>
                   <mat-icon matSuffix (click)="hide = !hide">
                     {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="authForm.get('password').hasError('required')">

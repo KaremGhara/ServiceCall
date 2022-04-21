@@ -23,16 +23,16 @@ public class RequestCustomerService {
 	@Autowired
 	private CustomerRepo customerRepo;
 	
-	public boolean addRequestCustomer(RequestCustomer requestCustomer,int customerId) {
-		Customer eCustomer =  customerRepo.findById(customerId);
-		if(requestCustomer.getPhoneDescription()==null || requestCustomer.getPhoneType()==null || requestCustomer.getDescription()==null || requestCustomer.getRepier()==null)
-		{
-			return false;
-		}
-		requestCustomer.setCustomer(eCustomer);
-			requestCustomerRepo.save(requestCustomer);
-					return true;
-	}
+//	public boolean addRequestCustomer(RequestCustomer requestCustomer,int customerId) {
+//		Customer eCustomer =  customerRepo.findById(customerId);
+//		if(requestCustomer.getProblemDescription()==null || requestCustomer.getDeviceType()==null || requestCustomer.getDeviceName()==null || requestCustomer.getRepairType()==null)
+//		{
+//			return false;
+//		}
+//		requestCustomer.setCustomer(eCustomer);
+//			requestCustomerRepo.save(requestCustomer);
+//					return true;
+//	}
 	
 	
 	@Transactional
@@ -69,9 +69,9 @@ public class RequestCustomerService {
 		return requestCustomerRepo.findAll();
 	}
 	
-	public List<RequestCustomer> getAllRequestCustomerBycostomerId(int costomerId) {
-		return requestCustomerRepo.findByCustomer_id(costomerId);
-	}
+//	public List<RequestCustomer> getAllRequestCustomerBycostomerId(int costomerId) {
+//		return requestCustomerRepo.findByCustomer_id(costomerId);
+//	}
 
 
 }

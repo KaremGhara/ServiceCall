@@ -20,6 +20,7 @@ public class CustomerService {
 	public boolean addCustomer(Customer customer) {
 		Customer exsitingCustomer=customerRepo.findByEmail(customer.getEmail());
 		if(exsitingCustomer==null) {
+			customer.setUserRole("Customer");
 			customerRepo.save(customer);
 			return true;
 		}

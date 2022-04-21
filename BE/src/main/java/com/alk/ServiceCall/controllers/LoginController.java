@@ -35,11 +35,9 @@ public class LoginController {
 	  
 	  
 	  @PostMapping("login")
-	    public HttpStatus login(@RequestBody LoginUsers user) {
-	       if(loginService.userLogin1(user)!=null) return HttpStatus.ACCEPTED;
-	       else {
-	    	 return  HttpStatus.BAD_REQUEST;
-	       }
+	    public User login(@RequestBody LoginUsers user) {
+	       return loginService.userLogin1(user);
+	      
 	    }
 
 }

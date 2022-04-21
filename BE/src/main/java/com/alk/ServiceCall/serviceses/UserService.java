@@ -57,13 +57,13 @@ public class UserService {
 		return false;
 
 	}
-	public User getUserBySocialId(String socialId) {
-		Optional<User> user = userRepo.findBySocialIdEquals(socialId);
-		if (user.isEmpty())
-			throw new IllegalStateException("User with ID: " + socialId + " Doesn't Exist!");
-		else
-			return user.get();
-	}
+//	public User getUserBySocialId(String socialId) {
+//		Optional<User> user = userRepo.findBySocialIdEquals(socialId);
+//		if (user.isEmpty())
+//			throw new IllegalStateException("User with ID: " + socialId + " Doesn't Exist!");
+//		else
+//			return user.get();
+//	}
 	
 	public User getUserById(int id) {
 		return userRepo.findById(id);

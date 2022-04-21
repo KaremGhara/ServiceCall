@@ -17,11 +17,13 @@ export class SigninComponent
   extends UnsubscribeOnDestroyAdapter
   implements OnInit
 {
+  loginUser:Login=new Login();
   authForm: FormGroup;
   submitted = false;
   loading = false;
   error = '';
   hide = true;
+  // loginUser:Customer=new Customer();
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -51,24 +53,34 @@ export class SigninComponent
       this.error = 'Username and Password not valid !';
       return;
     } else {
-      let   loginUser:Customer=new Customer();
-      loginUser.email=this.f.username.value;
-      loginUser.userPassword=this.f.password.value;
-      console.log(loginUser);
-      this.loginService.login1(loginUser).subscribe((loggedInUser:Customer)=>{
-        alert(loggedInUser)
-        if(loggedInUser==null){
-          this.error = 'Invalid Login';        
-          this.submitted = false;
-          this.loading = false;
-      }
-      else{
-        this.loginService.loggedInUser=loggedInUser;
-        if(loggedInUser.userRole=Role.Customer){
-          this.router.navigate(['/customer/customerDetails']);
+      // let   loginUser:Customer=new Customer();
+      // loginUser.email=this.f.username.value;
+      // loginUser.userPassword=this.f.password.value;
+      // console.log(loginUser);
+      this.loginService.login1(this.loginUser).subscribe(res=>{
+        alert(res.userRole)
+        console.log(res);
+        if(res){
+          console.log(res);
+          if(res.userRole==Role.Customer){
+            console.log(res);
+                this.router.navigate(['/authentication/signup']);
+              }
+              console.log(res);
+              this.loading = false;
+              console.log(res);
         }
-        this.loading = false;
-      }
+      //   if(!res){
+      //     this.error = 'Invalid Login';        
+      //     this.submitted = false;
+      //     this.loading = false;
+      // }
+      // else{
+      //   if(res.userRole=="Customer"){
+      //     this.router.navigate(['/customer/customerDetails',res.id]);
+      //   }
+      //   this.loading = false;
+      // }
       (error) => {
         this.error = error;
         this.submitted = false;

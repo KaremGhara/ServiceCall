@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Customer } from '../beans/customer';
 import { APP_URL } from '../beans/global-constant';
 import { Login } from '../beans/login';
+import { User } from '../beans/User';
 
 
 @Injectable({
@@ -12,8 +13,8 @@ import { Login } from '../beans/login';
 export class LoginUsersService {
   public loggedInUser : Customer = null;
   constructor(private http: HttpClient) { }
-  login1(Login:Customer):Observable<Customer> 
+  login1(Login:Login):Observable<User> 
   {
-  return this.http.post(APP_URL+"login/login",Login);
+  return this.http.post<User>(APP_URL+"login/login",Login);
   }
 }

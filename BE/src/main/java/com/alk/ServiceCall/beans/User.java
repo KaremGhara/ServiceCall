@@ -32,9 +32,9 @@ public abstract class User {
 	@Size(min=6,max=6)
 	private String userPassword;
 	
-	@Size(min = 9, max = 9)
-	@NotBlank(message = "Can't Enter Empty Social ID Number!")
-	private String socialId;
+//	@Size(min = 9, max = 9)
+//	@NotBlank(message = "Can't Enter Empty Social ID Number!")
+//	private String socialId;
 	
 	@Column(name="phone")
 	@Size(min = 10, max = 10, message = "Invalid Phone Number!")

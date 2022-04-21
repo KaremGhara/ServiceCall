@@ -14,9 +14,9 @@
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>שם משתמש</mat-label>
-                  <input matInput formControlName="username" [(ngModel)]="newCustomer.userName" required>
+                  <input matInput formControlName="userName" [(ngModel)]="newCustomer.userName" required>
                   <mat-icon matSuffix>face</mat-icon>
-                  <mat-error *ngIf="authForm.get('username').hasError('required')">
+                  <mat-error *ngIf="authForm.get('userName').hasError('required')">
                     יש לרשום את שם משתמש
                   </mat-error>
                 </mat-form-field>
@@ -41,11 +41,11 @@
               <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>מספר נייד</mat-label>
-                  <input matInput formControlName="phone" [(ngModel)]="newCustomer.userPhone" required>
+                  <input matInput formControlName="userPhone" [(ngModel)]="newCustomer.userPhone" required>
                   <mat-icon matSuffix>
                     phone
                   </mat-icon>
-                  <mat-error *ngIf="authForm.get('phone').hasError('required')">
+                  <mat-error *ngIf="authForm.get('userPhone').hasError('required')">
                 יש לרשום את מספר נייד
                   </mat-error>
                 </mat-form-field>
@@ -56,9 +56,9 @@
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>כתובת</mat-label>
-                  <input matInput formControlName="username" [(ngModel)]="newCustomer.userAddress" required>
+                  <input matInput formControlName="userAddress" [(ngModel)]="newCustomer.userAddress" required>
                   <mat-icon matSuffix>address</mat-icon>
-                  <mat-error *ngIf="authForm.get('address').hasError('required')">
+                  <mat-error *ngIf="authForm.get('userAddress').hasError('required')">
                     יש לרשום את מספר כתובת
                   </mat-error>
                 </mat-form-field>
@@ -70,10 +70,10 @@
               <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>סיסמה</mat-label>
-                  <input matInput formControlName="password" [(ngModel)]="newCustomer.userPassword" [type]="hide ? 'password' : 'text'" required>
+                  <input matInput formControlName="userPassword" [(ngModel)]="newCustomer.userPassword" [type]="hide ? 'password' : 'text'" required>
                   <mat-icon matSuffix (click)="hide = !hide">
                     {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  <mat-error *ngIf="authForm.get('password').hasError('required')">
+                  <mat-error *ngIf="authForm.get('userPassword').hasError('required')">
                     יש לרשום את הסיסמה
                   </mat-error>
                 </mat-form-field>
@@ -89,7 +89,7 @@
               </div>
             </div>
             <div class="container-auth-form-btn">
-              <button (click)="register()" mat-flat-button color="primary" class="auth-form-btn" [disabled]="authForm.valid " type="submit">
+              <button (click)="register()" mat-flat-button color="primary" class="auth-form-btn" [disabled]="!authForm.valid " type="submit">
                 להירשם
               </button>
             </div>

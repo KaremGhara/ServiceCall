@@ -55,10 +55,10 @@ public class UserController {
             return HttpStatus.BAD_REQUEST;
         }
     }
-	@GetMapping("get-user-by-socialId")
-    public User getUserBySocialId(String socialId) {
-        return userService.getUserBySocialId(socialId);
-    }
+//	@GetMapping("get-user-by-socialId")
+//    public User getUserBySocialId(String socialId) {
+//        return userService.getUserBySocialId(socialId);
+//    }
 	@GetMapping("get-user-by-id")
     public User getUserById(int id) {
         return userService.getUserById(id);

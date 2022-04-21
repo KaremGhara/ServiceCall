@@ -63,12 +63,14 @@ export class SigninComponent
         if(res){
           console.log(res);
           if(res.userRole==Role.Customer){
-            console.log(res);
-                this.router.navigate(['/authentication/signup']);
-              }
-              console.log(res);
+                this.router.navigate(['/authentication/customerDetails',res.id]);
+              } 
+              else if(res.userRole==Role.Admin){
+                this.router.navigate(['/authentication/admin/allTechnician']);
+              }  
+
               this.loading = false;
-              console.log(res);
+              
         }
       //   if(!res){
       //     this.error = 'Invalid Login';        

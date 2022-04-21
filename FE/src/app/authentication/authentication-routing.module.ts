@@ -6,6 +6,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { LockedComponent } from './locked/locked.component';
 import { Page404Component } from './page404/page404.component';
 import { Page500Component } from './page500/page500.component';
+import { CustomerDetailsComponent } from '../customer/customer-details/customer-details.component';
+import { AttachTechnicianToRequestsComponent } from '../admin/attach-technician-to-requests/attach-technician-to-requests.component';
 const routes: Routes = [
   {
     path: '',
@@ -35,6 +37,15 @@ const routes: Routes = [
   {
     path: 'page500',
     component: Page500Component
+  },
+  {
+    path: 'customerDetails/:id',
+    component: CustomerDetailsComponent
+  }
+  ,
+  {
+    path: 'admin/allTechnician',
+    component: AttachTechnicianToRequestsComponent
   }
 ];
 @NgModule({

@@ -42,20 +42,20 @@
            <ng-container matColumnDef="name">
              <mat-header-cell *matHeaderCellDef mat-sort-header>שם
              </mat-header-cell>
-             <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+             <mat-cell *matCellDef="let row">{{row.userName}}</mat-cell>
            </ng-container>
            <!-- phone Column -->
            <ng-container matColumnDef="phone">
              <mat-header-cell *matHeaderCellDef mat-sort-header>נייד
              </mat-header-cell>
-             <mat-cell *matCellDef="let row"> {{row.phone}}
+             <mat-cell *matCellDef="let row"> {{row.userPhone}}
              </mat-cell>
            </ng-container>
            <!-- address  Column -->
            <ng-container matColumnDef="address">
              <mat-header-cell *matHeaderCellDef mat-sort-header>כתובת
              </mat-header-cell>
-             <mat-cell *matCellDef="let row"> {{row.address}}
+             <mat-cell *matCellDef="let row"> {{row.userAddress}}
              </mat-cell>
            </ng-container>
            <!-- email Column -->

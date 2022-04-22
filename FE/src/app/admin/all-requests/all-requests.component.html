@@ -42,11 +42,11 @@
             </mat-header-cell>
             <mat-cell *matCellDef="let row">{{row.isComplete}}</mat-cell>
           </ng-container>
-           <!--  NAME Column -->
-           <ng-container matColumnDef="name">
+           <!--  CustomerName Column -->
+           <ng-container matColumnDef="CustomerName">
              <mat-header-cell *matHeaderCellDef mat-sort-header>שם לקוח
              </mat-header-cell>
-             <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+             <mat-cell *matCellDef="let row">{{row.CustomerName}}</mat-cell>
            </ng-container>
             <!-- id Column -->
             <ng-container matColumnDef="id">
@@ -69,34 +69,34 @@
              <mat-cell *matCellDef="let row"> {{row.email}}
              </mat-cell>
            </ng-container>
-           <!-- phoneType Column -->
-           <ng-container matColumnDef="phoneType">
+           <!-- deviceType Column -->
+           <ng-container matColumnDef="deviceType">
             <mat-header-cell *matHeaderCellDef mat-sort-header>סוג מכשיר
             </mat-header-cell>
             <mat-cell *matCellDef="let row">
-             {{row.phoneType}}</mat-cell>
+             {{row.deviceType}}</mat-cell>
           </ng-container>
-          <!-- description Column -->
-          <ng-container matColumnDef="description">
+          <!-- problemDescription Column -->
+          <ng-container matColumnDef="problemDescription">
             <mat-header-cell *matHeaderCellDef mat-sort-header>פירוט תקלה
             </mat-header-cell>
             <mat-cell *matCellDef="let row">
-               {{row.description}}</mat-cell>
+               {{row.problemDescription}}</mat-cell>
           </ng-container>
-<!-- repier Column -->
-          <ng-container matColumnDef="repier">
+<!-- repairType Column -->
+          <ng-container matColumnDef="repairType">
             <mat-header-cell *matHeaderCellDef mat-sort-header>מיקום תקלה
             </mat-header-cell>
             <mat-cell *matCellDef="let row">
-               {{row.repier}}</mat-cell>
+               {{row.repairType}}</mat-cell>
           </ng-container>
 
-          <!-- phoneDescription Column -->
-          <ng-container matColumnDef="phoneDescription">
+          <!-- deviceName Column -->
+          <ng-container matColumnDef="deviceName">
             <mat-header-cell *matHeaderCellDef mat-sort-header>פרטי מכשיר
             </mat-header-cell>
             <mat-cell *matCellDef="let row">
-              {{row.phoneDescription}}</mat-cell>
+              {{row.deviceName}}</mat-cell>
           </ng-container>
 
 

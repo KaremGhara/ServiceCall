@@ -24,7 +24,7 @@ export class AllRequestsComponent implements OnInit {
   ];
   requserCustomer:RequsetCustomer[];
   isTblLoading = true;
-  displayedColumns=['action','id','repier','description','phoneDescription','phoneType','email','phone','name','isComplete']
+  displayedColumns=['isComplete','CustomerName','phone','email','deviceType','deviceName','problemDescription','repairType','id','action']
   RequserCustomerDatabase: RequserCustomerService | null;
   dataSource:MatTableDataSource<RequsetCustomer>;
   selection = new SelectionModel<RequsetCustomer>(true, []);

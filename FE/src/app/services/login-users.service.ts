@@ -11,7 +11,7 @@ import { User } from '../beans/User';
   providedIn: 'root'
 })
 export class LoginUsersService {
-  public loggedInUser : Customer = null;
+  public loggedInUser : User = null;
   constructor(private http: HttpClient) { }
   login1(Login:Login):Observable<User> 
   {

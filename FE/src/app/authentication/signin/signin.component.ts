@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/core/service/auth.service';
 import { Role } from 'src/app/core/models/role';
 import { UnsubscribeOnDestroyAdapter } from 'src/app/shared/UnsubscribeOnDestroyAdapter';
 import { Login } from 'src/app/beans/login';
-import { User } from 'src/app/beans//user';
-import { Customer } from 'src/app/beans/customer';
 import { LoginUsersService } from 'src/app/services/login-users.service'
+import { Customer } from 'src/app/beans/customer';
+import { User } from 'src/app/beans/User';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -26,9 +25,7 @@ export class SigninComponent
   // loginUser:Customer=new Customer();
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService,
     private loginService: LoginUsersService
   ) {
     super();
@@ -53,41 +50,40 @@ export class SigninComponent
       this.error = 'Username and Password not valid !';
       return;
     } else {
-      // let   loginUser:Customer=new Customer();
-      // loginUser.email=this.f.username.value;
-      // loginUser.userPassword=this.f.password.value;
-      // console.log(loginUser);
-      this.loginService.login1(this.loginUser).subscribe(res=>{
-        alert(res.userRole)
+      let   loginUser:Login=new Login();
+      loginUser.email=this.f.username.value;
+      loginUser.password=this.f.password.value;
+      console.log(loginUser);
+      this.loginService.login1(this.loginUser).subscribe((res:User)=>{
+
+        if(res==null){
+          this.error = 'Invalid Login';        
+            this.submitted = false;
+            this.loading = false;
+        }
+        else{
+        this.loginService.loggedInUser=res;
         console.log(res);
-        if(res){
-          console.log(res);
+      
           if(res.userRole==Role.Customer){
-                this.router.navigate(['/authentication/customerDetails',res.id]);
+                // this.router.navigate(['/authentication/cust/customer/customerDetails']);
+                this.router.navigate(["customer/customerDetails",res.id])
               } 
               else if(res.userRole==Role.Admin){
-                this.router.navigate(['/authentication/admin/allTechnician']);
+                this.router.navigate(['admin/allTechnician']);
               }  
 
               this.loading = false;
               
         }
-      //   if(!res){
-      //     this.error = 'Invalid Login';        
-      //     this.submitted = false;
-      //     this.loading = false;
-      // }
-      // else{
-      //   if(res.userRole=="Customer"){
-      //     this.router.navigate(['/customer/customerDetails',res.id]);
-      //   }
-      //   this.loading = false;
-      // }
+        
+    
+      
+      },
       (error) => {
         this.error = error;
         this.submitted = false;
         this.loading = false;
-      }
       }
              
         

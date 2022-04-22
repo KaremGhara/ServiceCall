@@ -19,7 +19,7 @@ public class AdminController {
 	private AdminService adminService;
 
 	
-	@PostMapping("add-customer")
+	@PostMapping("add-admin")
 	public boolean addAdmin(@RequestBody Admin  admin) {
 		if(this.adminService.addAdmin(admin)) {
 			return true;

@@ -14,6 +14,8 @@ import { RightSidebarService } from 'src/app/core/service/rightsidebar.service';
 import { Role } from 'src/app/core/models/role';
 import { LanguageService } from 'src/app/core/service/language.service';
 import { UnsubscribeOnDestroyAdapter } from 'src/app/shared/UnsubscribeOnDestroyAdapter';
+import { LoginUsersService } from 'src/app/services/login-users.service'
+
 const document: any = window.document;
 
 @Component({
@@ -42,7 +44,8 @@ export class HeaderComponent
     private configService: ConfigService,
     private authService: AuthService,
     private router: Router,
-    public languageService: LanguageService
+    public languageService: LanguageService,
+    public loginService:LoginUsersService
   ) {
     super();
   }
@@ -104,14 +107,16 @@ export class HeaderComponent
   ];
   ngOnInit() {
     this.config = this.configService.configData;
+    console.log("Before-> "+this.loginService.loggedInUser);
 
-    const userRole = this.authService.currentUserValue.role;
-    this.userImg = this.authService.currentUserValue.img;
-
+    const userRole = this.loginService.loggedInUser.userRole
+    // this.userImg = this.loginService.loggedInUser.;
+    console.log(this.loginService.loggedInUser);
+    
     if (userRole === Role.Admin) {
       this.homePage = 'admin/dashboard/main';
     } else if (userRole === Role.Customer) {
-      this.homePage = 'customer/customer-details';
+      this.homePage = 'customer/customerDetails';
     } else if (userRole === Role.Technician) {
       this.homePage = 'student/dashboard';
     } else {

@@ -61,7 +61,7 @@ export const ROUTES: RouteInfo[] = [
   // Customer Modules
 
   {
-    path: '/customer/customerDetails',
+    path:'/customer/customerDetails',
     title: 'Profile',
     moduleName: 'customer',
     iconType: 'material-icons-two-tone',

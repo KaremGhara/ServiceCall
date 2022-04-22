@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CommonUtilsRoutingModule } from './common-utils-routing.module';
-import { ScreenContainerComponent } from './screen-container/screen-container.component';
-import { ComponentsModule } from '../../shared/components/components.module';
+import { ScreenContComponent } from './screen-cont/screen-cont.component';
+import { ComponentsModule } from '../shared/components/components.module';
 import { CommonService }from './classes/common.service'
 
 @NgModule({
   declarations: [
-    ScreenContainerComponent
+    ScreenContComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +16,7 @@ import { CommonService }from './classes/common.service'
     ComponentsModule
   ],
   exports: [
-    ScreenContainerComponent
+    ScreenContComponent
     
   ],
   providers:[

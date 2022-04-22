@@ -56,6 +56,19 @@ export const ROUTES: RouteInfo[] = [
     role: ['Admin'],
     submenu: [],
   },
+  {
+    path: '/admin/AttachTechician',
+    title: 'לצרף טכנאי ל פניות',
+    moduleName: 'Attach techician',
+    iconType: 'material-icons-two-tone',
+    icon: 'space_dashboard',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    role: ['Admin'],
+    submenu: [],
+  },
 
   
   // Customer Modules

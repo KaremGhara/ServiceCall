@@ -28,6 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
 // import { MatToolbarModule } from '@angular/material/toolbar';
 // import { MaterialFileInputModule } from 'ngx-material-file-input';
 // import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {CommonUtilsModule} from '../common-utils/common-utils.module'
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     MatOptionModule,
     MatSelectModule,
+    CommonUtilsModule,
     
     
   ]

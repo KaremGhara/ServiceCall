@@ -5,6 +5,7 @@ import { AllTechnicianComponent } from './all-technician/all-technician.componen
 import { UpdateTechnicianComponent } from './update-technician/update-technician.component';
 import { AllCustomersComponent } from './all-customers/all-customers.component';
 import { AllRequestsComponent } from './all-requests/all-requests.component';
+import { AttachTechnicianToRequestsComponent } from './attach-technician-to-requests/attach-technician-to-requests.component';
 
 const routes: Routes = [
   
@@ -28,6 +29,10 @@ const routes: Routes = [
     {
       path:"allRequests",
       component:AllRequestsComponent
+    },
+    {
+      path:"AttachTechician",
+      component:AttachTechnicianToRequestsComponent
     },
  
 ];

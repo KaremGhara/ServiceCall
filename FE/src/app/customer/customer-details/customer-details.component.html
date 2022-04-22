@@ -1,26 +1,19 @@
-<section class="content">
-  <div class="content-block">
-    <div class="block-header" *ngFor="let breadscrum of breadscrums">
-      <!-- breadcrumb -->
-      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
-      </app-breadcrumb>
-    </div>
-    <div class="row">
-      <mat-card class="example-card">
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-subtitle>{{customer.email}}</mat-card-subtitle>
-        <mat-card-title>{{customer.username}</mat-card-title>
-        <mat-card-content>
-          <p>Address: {{customer.userAddress}}</p>
-          <p>Phone: {{customer.userPhone}}</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button><mat-icon aria-label="Edit">edit
-          </mat-icon></button>
-        </mat-card-actions>
-        <mat-card-footer>
-        </mat-card-footer>
-      </mat-card>
-  </div>
-</div>
-</section>
+
+<app-screen-cont [title]="'לצרף טכנאי ל פניות'" [breadscrums]="breadscrums" >
+
+  <mat-card class="example-card">
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-subtitle>{{customer.email}}</mat-card-subtitle>
+    <mat-card-title>{{customer.username}</mat-card-title>
+    <mat-card-content>
+      <p>Address: {{customer.userAddress}}</p>
+      <p>Phone: {{customer.userPhone}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button><mat-icon aria-label="Edit">edit
+      </mat-icon></button>
+    </mat-card-actions>
+    <mat-card-footer>
+    </mat-card-footer>
+  </mat-card>
+</app-screen-cont>

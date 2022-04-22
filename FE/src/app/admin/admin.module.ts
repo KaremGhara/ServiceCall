@@ -23,20 +23,20 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ScreenContComponent } from '../screen-cont/screen-cont.component';
 import { AddTechnicianComponent } from './add-technician/add-technician.component';
 import { UpdateTechnicianComponent } from './update-technician/update-technician.component';
 import { AllCustomersComponent } from './all-customers/all-customers.component';
 import { AllRequestsComponent } from './all-requests/all-requests.component';
-
+import { AttachTechnicianToRequestsComponent } from './attach-technician-to-requests/attach-technician-to-requests.component';
+import {CommonUtilsModule} from '../common-utils/common-utils.module'
 @NgModule({
   declarations: [
     AllTechnicianComponent,
-    ScreenContComponent,
     AddTechnicianComponent,
     UpdateTechnicianComponent,
     AllCustomersComponent,
-    AllRequestsComponent
+    AllRequestsComponent,
+    AttachTechnicianToRequestsComponent,
   ],
   imports: [CommonModule,
      AdminRoutingModule,
@@ -61,7 +61,7 @@ import { AllRequestsComponent } from './all-requests/all-requests.component';
     MaterialFileInputModule,
     MatProgressSpinnerModule,
     ComponentsModule,
-  
+    CommonUtilsModule
    
     ],
 })

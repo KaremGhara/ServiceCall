@@ -12,7 +12,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 	User findById(int id);
 	User findByEmail(String email);
 	List<User> findByuserRoleEquals(String role);
-//	Optional<User> findBySocialIdEquals(String socialId);
+	Optional<User> findBySocialIdEquals(String socialId);
 
 
 

@@ -24,7 +24,7 @@ export class AllTechnicianComponent implements OnInit {
   ];
   techinician:Technician[];
   isTblLoading = true;
-  displayedColumns=['action','jobRole','workerType','address','email','phone','socialId','name']
+  displayedColumns=['name','socialId','phone','address','email','jobRole','action']
   techinicianDatabase: TechnicianService | null;
   dataSource:MatTableDataSource<Technician>;
   selection = new SelectionModel<Technician>(true, []);

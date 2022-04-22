@@ -34,8 +34,9 @@ export class UpdateTechnicianComponent implements OnInit {
       this.TechnicianForm.addControl("phone",new FormControl('',[Validators.required, Validators.minLength(10),Validators.maxLength(10)]))
       this.TechnicianForm.addControl("address", new FormControl('', [Validators.required]))
       this.TechnicianForm.addControl("email",new FormControl('',[Validators.required, Validators.email]))
-      this.TechnicianForm.addControl("workerType", new FormControl('', [Validators.required]))
       this.TechnicianForm.addControl("jobRole", new FormControl('', [Validators.required]))
+      this.TechnicianForm.addControl("password", new FormControl('', [Validators.required]))
+
   }
 
   ngOnInit(): void {

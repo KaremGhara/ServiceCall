@@ -26,7 +26,7 @@ export class AllCustomersComponent implements OnInit {
 
   customers:Customer[];
   isTblLoading = true;
-  displayedColumns=['action','phone','address','email','name']
+  displayedColumns=['name','phone','address','email','action']
   CustomerDatabase: CustomerService | null;
 dataSource:MatTableDataSource<Customer>;
 selection = new SelectionModel<Customer>(true, []);

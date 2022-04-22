@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alk.ServiceCall.beans.Customer;
 import com.alk.ServiceCall.beans.Technician;
 import com.alk.ServiceCall.repo.TechnicianRepo;
 
@@ -16,11 +17,10 @@ public class TechnicianService {
 	@Autowired
 	private TechnicianRepo technicianRepo;
 	
-
 	public boolean addTechnician(Technician technician) {
 		Technician exsitingTechnicianEmail=technicianRepo.findByEmail(technician.getEmail());
-		Technician exsitingTechnicianId=technicianRepo.findById(technician.getId());
-		if(exsitingTechnicianEmail==null && exsitingTechnicianId==null) {
+		if(exsitingTechnicianEmail==null) {
+			technician.setUserRole("Technician");
 			technicianRepo.save(technician);
 			return true;
 		}

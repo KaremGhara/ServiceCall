@@ -17,7 +17,7 @@ export class UpdateTechnicianComponent implements OnInit {
       active: 'Update technician',
     },
   ];
-
+  hide = true;
   updateTechnician:Technician=new Technician();
   TechnicianForm: FormGroup;
   idrow:number;

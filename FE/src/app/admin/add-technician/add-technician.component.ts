@@ -19,7 +19,7 @@ export class AddTechnicianComponent implements OnInit {
     },
   ];
 
-
+  hide = true;
   newtechnician: Technician = new Technician();
   TechnicianForm: FormGroup;
   constructor(

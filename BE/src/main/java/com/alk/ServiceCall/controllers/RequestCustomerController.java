@@ -25,14 +25,14 @@ public class RequestCustomerController {
 	private RequestCustomerService requestCustomerService;
 	
 
-//	@PostMapping("add-request_customer")
-//	public boolean addRequestCustomer(@RequestBody RequestCustomer  requestCustomer,int costomerId) {
-//		if(this.requestCustomerService.addRequestCustomer(requestCustomer,costomerId)) {
-//			return true;
-//		}
-//		else {return false;}
-//		
-//	}
+	@PostMapping("add-request_customer")
+	public boolean addRequestCustomer(@RequestBody RequestCustomer  requestCustomer,int costomerId) {
+		if(this.requestCustomerService.addRequestCustomer(requestCustomer,costomerId)) {
+			return true;
+		}
+		else {return false;}
+		
+	}
 	
 	
 	@GetMapping("get-all-request_customer")
@@ -59,9 +59,9 @@ public class RequestCustomerController {
 		else {return HttpStatus.BAD_REQUEST;}
 	}
 	
-//	@GetMapping("get-request_customer-By-IdCostomer")
-//	public List<RequestCustomer> findByCostomerId(int costomerId)
-//	{
-//		return requestCustomerService.getAllRequestCustomerBycostomerId(costomerId);
-//	}
+	@GetMapping("get-request_customer-By-IdCostomer")
+	public List<RequestCustomer> findByCostomerId(int costomerId)
+	{
+		return requestCustomerService.getAllRequestCustomerBycostomerId(costomerId);
+	}
 }

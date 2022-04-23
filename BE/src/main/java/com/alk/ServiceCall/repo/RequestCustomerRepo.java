@@ -12,6 +12,6 @@ import com.alk.ServiceCall.beans.RequestCustomer;
 public interface RequestCustomerRepo extends JpaRepository<RequestCustomer,Integer>{
 
 	public RequestCustomer findById(int Id);
-//	public List<RequestCustomer> findByCustomer_id(int costomerId);
+	public List<RequestCustomer> findByCustomer_id(int costomerId);
 
 }

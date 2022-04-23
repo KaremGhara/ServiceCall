@@ -38,7 +38,5 @@ public class Customer extends User {
 
 
 	
-//	@JsonIgnore
-//    @OneToMany(cascade=CascadeType.REMOVE, mappedBy="customer")
-//	private List<RequestCustomer> requestCustomer;
+	
 }

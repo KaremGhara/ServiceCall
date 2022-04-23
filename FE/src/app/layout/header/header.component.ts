@@ -15,6 +15,7 @@ import { Role } from 'src/app/core/models/role';
 import { LanguageService } from 'src/app/core/service/language.service';
 import { UnsubscribeOnDestroyAdapter } from 'src/app/shared/UnsubscribeOnDestroyAdapter';
 import { LoginUsersService } from 'src/app/services/login-users.service'
+import { User } from 'src/app/beans/User';
 
 const document: any = window.document;
 
@@ -36,6 +37,7 @@ export class HeaderComponent
   langStoreValue: string;
   defaultFlag: string;
   isOpenSidebar: boolean;
+  user: User=new User();
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
@@ -106,6 +108,7 @@ export class HeaderComponent
     },
   ];
   ngOnInit() {
+    this.user=this.loginService.loggedInUser;
     this.config = this.configService.configData;
     console.log("Before-> "+this.loginService.loggedInUser);
 
@@ -133,7 +136,9 @@ export class HeaderComponent
     } else {
       this.flagvalue = val.map((element) => element.flag);
     }
+    
   }
+  
   ngAfterViewInit() {
     // set theme on startup
     if (localStorage.getItem('theme')) {
@@ -182,6 +187,7 @@ export class HeaderComponent
       }
     }
   }
+  
   callFullscreen() {
     if (
       !document.fullscreenElement &&
@@ -234,6 +240,13 @@ export class HeaderComponent
       this.renderer.addClass(this.document.body, 'submenu-closed');
     }
   }
+  getToprofile(user: User){
+    if(this.authService.currentUserValue!=null){
+      this.router.navigate(["customer/customerDetails",this.authService.currentUserValue.id])
+    }
+   
+  }
+
   logout() {
     this.subs.sink = this.authService.logout().subscribe((res) => {
       if (!res.success) {

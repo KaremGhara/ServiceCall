@@ -73,19 +73,19 @@ export const ROUTES: RouteInfo[] = [
   
   // Customer Modules
 
-  {
-    path:'/customer/customerDetails',
-    title: 'Profile',
-    moduleName: 'customer',
-    iconType: 'material-icons-two-tone',
-    icon: 'person',
-    class: '',
-    groupTitle: false,
-    badge: '',
-    badgeClass: '',
-    role: ['Customer'],
-    submenu: [],
-  },
+  // {
+  //   path:'/customer/customerDetails',
+  //   title: 'Profile',
+  //   moduleName: 'customer',
+  //   iconType: 'material-icons-two-tone',
+  //   icon: 'person',
+  //   class: '',
+  //   groupTitle: false,
+  //   badge: '',
+  //   badgeClass: '',
+  //   role: ['Customer'],
+  //   submenu: [],
+  // },
   {
     path: '/customer/requestTech',
     title: 'Request Technician',

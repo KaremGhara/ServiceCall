@@ -31,6 +31,7 @@ import {
   HttpClient,
 } from '@angular/common/http';
 import { ComponentsModule } from './shared/components/components.module';
+import { RouterModule } from '@angular/router';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -61,6 +62,7 @@ export function createTranslateLoader(http: HttpClient): any {
         HttpClientModule,
         PerfectScrollbarModule,
         ClickOutsideModule,
+        RouterModule, 
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

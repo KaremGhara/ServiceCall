@@ -83,7 +83,7 @@
         <li class="nav-item user_profile" ngbDropdown>
           <div class="chip dropdown-toggle" ngbDropdownToggle class="nav-notification-icons pt-0">
             <img src="{{userImg}}" class="user_img" width="32" height="32" alt="User">
-            <span>John Smith</span>
+            <span>{{user.userName}}</span>
           </div>
           <div ngbDropdownMenu class="notification-dropdown pullDown">
             <div class="noti-list" style="position: relative; max-width: 600px; max-height: 300px;" [perfectScrollbar]>
@@ -91,7 +91,7 @@
                 <li class="body">
                   <ul class="user_dw_menu">
                     <li>
-                      <a href="#" onClick="return false;">
+                      <a [routerLink]="['customer/customerDetails',user.id]">
                         <app-feather-icons [icon]="'user'" [class]="'user-menu-icons'"></app-feather-icons>Account
                       </a>
                     </li>

@@ -7,6 +7,7 @@ import { Login } from 'src/app/beans/login';
 import { LoginUsersService } from 'src/app/services/login-users.service'
 import { Customer } from 'src/app/beans/customer';
 import { User } from 'src/app/beans/User';
+import { AuthService } from 'src/app/core/service/auth.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -26,7 +27,8 @@ export class SigninComponent
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private loginService: LoginUsersService
+    private loginService: LoginUsersService,
+    private authService: AuthService
   ) {
     super();
   }
@@ -53,42 +55,37 @@ export class SigninComponent
       let   loginUser:Login=new Login();
       loginUser.email=this.f.username.value;
       loginUser.password=this.f.password.value;
-      console.log(loginUser);
-      this.loginService.login1(this.loginUser).subscribe((res:User)=>{
+      this.authService.login(loginUser).subscribe(res=>{
+        // if(res==null){
 
-        if(res==null){
-          this.error = 'Invalid Login';        
-            this.submitted = false;
+        // }
+        if (res) {
+          this.loginService.loggedInUser=res;
+          setTimeout(() => {
+            const role = this.loginService.loggedInUser.userRole
+            if (role === Role.All || role === Role.Admin) {
+              this.router.navigate(['admin/allTechnician']);
+            } else if (role === Role.Customer) {
+              this.router.navigate(["customer/customerDetails",res.id])
+            } else if (role === Role.Technician) {
+              this.router.navigate(['/student/dashboard']);
+            } else {
+              this.router.navigate(['/authentication/signin']);
+            }
             this.loading = false;
+          }, 1000);
         }
-        else{
-        this.loginService.loggedInUser=res;
-        console.log(res);
-      
-          if(res.userRole==Role.Customer){
-                // this.router.navigate(['/authentication/cust/customer/customerDetails']);
-                this.router.navigate(["customer/customerDetails",res.id])
-              } 
-              else if(res.userRole==Role.Admin){
-                this.router.navigate(['admin/allTechnician']);
-              }  
-
-              this.loading = false;
-              
+        else {
+          this.error = 'Invalid Login';
+        }  },
+        (error) => {
+          this.error = error;
+          this.submitted = false;
+          this.loading = false;
         }
-        
-    
-      
-      },
-      (error) => {
-        this.error = error;
-        this.submitted = false;
-        this.loading = false;
-      }
-             
-        
-       
         );
+      }
     }
   }
-}
+      
+      

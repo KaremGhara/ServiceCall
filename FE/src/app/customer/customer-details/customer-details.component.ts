@@ -23,7 +23,10 @@ export class CustomerDetailsComponent implements OnInit {
   constructor(private router: Router,private customerService: CustomerService,private route:ActivatedRoute){}
   ngOnInit(): void {
        this.custId=this.route.snapshot.params['id'];
-       console.log(this.custId);
+       this.customerService.getCustomerById(this.custId).subscribe(data=>{
+         this.customer=data;
+         
+       })
        
   }
 

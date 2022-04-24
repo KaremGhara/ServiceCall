@@ -6,7 +6,7 @@ export class RequsetCustomer {
         public problemDescription?: string,
         public deviceType?: string,
         public deviceName?: string,
-        public  date?: string,
+        public  date?: Date,
         public  isComplete?: boolean,
         public  repairType?: string,
 

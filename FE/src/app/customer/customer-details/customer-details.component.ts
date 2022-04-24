@@ -10,13 +10,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class CustomerDetailsComponent implements OnInit {
   custId:number;
-  breadscrums = [
-    {
-      title: 'My Profile',
-      items: ['Customer'],
-      active: 'Show technician',
-    },
-  ];
+
   customer:Customer=new Customer();
   
 
@@ -27,9 +21,16 @@ export class CustomerDetailsComponent implements OnInit {
          this.customer=data;
          
        })
-       
+      
   }
 
+  breadscrums = [
+    {
+      title: 'פרופיל שלי',
+      items: ["פרופיל"],
+      active: 'פרופיל שלי',
+    },
+  ];
   
 
 

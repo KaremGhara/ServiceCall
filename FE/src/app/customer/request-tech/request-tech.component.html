@@ -14,17 +14,17 @@
             <h6 > פרטי לקוח</h6>
           <mat-form-field appearance="fill">
             <mat-label>שם פרטי</mat-label>
-            <input matInput placeholder="pat@example.com" [formControl]="ReqForm.get('email')" required>
+            <input matInput placeholder="שם פרטי" [(ngModel)]="requestCustomer.CustomerName" [formControl]="ReqForm.get('CustomerName')" required>
             <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
           </mat-form-field>
           <mat-form-field style="margin:10px; width:250px" appearance="fill">
             <mat-label>מייל</mat-label>
-            <input matInput placeholder="pat@example.com" [formControl]="ReqForm.get('email')" required>
+            <input matInput placeholder="pat@example.com" [(ngModel)]="requestCustomer.email" [formControl]="ReqForm.get('email')" required>
             <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
           </mat-form-field>
           <mat-form-field style="margin:10px; width:250px" appearance="fill">
             <mat-label>טלפון</mat-label>
-            <input matInput placeholder="pat@example.com" [formControl]="ReqForm.get('email')" required>
+            <input matInput placeholder="pat@example.com" [(ngModel)]="requestCustomer.phone" [formControl]="ReqForm.get('phone')" required>
             <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
           </mat-form-field>
           </div>
@@ -32,16 +32,16 @@
             <h6 >  סוג מכשיר</h6>
             <mat-form-field style="margin:10px; width:250px" appearance="fill">
               <mat-label>דגם מחשב</mat-label>
-              <input matInput placeholder="HP/Lenovo..etc" [formControl]="ReqForm.get('email')" required>
+              <input matInput placeholder="HP/Lenovo..etc" [(ngModel)]="requestCustomer.deviceName" [formControl]="ReqForm.get('deviceName')" required>
               <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
             </mat-form-field>
             <mat-form-field appearance="fill">
               
               <mat-label>Select</mat-label>
-              <mat-select>
+              <mat-select [(ngModel)]="requestCustomer.deviceType" [formControl]="ReqForm.get('deviceType')">
                 <mat-option value="one">מחשב נייד</mat-option>
                 <mat-option value="two">מחשב נייח</mat-option>
-                <mat-option value="two">טאבלט
+                <mat-option value="three">טאבלט
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -50,16 +50,16 @@
             <h6> פירוט תקלה</h6>
             <mat-form-field style="margin:10px;width:500px" appearance="fill">
               <mat-label>Textarea</mat-label>
-              <textarea matInput></textarea>
+              <textarea matInput [(ngModel)]="requestCustomer.problemDescription" [formControl]="ReqForm.get('problemDescription')"></textarea>
             </mat-form-field>
           </div>
           <div class="col-md-12 col-sm-12">
             <h6>מיקום תיקון</h6>
             <mat-form-field appearance="fill">
             <mat-label>תבחר מיקום</mat-label>
-            <mat-select>
-              <mat-option value="one">תיקון בבית</mat-option>
-              <mat-option value="two">תיקון במעבדה</mat-option>
+            <mat-select [(ngModel)]="requestCustomer.repairType" [formControl]="ReqForm.get('repairType')">
+              <mat-option value="Onsite">תיקון בבית</mat-option>
+              <mat-option value="Offsite">תיקון במעבדה</mat-option>
             </mat-select>
           </mat-form-field>
           </div>
@@ -82,7 +82,7 @@
       </li>
   </ul>
           </div>
-          <button mat-raised-button style="margin:10px;" color="primary">שלח</button>
+          <button mat-raised-button style="margin:10px;" [disabled]="ReqForm.invalid" color="primary" type="submit" (click)="Onsubmit()">שלח</button>
           <button mat-raised-button color="warn">ביטול</button>
 
         </form>

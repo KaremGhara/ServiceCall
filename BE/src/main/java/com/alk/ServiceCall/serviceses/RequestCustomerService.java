@@ -23,9 +23,9 @@ public class RequestCustomerService {
 	@Autowired
 	private CustomerRepo customerRepo;
 	
-	public boolean addRequestCustomer(RequestCustomer requestCustomer,int customerId) {
-		Customer eCustomer =  customerRepo.findById(customerId);
-		requestCustomer.setCustomer(eCustomer);
+	public boolean addRequestCustomer(RequestCustomer requestCustomer) {
+//		Customer eCustomer =  customerRepo.findById(customerId);
+//		requestCustomer.setCustomer(eCustomer);
 			requestCustomerRepo.save(requestCustomer);
 					return true;
 	}

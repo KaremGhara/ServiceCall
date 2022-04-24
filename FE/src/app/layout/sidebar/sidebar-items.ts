@@ -99,6 +99,19 @@ export const ROUTES: RouteInfo[] = [
     role: ['Customer'],
     submenu: [],
   },
+  {
+    path: '/customer/customerRequests',
+    title: 'My Requests',
+    moduleName: 'customer',
+    iconType: 'material-icons-two-tone',
+    icon: 'space_dashboard',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    role: ['Customer'],
+    submenu: [],
+  },
 
   // Student Modules
 

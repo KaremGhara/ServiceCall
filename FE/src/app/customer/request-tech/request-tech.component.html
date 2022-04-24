@@ -1,14 +1,5 @@
-<section class="content">
-    <div class="content-block">
-      <div class="block-header" *ngFor="let breadscrum of breadscrums">
-        <!-- breadcrumb -->
-        <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
-        </app-breadcrumb>
-      </div>
-      <div class="row">
-        <div>
-          <h4 style="margin-left:10px"> טופס בקשת תיקון מחשב</h4>
-        </div>
+<app-screen-cont [title]="'בקשת תיקון'" [breadscrums]="breadscrums" >
+
         <form #formInfo="ngForm" class="form m-4"  [formGroup]="ReqForm">
           <div class="col-md-12 col-sm-12">
             <h6 > פרטי לקוח</h6>
@@ -87,8 +78,6 @@
 
         </form>
 
-  
-    </div>
-  </div>
-  </section>
-  
+
+    
+        </app-screen-cont>

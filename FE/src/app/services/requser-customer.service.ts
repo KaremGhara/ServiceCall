@@ -11,8 +11,8 @@ export class RequserCustomerService {
 
   constructor(private http: HttpClient) { }
 
-  addRequestCustomer(requestCustomer: RequsetCustomer):Observable<RequsetCustomer> {
-    return this.http.post<RequsetCustomer>(APP_URL+'requestCustomer/add-request_customer',requestCustomer)
+  addRequestCustomer(requestCustomer: RequsetCustomer,customerId:number):Observable<RequsetCustomer> {
+    return this.http.post<RequsetCustomer>(APP_URL+'requestCustomer/add-request_customer?customerId='+customerId,requestCustomer)
   }
 
   getAllRequestCustomerBycostomerId(customerId:number):Observable<RequsetCustomer[]> {

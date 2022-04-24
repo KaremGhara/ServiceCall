@@ -29,8 +29,8 @@ public class RequestCustomerController {
 	
 
 	@PostMapping("add-request_customer")
-	public boolean addRequestCustomer(@RequestBody RequestCustomer  requestCustomer) {
-		if(this.requestCustomerService.addRequestCustomer(requestCustomer)) {
+	public boolean addRequestCustomer(@RequestBody RequestCustomer  requestCustomer, int customerId) {
+		if(this.requestCustomerService.addRequestCustomer(requestCustomer,customerId)) {
 			return true;
 		}
 		else {return false;}

@@ -28,7 +28,8 @@ import { UpdateTechnicianComponent } from './update-technician/update-technician
 import { AllCustomersComponent } from './all-customers/all-customers.component';
 import { AllRequestsComponent } from './all-requests/all-requests.component';
 import { AttachTechnicianToRequestsComponent } from './attach-technician-to-requests/attach-technician-to-requests.component';
-import {CommonUtilsModule} from '../common-utils/common-utils.module'
+import {CommonUtilsModule} from '../common-utils/common-utils.module';
+import { TechniciansSelectorComponent } from './technicians-selector/technicians-selector.component'
 @NgModule({
   declarations: [
     AllTechnicianComponent,
@@ -37,6 +38,7 @@ import {CommonUtilsModule} from '../common-utils/common-utils.module'
     AllCustomersComponent,
     AllRequestsComponent,
     AttachTechnicianToRequestsComponent,
+    TechniciansSelectorComponent,
   ],
   imports: [CommonModule,
      AdminRoutingModule,

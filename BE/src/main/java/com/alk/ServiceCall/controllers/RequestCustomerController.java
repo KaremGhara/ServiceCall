@@ -63,8 +63,8 @@ public class RequestCustomerController {
 	}
 	
 	@GetMapping("get-request_customer-By-IdCostomer")
-	public List<RequestCustomer> findByCostomerId(int costomerId)
+	public List<RequestCustomer> findByCostomerId(String costumerEmail)
 	{
-		return requestCustomerService.getAllRequestCustomerBycostomerId(costomerId);
+		return requestCustomerService.getAllRequestCustomerBycostomerId(costumerEmail);
 	}
 }

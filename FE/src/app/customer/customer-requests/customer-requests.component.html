@@ -1,5 +1,117 @@
-<app-screen-cont [title]="'בקשות'" [breadscrums]="breadscrums" >
+<app-screen-cont [title]="'בקשות'" [breadscrums]="breadscrums">
+    <div class="mat-elevation-z8">
+        <div class="materialTableHeader">
+            <div class="row">
+              <div class="col-8">
+                <ul class="header-buttons-left ml-0">
+                  <li class="dropdown m-l-20">
+                    <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                    <input  placeholder="Search" (keyup)="applyFilter($event)" autocomplete="off" type="text"  class="browser-default search-field"
+                      aria-label="Search box">
+                  </li>
+                  <li class="dropdown">
+                    <h2>
+                      <strong>כל הבקשות</strong></h2>
+                  </li>
+                 
+                </ul>
+              </div>
+              <div class="col-4">
+                <ul class="header-buttons">
+                 
+                  <li>
+                    <div class="icon-button-demo">
+                      <button mat-mini-fab color="primary" (click)="getCustomerRequest()" >
+                        <mat-icon class="col-white">refresh
+                        </mat-icon>
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            
+           
+            </div>
+          </div>
+                
+          <mat-table #table [dataSource]="dataSource"  matSort class="mat-cell" >   
+           <!--  isComplete Column -->
+           <ng-container matColumnDef="isComplete">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>סטטוס פניה
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" >{{row.isComplete ? 'טופלה':'בטיפול'}}</mat-cell>
+          </ng-container>
+            <!-- id Column -->
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>קוד פניה
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.id}}
+                </mat-cell>
+              </ng-container>
+           <!-- deviceType Column -->
+           <ng-container matColumnDef="deviceType">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>סוג מכשיר
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+             {{row.deviceType}}</mat-cell>
+          </ng-container>
+          <!-- problemDescription Column -->
+          <ng-container matColumnDef="problemDescription">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>פירוט תקלה
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+               {{row.problemDescription}}</mat-cell>
+          </ng-container>
+<!-- repairType Column -->
+          <ng-container matColumnDef="repairType">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>מיקום תקלה
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+               {{row.repairType}}</mat-cell>
+          </ng-container>
 
+          <!-- deviceName Column -->
+          <ng-container matColumnDef="deviceName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>פרטי מכשיר
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              {{row.deviceName}}</mat-cell>
+          </ng-container>
+
+ <!-- actions -->
+ <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef>פעלות
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row;">
+       
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <br>
+       <button mat-icon-button color="warn" 
+       (click)="deleteRequsetCustomer(row)">
+       
+        <mat-icon>delete</mat-icon>
+      </button> 
+     </div>
+    </mat-cell>
+  </ng-container>
+                       <mat-header-row *matHeaderRowDef="displayedColumns">
+                       </mat-header-row>
+                       <!-- <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
+                       <mat-row *matRowDef="let row; columns: displayedColumns;"
+                         [style.cursor]="'pointer'" matRipple>
+                       </mat-row>
+                     </mat-table>
+  
+  
+   <!-- Loading spinner -->
+   <div *ngIf="isTblLoading" class="tbl-spinner">
+    <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate">
+    </mat-progress-spinner>
+  </div>
+  
+  
+  <mat-paginator [pageSizeOptions]="[ 5, 10, 50,100]" aria-label="בחר דף פניות"></mat-paginator>
+      </div>
     
 </app-screen-cont>
 

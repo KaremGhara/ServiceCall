@@ -49,6 +49,7 @@ export class AuthService {
     const storedItems = JSON.parse(localStorage.getItem('currentUser'));
     if(storedItems!=null){
       console.log(storedItems);
+      this.currentUserSubject.next(user);
       return of({ success: true });
     }
     

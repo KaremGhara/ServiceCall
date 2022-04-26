@@ -66,8 +66,8 @@ public class RequestCustomerService {
 		return requestCustomerRepo.findAll();
 	}
 	
-	public List<RequestCustomer> getAllRequestCustomerBycostomerId(int costomerId) {
-		return requestCustomerRepo.findByCustomer_id(costomerId);
+	public List<RequestCustomer> getAllRequestCustomerBycostomerId(String costumerEmail) {
+		return requestCustomerRepo.findByemail(costumerEmail);
 	}
 
 

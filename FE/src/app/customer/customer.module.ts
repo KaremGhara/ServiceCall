@@ -21,8 +21,8 @@ import { SharedModule } from '../shared/shared.module';
 import {MatCardModule} from '@angular/material/card';
 import { RequestTechComponent } from './request-tech/request-tech.component';
 import { MatOptionModule } from '@angular/material/core';
-// import { MatTableModule } from '@angular/material/table';
-// import { MatSnackBarModule } from '@angular/material/snack-bar';
+ import { MatTableModule } from '@angular/material/table';
+ import { MatSnackBarModule } from '@angular/material/snack-bar';
 // import { MatToolbarModule } from '@angular/material/toolbar';
 // import { MaterialFileInputModule } from 'ngx-material-file-input';
 // import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -58,7 +58,9 @@ import { CustomerRequestsComponent } from './customer-requests/customer-requests
     MatPaginatorModule,
     MatSortModule,
     MatTabsModule,
-        FormsModule,
+    FormsModule,
+    MatTableModule,
+    MatSnackBarModule
     
     
   ]

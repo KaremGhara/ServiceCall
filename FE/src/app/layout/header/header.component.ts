@@ -240,12 +240,7 @@ export class HeaderComponent
       this.renderer.addClass(this.document.body, 'submenu-closed');
     }
   }
-  getToprofile(user: User){
-    if(this.authService.currentUserValue!=null){
-      this.router.navigate(["customer/customerDetails",this.authService.currentUserValue.id])
-    }
-   
-  }
+ 
 
   logout() {
     this.subs.sink = this.authService.logout().subscribe((res) => {

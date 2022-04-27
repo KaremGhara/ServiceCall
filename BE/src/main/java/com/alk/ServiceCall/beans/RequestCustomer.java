@@ -59,6 +59,8 @@ public class RequestCustomer {
 //	@NotBlank(message = "Can't Enter Empty Phone Repier!")
 	private String repairType;
 	
+	private boolean attach = false;
+	
 
 	@ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
 	@JoinColumn(name = "customer_id", referencedColumnName = "user_id")

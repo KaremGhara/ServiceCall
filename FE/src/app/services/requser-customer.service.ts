@@ -29,4 +29,20 @@ export class RequserCustomerService {
     return this.http.delete<RequsetCustomer>(APP_URL+"requestCustomer/delete-request_customer?id="+id);
   }
 
+  getRequsetById(id:number):Observable<RequsetCustomer> {
+    return this.http.get<RequsetCustomer>(APP_URL+'requestCustomer/get-request_customer-By-Id?id='+id);
+  }
+
+  
+  updateRequsetCustomer(requestCustomer: RequsetCustomer):Observable<RequsetCustomer> {
+    return this.http.put<RequsetCustomer>(APP_URL+'requestCustomer/update-request_customer',requestCustomer)
+  }
+
+  findRequestByTechnicianEmail(id:number):Observable<RequsetCustomer[]> {
+return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-request_customer-By-technician-id?technicianId='+id);
+  }
+
+  getAllRequestCustomerNotLinked():Observable<RequsetCustomer[]> {   
+  return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-all-request_customer-not-linked');
+  }
 }

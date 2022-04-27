@@ -1,11 +1,8 @@
 package com.alk.ServiceCall.repo;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.List; 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.alk.ServiceCall.beans.Customer;
 import com.alk.ServiceCall.beans.RequestCustomer;
 
 
@@ -14,6 +11,5 @@ public interface RequestCustomerRepo extends JpaRepository<RequestCustomer,Integ
 	public RequestCustomer findById(int Id);
 //	public List<RequestCustomer> findById(int costumerId);
 	public List<RequestCustomer> findByemail(String costumerEmail);
-
-
+	public List<RequestCustomer> findBytechnician_id(int technicianId);
 }

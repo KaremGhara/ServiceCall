@@ -1,6 +1,7 @@
 package com.alk.ServiceCall.serviceses;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.List; 
 
 import javax.transaction.Transactional;
 
@@ -69,6 +70,27 @@ public class RequestCustomerService {
 	public List<RequestCustomer> getAllRequestCustomerBycostomerId(String costumerEmail) {
 		return requestCustomerRepo.findByemail(costumerEmail);
 	}
+	
+	public List<RequestCustomer> getAllRequestCustomerByTechnicianId(int TechnicianId) {
+		return requestCustomerRepo.findBytechnician_id(TechnicianId);
+	}
+	
+	public List<RequestCustomer> getAllRequestCustomerNotLinked() {
+		List<RequestCustomer> newlistSt=new ArrayList<RequestCustomer>();
+		List<RequestCustomer> listSt1=requestCustomerRepo.findAll();
+		
+		for(RequestCustomer list:listSt1) {
+			if(list.isAttach()==false) {
+				newlistSt.add(list);
+			}
+		}
+		return newlistSt;
+	}
+
+
+
+
+	
 
 
 }

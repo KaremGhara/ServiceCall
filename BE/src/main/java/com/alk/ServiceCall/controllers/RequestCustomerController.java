@@ -67,4 +67,15 @@ public class RequestCustomerController {
 	{
 		return requestCustomerService.getAllRequestCustomerBycostomerId(costumerEmail);
 	}
+	
+	@GetMapping("get-request_customer-By-technician-id")
+	public List<RequestCustomer> findByReqByTechnId(int technicianId)
+	{
+		return requestCustomerService.getAllRequestCustomerByTechnicianId(technicianId);
+	}
+	
+	@GetMapping("get-all-request_customer-not-linked")
+	public List<RequestCustomer> getAllRequestCustomerNotLinked(){
+		return requestCustomerService.getAllRequestCustomerNotLinked();
+	}
 }

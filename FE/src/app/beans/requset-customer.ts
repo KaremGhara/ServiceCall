@@ -1,3 +1,5 @@
+import { Technician } from "./technician";
+
 export class RequsetCustomer {
     constructor (public id?: number,
         public CustomerName?: string,
@@ -9,6 +11,8 @@ export class RequsetCustomer {
         public  date?: Date,
         public  isComplete?: boolean,
         public  repairType?: string,
+        public technician?: Technician,
+        public  attach?: boolean,
 
        ){}
 }

@@ -63,5 +63,7 @@ public abstract class User {
     @OneToMany(cascade=CascadeType.ALL, mappedBy="customer")
 	private List<RequestCustomer> requestCustomer;
 	
-
+	@JsonIgnore
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="technician")
+	private List<RequestCustomer> requestsCustomerToTechnician;
 }

@@ -61,8 +61,13 @@ public class RequestCustomer {
 	
 
 	@ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
-	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
+	@JoinColumn(name = "customer_id", referencedColumnName = "user_id")
 	@JsonIgnoreProperties(value = {"requestCustomer", "hibernateLazyInitializer"})
 	private Customer customer;
+	
+	@ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
+	@JoinColumn(name = "technician_id", referencedColumnName = "user_id")
+	@JsonIgnoreProperties(value = {"requestsCustomerToTechnician", "hibernateLazyInitializer"})
+	private Technician technician;
 
 }

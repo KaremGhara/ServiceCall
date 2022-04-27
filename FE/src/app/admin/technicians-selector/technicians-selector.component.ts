@@ -19,7 +19,7 @@ export class TechniciansSelectorComponent implements OnInit {
 
 
   @Output()
-  onSchoolSelected : EventEmitter<Technician> = new EventEmitter<Technician>();
+  onTechnicianSelected : EventEmitter<Technician> = new EventEmitter<Technician>();
 
   constructor(private fb : FormBuilder,private route: ActivatedRoute, private router:Router,private technicianService: TechnicianService) {
     this.stdForm = this.fb.group({});
@@ -37,7 +37,7 @@ export class TechniciansSelectorComponent implements OnInit {
 
  selectTechnician(){
    
-   this.onSchoolSelected.emit(this.selectedTechnician);
+   this.onTechnicianSelected.emit(this.selectedTechnician);
 
  }
 

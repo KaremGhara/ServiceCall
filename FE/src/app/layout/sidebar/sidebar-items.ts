@@ -113,21 +113,20 @@ export const ROUTES: RouteInfo[] = [
     submenu: [],
   },
 
-  // Student Modules
-
-  {
-    path: '/student/dashboard',
-    title: 'MENUITEMS.STUDENT.LIST.DASHBOARD',
-    moduleName: 'dashboard',
-    iconType: 'material-icons-two-tone',
-    icon: 'space_dashboard',
-    class: '',
-    groupTitle: false,
-    badge: '',
-    badgeClass: '',
-    role: ['Student'],
-    submenu: [],
-  },
+  // Technician Modules
+// {
+//     path:'/technician/technicianDetails',
+//     title: 'פרטים',
+//     moduleName: 'technician',
+//     iconType: 'material-icons-two-tone',
+//     icon: 'person',
+//     class: '',
+//     groupTitle: false,
+//     badge: '',
+//     badgeClass: '',
+//     role: ['Technician'],
+//     submenu: [],
+//   },
 
  
 ];

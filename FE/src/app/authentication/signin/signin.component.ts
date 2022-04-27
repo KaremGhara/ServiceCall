@@ -68,7 +68,7 @@ export class SigninComponent
             } else if (role === Role.Customer) {
               this.router.navigate(["customer/customerDetails",res.id])
             } else if (role === Role.Technician) {
-              this.router.navigate(['/student/dashboard']);
+              this.router.navigate(["technician/technicianDetails",res.id]);
             } else {
               this.router.navigate(['/authentication/signin']);
             }

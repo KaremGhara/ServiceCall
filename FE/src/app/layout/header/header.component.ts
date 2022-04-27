@@ -121,7 +121,7 @@ export class HeaderComponent
     } else if (userRole === Role.Customer) {
       this.homePage = 'customer/customerDetails';
     } else if (userRole === Role.Technician) {
-      this.homePage = 'student/dashboard';
+      this.homePage = 'technician/technicianDetails';
     } else {
       this.homePage = 'admin/dashboard/main';
     }

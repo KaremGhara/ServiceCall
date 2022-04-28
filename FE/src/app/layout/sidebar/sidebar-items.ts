@@ -129,9 +129,23 @@ export const ROUTES: RouteInfo[] = [
 //     submenu: [],
 //   },
 
-{
-    path:'/technician/answerTechnician',
-    title: 'תשובה לפניה',
+// {
+//     path:'/technician/answerTechnician',
+//     title: 'תשובה לפניה',
+//     moduleName: 'technician',
+//     iconType: 'material-icons-two-tone',
+//     icon: 'person',
+//     class: '',
+//     groupTitle: false,
+//     badge: '',
+//     badgeClass: '',
+//     role: ['Technician'],
+//     submenu: [],
+//   },
+
+  {
+    path:'/technician/myRequests',
+    title: 'פניות שלי',
     moduleName: 'technician',
     iconType: 'material-icons-two-tone',
     icon: 'person',
@@ -142,6 +156,7 @@ export const ROUTES: RouteInfo[] = [
     role: ['Technician'],
     submenu: [],
   },
+
 
  
 ];

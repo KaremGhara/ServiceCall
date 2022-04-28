@@ -1,8 +1,9 @@
 export class AnswerTechnician {
     constructor (public id?: number,
-        public employee?: string,
-        public code?: string,
-        public  comment?: string,
-        public  date?: string
+        public repairCode?: number,
+        public repairInfo?: string,
+        public  answerdate?: string,    
+        public  date?: Date,
+        public  isComplete?: boolean,
        ){}
 }

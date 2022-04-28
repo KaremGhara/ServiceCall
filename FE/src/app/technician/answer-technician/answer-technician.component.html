@@ -1,4 +1,76 @@
 <app-screen-cont [title]="'דוח ביקור'" [breadscrums]="breadscrums" >
 
+    <form #formInfo="ngForm" class="form m-4"  [formGroup]="ReqForm">
+        <div class="col-md-12 col-sm-12">
+          <h6 > פרטי לקוח</h6>
+        <mat-form-field appearance="fill">
+          <mat-label>שם פרטי</mat-label>
+          <input matInput placeholder="שם פרטי"  style="color:white;"[(ngModel)]="requestCustomer.CustomerName"  [formControl]="ReqForm.get('CustomerName')" required>
+        </mat-form-field>
+        <mat-form-field style="margin:10px; width:250px" appearance="fill">
+          <mat-label>מייל</mat-label>
+          <input matInput placeholder="דואר אלקטרוני" style="color:white;" [(ngModel)]="requestCustomer.email"  [formControl]="ReqForm.get('email')" required>
+        </mat-form-field>
+        <mat-form-field style="margin:10px; width:250px" appearance="fill">
+          <mat-label>טלפון</mat-label>
+          <input matInput placeholder="טלפון לתקשרות" style="color:white;" [(ngModel)]="requestCustomer.phone"   [formControl]="ReqForm.get('phone')" required>
+        </mat-form-field>
+        </div>
+        <div class="col-md-12 col-sm-12">
+          <h6 >  סוג מכשיר</h6>
+          <mat-form-field style="margin:10px; width:250px" appearance="fill">
+            <mat-label>דגם מחשב</mat-label>
+            <input matInput placeholder="דגם מחשב" style="color:white;" [(ngModel)]="requestCustomer.deviceName" [formControl]="ReqForm.get('deviceName')" required>
+          </mat-form-field>
+
+          <mat-form-field style="margin:10px; width:250px" appearance="fill">
+            <mat-label>סוג מכשיר</mat-label>
+            <input matInput placeholder="סוג מכשיר" style="color:white;" [(ngModel)]="requestCustomer.deviceType" [formControl]="ReqForm.get('deviceType')" required>
+          </mat-form-field>
+         
+        </div>
+
+        <div class="col-md-12 col-sm-12">
+            <h6 >  סוג מכשיר</h6>
+            <mat-form-field style="margin:10px; width:250px" appearance="fill">
+              <mat-label>מיקום תיקון</mat-label>
+              <input matInput placeholder="סוג מכשיר" style="color:white;" [(ngModel)]="requestCustomer.repairType" [formControl]="ReqForm.get('repairType')" required>
+            </mat-form-field>
+  
+            <mat-form-field style="margin:10px; width:250px" appearance="fill">
+              <mat-label>קוד פניה</mat-label>
+              <input matInput placeholder="קוד פניה"  [(ngModel)]="requestCustomer.id" style="color:white;" [formControl]="ReqForm.get('id')" required>
+            </mat-form-field>
+           
+          </div>
+        <div class="col-md-12 col-sm-12">
+          <h6> פירוט תקלה</h6>
+          <mat-form-field style="margin:10px;width:500px; color:white;" appearance="fill">
+            <mat-label>פירוט תקלה</mat-label>
+            <textarea matInput [(ngModel)]="requestCustomer.problemDescription" style="color:white;" [formControl]="ReqForm.get('problemDescription')"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-12 col-sm-12">
+            <h6> תשובה תכנאי</h6>
+            <mat-form-field style="margin:10px;width:500px" appearance="fill">
+              <mat-label>תשובה תכנאי</mat-label>
+              <textarea matInput [(ngModel)]="answerTechnician.answerdate" style="color:white;" [formControl]="ReqForm.get('comment')"></textarea>
+            </mat-form-field>
+          </div>  
+          <div class="col-md-12 col-sm-12">     
+          <mat-form-field appearance="fill">
+            
+            <mat-label>האם לסגור הפניה</mat-label>
+            <mat-select [(ngModel)]="requestCustomer.isComplete" style="color:white;" [formControl]="ReqForm.get('isComplete')">
+              <mat-option value="true">כן</mat-option>
+              <mat-option value="false">לה</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div> 
+        <button mat-raised-button style="margin:10px;" [disabled]="ReqForm.invalid" color="primary" type="submit" (click)="Onsubmit()">שלח</button>
+        <button mat-raised-button color="warn">ביטול</button>
+
+      </form>
 
 </app-screen-cont>

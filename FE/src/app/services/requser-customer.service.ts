@@ -38,7 +38,7 @@ export class RequserCustomerService {
     return this.http.put<RequsetCustomer>(APP_URL+'requestCustomer/update-request_customer',requestCustomer)
   }
 
-  findRequestByTechnicianEmail(id:number):Observable<RequsetCustomer[]> {
+  findRequestByTechnicianId(id:number):Observable<RequsetCustomer[]> {
 return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-request_customer-By-technician-id?technicianId='+id);
   }
 

@@ -6,6 +6,7 @@ import { UpdateTechnicianComponent } from './update-technician/update-technician
 import { AllCustomersComponent } from './all-customers/all-customers.component';
 import { AllRequestsComponent } from './all-requests/all-requests.component';
 import { AttachTechnicianToRequestsComponent } from './attach-technician-to-requests/attach-technician-to-requests.component';
+import { AboutTechnicianComponent } from './about-technician/about-technician.component';
 
 const routes: Routes = [
   
@@ -33,6 +34,10 @@ const routes: Routes = [
     {
       path:"AttachTechician",
       component:AttachTechnicianToRequestsComponent
+    },
+    {
+      path:"AboutTechnician/:idrow",
+      component:AboutTechnicianComponent
     },
  
 ];

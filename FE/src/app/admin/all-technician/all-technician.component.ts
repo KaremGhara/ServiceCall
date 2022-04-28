@@ -81,7 +81,7 @@ addTechinician(){
 }
 
 AboutTechnician(row){
-  // this.router.navigate(['admin/addTechnician'])
+  this.router.navigate(['admin/AboutTechnician',row.id])
 }
 
 

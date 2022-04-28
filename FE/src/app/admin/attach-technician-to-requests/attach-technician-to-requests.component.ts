@@ -63,7 +63,7 @@ export class AttachTechnicianToRequestsComponent implements OnInit {
 
 
     public findRequestByTechnicianId(){
-      this.requserCustomerService.findRequestByTechnicianEmail(this.technician.id).subscribe(data => {    
+      this.requserCustomerService.findRequestByTechnicianId(this.technician.id).subscribe(data => {    
         this.requestsLinked=data
       })
     }

@@ -24,11 +24,13 @@ import { CommonUtilsModule } from '../common-utils/common-utils.module';
 import { CustomerRoutingModule } from '../customer/customer-routing.module';
 import { ComponentsModule } from '../shared/components/components.module';
 import { SharedModule } from '../shared/shared.module';
+import { AnswerTechnicianComponent } from './answer-technician/answer-technician.component';
 
 
 @NgModule({
   declarations: [
-    TechnicianDetailsComponent
+    TechnicianDetailsComponent,
+    AnswerTechnicianComponent
   ],
   imports: [
     CommonModule,

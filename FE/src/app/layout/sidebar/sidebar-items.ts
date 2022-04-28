@@ -114,6 +114,7 @@ export const ROUTES: RouteInfo[] = [
   },
 
   // Technician Modules
+
 // {
 //     path:'/technician/technicianDetails',
 //     title: 'פרטים',
@@ -127,6 +128,20 @@ export const ROUTES: RouteInfo[] = [
 //     role: ['Technician'],
 //     submenu: [],
 //   },
+
+{
+    path:'/technician/answerTechnician',
+    title: 'תשובה לפניה',
+    moduleName: 'technician',
+    iconType: 'material-icons-two-tone',
+    icon: 'person',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    role: ['Technician'],
+    submenu: [],
+  },
 
  
 ];

@@ -1,6 +1,6 @@
 package com.alk.ServiceCall.serviceses;
 
-import java.util.List; 
+import java.util.List;  
 
 import javax.transaction.Transactional;
 
@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alk.ServiceCall.beans.AnswerTechnician;
+import com.alk.ServiceCall.beans.RequestCustomer;
 import com.alk.ServiceCall.repo.AnswerTechnicianRepo;
+import com.alk.ServiceCall.repo.RequestCustomerRepo;
 
 @Service
 public class AnswerTechnicianService {
@@ -16,9 +18,25 @@ public class AnswerTechnicianService {
 	@Autowired
 	private AnswerTechnicianRepo answerTechnicianRepo;
 	
+	@Autowired
+	private RequestCustomerRepo requestCustomerRepo;
 
 	public void addAnswerTechnician(AnswerTechnician answerTechnician) {
-		answerTechnicianRepo.save(answerTechnician);		
+		if(answerTechnician.isComplete()==true) {
+			RequestCustomer requestCustomer=requestCustomerRepo.findById(answerTechnician.getRepairCode());
+			requestCustomer.setComplete(true);
+			requestCustomer.setId(requestCustomer.getId());
+			requestCustomerRepo.save(requestCustomer);
+			answerTechnicianRepo.save(answerTechnician);
+		}
+		else if(answerTechnician.isComplete()==false){
+			RequestCustomer requestCustomer=requestCustomerRepo.findById(answerTechnician.getRepairCode());
+			requestCustomer.setComplete(false);
+			requestCustomer.setId(requestCustomer.getId());
+			requestCustomerRepo.save(requestCustomer);
+			answerTechnicianRepo.save(answerTechnician);
+		}
+				
 	}
 	
 	
@@ -54,5 +72,10 @@ public class AnswerTechnicianService {
 	
 	public List<AnswerTechnician> getAllAnswerTechnician() {
 		return answerTechnicianRepo.findAll();
+	}
+	
+	public AnswerTechnician findByRepairCode(int repairCode) {
+		return answerTechnicianRepo.findByRepairCode(repairCode);
+
 	}
 }

@@ -1,6 +1,6 @@
 package com.alk.ServiceCall.controllers;
 
-import java.util.List;
+import java.util.List; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -55,5 +55,11 @@ public class AnswerTechnicianController {
 	public HttpStatus deleteAnswerTechnician(int id) {
 		if(answerTechnicianService.deleteAnswerTechnician(id)==true) return HttpStatus.ACCEPTED;
 		else {return HttpStatus.BAD_REQUEST;}
+	}
+	
+	@GetMapping("get-answer-technician-By-repair-code")
+	public AnswerTechnician findByRepairCode(int repairCode)
+	{
+		return answerTechnicianService.findByRepairCode(repairCode);
 	}
 }

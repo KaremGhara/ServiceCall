@@ -6,7 +6,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AnswerTechnician } from 'src/app/beans/answer-technician';
 import { RequsetCustomer } from 'src/app/beans/requset-customer';
+import { AnswerTechnicianService } from 'src/app/services/answer-technician.service';
 import { RequserCustomerService } from 'src/app/services/requser-customer.service';
 
 @Component({
@@ -23,7 +25,9 @@ export class MyRequestsComponent implements OnInit {
     },
   ];
   idTech:number;
+  code:number;
   requsetCustomer:RequsetCustomer[];
+  answerTechnician:AnswerTechnician;
   isTblLoading = true;
   displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','problemDescription','id','Answerdate','action']
   CustomerDatabase: RequserCustomerService | null;
@@ -35,7 +39,8 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
     private router:Router,
     private snackBar: MatSnackBar,
     private route:ActivatedRoute,
-    private requserCustomerService:RequserCustomerService
+    private requserCustomerService:RequserCustomerService,
+    private answerTechnicianService:AnswerTechnicianService,
 
   ) { }
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -45,8 +50,10 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
   ngOnInit(): void {
     const storedItems= JSON.parse(localStorage.getItem('currentUser'))
     this.idTech=storedItems.id;
-    // this.idTech=this.route.snapshot.params['id'];
     this.getRequestByTechnicianId();
+    // this.answerTechnicianService.getByRepairCode(this.code).subscribe(data=>{
+    //   this.answerTechnician=data;
+    // })
 
   }
 
@@ -64,6 +71,7 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
   }
 
   AnswerTechnician(row){
+    // this.code=row.id;
     this.router.navigate(['technician/answerTechnician',row.id])
   }
 }

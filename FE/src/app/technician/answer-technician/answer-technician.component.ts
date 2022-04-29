@@ -66,15 +66,9 @@ export class AnswerTechnicianComponent implements OnInit {
     this.answerTechnician.repairCode=this.requestCustomer.id;
     this.answerTechnician.repairInfo=this.requestCustomer.repairType;
     this.answerTechnician.date=this.requestDate;
-    // this.requestCustomer.isComplete=this.answerTechnician.isComplete;
-    if(this.answerTechnician.complete==true){
-      this.requestCustomer.complete=true;
-      this.answerTechnician.complete=true;
-    } 
-    
     this.answerTechnicianService.addAnswerTechnician(this.answerTechnician).subscribe(res=>{ 
       if(!res){    
-        this.RequestService.updateRequsetCustomer(this.requestCustomer).subscribe
+        
              
         Swal.fire({
           icon: 'success',
@@ -84,16 +78,8 @@ export class AnswerTechnicianComponent implements OnInit {
 
       
       );
-      
-      // this.updateRequsetCustomer();
       }
     })
 
   }
-
-  // updateRequsetCustomer(){
-  //   this.RequestService.updateRequsetCustomer(this.requestCustomer).subscribe(res=>{
-
-  //   })
-  // }
 }

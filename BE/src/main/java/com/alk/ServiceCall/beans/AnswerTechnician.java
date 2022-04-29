@@ -2,6 +2,7 @@ package com.alk.ServiceCall.beans;
 
 import java.time.LocalDate;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class AnswerTechnician {
 	private int id;
 	
 	
-	private int RepairCode;
+	private int repairCode;
 	
 	@NotBlank(message = "Can't Enter Empty Coment!")
 	private String repairInfo;

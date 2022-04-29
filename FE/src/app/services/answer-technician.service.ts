@@ -15,4 +15,8 @@ export class AnswerTechnicianService {
   addAnswerTechnician(answerTechnician: AnswerTechnician):Observable<AnswerTechnician> {
     return this.http.post<AnswerTechnician>(APP_URL+'answerTechnician/add-answer-technician',answerTechnician)
   }
+
+  getByRepairCode(repairCode: number):Observable<AnswerTechnician> {
+    return this.http.get<AnswerTechnician>(APP_URL+'answerTechnician/get-answer-technician-By-repair-code?='+repairCode)
+  }
 }

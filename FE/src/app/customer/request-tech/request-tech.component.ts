@@ -57,7 +57,7 @@ export class RequestTechComponent implements OnInit {
   Onsubmit() {
     
     console.log(this.requestCustomer);
-    this.requestCustomer.CustomerName=this.Customer.userName;
+    this.requestCustomer.customerName=this.Customer.userName;
     this.requestCustomer.email=this.Customer.email;
     this.requestCustomer.phone=this.Customer.userPhone;  
     this.newRequest.addRequestCustomer(this.requestCustomer,this.custId).subscribe(res=>{

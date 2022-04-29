@@ -2,7 +2,7 @@ import { Technician } from "./technician";
 
 export class RequsetCustomer {
     constructor (public id?: number,
-        public CustomerName?: string,
+        public customerName?: string,
         public phone?: string,
         public  email?: string,
         public problemDescription?: string,

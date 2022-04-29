@@ -38,7 +38,7 @@ export class AnswerTechnicianComponent implements OnInit {
     private answerTechnicianService:AnswerTechnicianService,
      ) {
     this.ReqForm = this.fb.group({});
-    this.ReqForm.addControl("CustomerName",new FormControl({value: this.requestCustomer.CustomerName,disabled:true}))
+    this.ReqForm.addControl("CustomerName",new FormControl({value: this.requestCustomer.customerName,disabled:true}))
     this.ReqForm.addControl("email",new FormControl({value: this.requestCustomer.email,disabled:true}))
     this.ReqForm.addControl("phone",new FormControl({value: this.requestCustomer.phone,disabled:true}))
     this.ReqForm.addControl("deviceName",new FormControl({value: this.requestCustomer.deviceName,disabled:true}))

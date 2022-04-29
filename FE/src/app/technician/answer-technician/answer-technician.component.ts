@@ -68,13 +68,13 @@ export class AnswerTechnicianComponent implements OnInit {
     this.answerTechnician.date=this.requestDate;
     // this.requestCustomer.isComplete=this.answerTechnician.isComplete;
     if(this.answerTechnician.complete==true){
-      this.requestCustomer.iscomplete=true;
+      this.requestCustomer.complete=true;
       this.answerTechnician.complete=true;
     } 
     
     this.answerTechnicianService.addAnswerTechnician(this.answerTechnician).subscribe(res=>{ 
       if(!res){    
-        this.RequestService.updateRequsetCustomer(this.requestCustomer)
+        this.RequestService.updateRequsetCustomer(this.requestCustomer).subscribe
              
         Swal.fire({
           icon: 'success',

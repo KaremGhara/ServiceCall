@@ -54,7 +54,7 @@ public class RequestCustomer {
 	
 	private LocalDate date;
 	
-	private boolean isComplete=false;
+	private boolean isComplete;
 	
 //	@NotBlank(message = "Can't Enter Empty Phone Repier!")
 	private String repairType;

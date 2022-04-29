@@ -4,6 +4,6 @@ export class AnswerTechnician {
         public repairInfo?: string,
         public  answerdate?: string,    
         public  date?: Date,
-        public  isComplete?: boolean,
+        public  complete?: boolean,
        ){}
 }

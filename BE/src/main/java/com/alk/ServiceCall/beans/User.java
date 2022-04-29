@@ -35,7 +35,6 @@ public abstract class User {
 	
 	@Column(name="password")
 	@NotBlank (message = "password Can't be empty")
-	@Size(min=6,max=6)
 	private String userPassword;
 	
 //	@Size(min = 9, max = 9)

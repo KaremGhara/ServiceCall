@@ -1,10 +1,11 @@
 package com.alk.ServiceCall.serviceses;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 import java.util.Optional;
-
+import com.alk.ServiceCall.Helper.PasswordHelper;
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,12 +30,21 @@ public class UserService {
 					existUser.get().getUserName() +" Already Exists!");
 		}
 		else {
-//			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-//			String encodedPassword = passwordEncoder.encode(user.getPassword());
-//			user.setPassword(encodedPassword);
-			userRepo.save(user);
-			return true;
+			try {
+				String generatedPassword=PasswordHelper.generateStorngPasswordHash(user.getUserPassword());
+				user.setUserPassword(generatedPassword);
+				userRepo.save(user);
+				return true;
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidKeySpecException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
+		return false;
 	}
 	
 	@Transactional

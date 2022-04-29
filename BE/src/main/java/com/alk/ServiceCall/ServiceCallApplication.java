@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication; 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.alk.ServiceCall.Helper.PasswordHelper;
 import com.alk.ServiceCall.beans.Admin;
 import com.alk.ServiceCall.beans.Customer;
 import com.alk.ServiceCall.beans.RequestCustomer;
@@ -47,28 +48,22 @@ public class ServiceCallApplication implements CommandLineRunner {
 			admin.setSocialId("316185008");
 			admin.setUserAddress("umm");
 			admin.setUserName("mahmod");
-			admin.setUserPassword("123456");
+			String pass=PasswordHelper.generateStorngPasswordHash("123456");
+			admin.setUserPassword(pass);
 			admin.setUserPhone("0547807860");
 			admin.setUserRole("Admin");
 			adminService.addAdmin(admin);
-	
-			Customer customer1=new Customer();
-			customer1.setEmail("karem@gmail.com");
-			customer1.setUserAddress("jatt");
-			customer1.setUserName("karem");
-			customer1.setUserPassword("123456");
-			customer1.setUserPhone("0526682215");
-			customer1.setUserRole("Customer");
-			customerService.addCustomer(customer1);
 			
-			Customer customer2=new Customer();
-			customer2.setEmail("ahmad@gmail.com");
-			customer2.setUserAddress("arara");
-			customer2.setUserName("ahmad");
-			customer2.setUserPassword("123456");
-			customer2.setUserPhone("0526682211");
-			customer2.setUserRole("Customer");
-			customerService.addCustomer(customer2);
+			Customer customer=new Customer();
+			customer.setEmail("karem@gmail.com");
+			customer.setSocialId("318519923");
+			customer.setUserAddress("Jatt");
+			customer.setUserName("Karem Ghara");
+			customer.setUserPassword("123456");
+			customer.setUserPhone("0542842721");
+			customer.setUserRole("Customer");
+			customerService.addCustomer(customer);
+		
 			
 			
 	    	Technician technician1=new Technician();
@@ -77,7 +72,8 @@ public class ServiceCallApplication implements CommandLineRunner {
 	    	technician1.setSocialId("316185111");
 	    	technician1.setUserAddress("umm");	    	
 	    	technician1.setEmail("belal@gmail.com");
-	    	technician1.setUserPassword("123456");
+			String custPass3=PasswordHelper.generateStorngPasswordHash("123456");
+	    	technician1.setUserPassword(custPass3);
 	    	technician1.setJobRole("מתקין בבית");
 	    	technician1.setUserRole("Technician");
 	    	technicianService.addTechnician(technician1);
@@ -87,7 +83,8 @@ public class ServiceCallApplication implements CommandLineRunner {
 	    	technician2.setUserAddress("kforkree");
 	    	technician2.setSocialId("316185222");
 	    	technician2.setUserName("helal");
-	    	technician2.setUserPassword("123456");
+			String custPass4=PasswordHelper.generateStorngPasswordHash("123456");
+	    	technician2.setUserPassword(custPass4);
 	    	technician2.setUserPhone("0526682555");
 	    	technician2.setJobRole("מתקין בבית");
 	    	technician2.setUserRole("Technician");

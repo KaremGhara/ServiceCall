@@ -66,9 +66,16 @@ export class AnswerTechnicianComponent implements OnInit {
     this.answerTechnician.repairCode=this.requestCustomer.id;
     this.answerTechnician.repairInfo=this.requestCustomer.repairType;
     this.answerTechnician.date=this.requestDate;
-    this.answerTechnician.isComplete=this.requestCustomer.isComplete;  
+    // this.requestCustomer.isComplete=this.answerTechnician.isComplete;
+    if(this.answerTechnician.isComplete==true){
+      this.requestCustomer.isComplete=true;
+      this.answerTechnician.isComplete=true;
+    } 
+    
     this.answerTechnicianService.addAnswerTechnician(this.answerTechnician).subscribe(res=>{ 
-      if(res){         
+      if(!res){    
+       
+        this.RequestService.updateRequsetCustomer(this.requestCustomer)     
         Swal.fire({
           icon: 'success',
           title: 'התשובה נשלחה ',

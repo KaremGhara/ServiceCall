@@ -9,7 +9,7 @@ export class RequsetCustomer {
         public deviceType?: string,
         public deviceName?: string,
         public  date?: Date,
-        public  isComplete?: boolean,
+        public  iscomplete?: boolean,
         public  repairType?: string,
         public technician?: Technician,
         public  attach?: boolean,

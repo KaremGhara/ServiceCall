@@ -48,13 +48,13 @@
            <ng-container matColumnDef="isComplete">
             <mat-header-cell *matHeaderCellDef mat-sort-header>פניה
             </mat-header-cell>
-            <mat-cell *matCellDef="let row" >{{row.isComplete ? 'סגורה':'פתוחה'}}</mat-cell>
+            <mat-cell *matCellDef="let row" >{{row.iscomplete ? 'סגורה':'פתוחה'}}</mat-cell>
           </ng-container>
            <!-- CustomerName Column -->
            <ng-container matColumnDef="CustomerName">
              <mat-header-cell *matHeaderCellDef mat-sort-header>שם
              </mat-header-cell>
-             <mat-cell *matCellDef="let row"> {{row.CustomerName}}
+             <mat-cell *matCellDef="let row"> {{row.customerName}}
              </mat-cell>
            </ng-container>
            <!-- phone  Column -->

@@ -67,15 +67,15 @@ export class AnswerTechnicianComponent implements OnInit {
     this.answerTechnician.repairInfo=this.requestCustomer.repairType;
     this.answerTechnician.date=this.requestDate;
     // this.requestCustomer.isComplete=this.answerTechnician.isComplete;
-    if(this.answerTechnician.isComplete==true){
-      this.requestCustomer.isComplete=true;
-      this.answerTechnician.isComplete=true;
+    if(this.answerTechnician.complete==true){
+      this.requestCustomer.iscomplete=true;
+      this.answerTechnician.complete=true;
     } 
     
     this.answerTechnicianService.addAnswerTechnician(this.answerTechnician).subscribe(res=>{ 
       if(!res){    
-       
-        this.RequestService.updateRequsetCustomer(this.requestCustomer)     
+        this.RequestService.updateRequsetCustomer(this.requestCustomer)
+             
         Swal.fire({
           icon: 'success',
           title: 'התשובה נשלחה ',
@@ -84,8 +84,16 @@ export class AnswerTechnicianComponent implements OnInit {
 
       
       );
+      
+      // this.updateRequsetCustomer();
       }
     })
 
   }
+
+  // updateRequsetCustomer(){
+  //   this.RequestService.updateRequsetCustomer(this.requestCustomer).subscribe(res=>{
+
+  //   })
+  // }
 }

@@ -50,7 +50,8 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
   ngOnInit(): void {
     const storedItems= JSON.parse(localStorage.getItem('currentUser'))
     this.idTech=storedItems.id;
-    this.getRequestByTechnicianId();
+    // this.idTech=this.route.snapshot.params['id'];
+    // this.getRequestByTechnicianId();
     // this.answerTechnicianService.getByRepairCode(this.code).subscribe(data=>{
     //   this.answerTechnician=data;
     // })

@@ -61,25 +61,28 @@ export class AnswerTechnicianComponent implements OnInit {
       this.requestCustomer = data;
      });
   }
-
   Onsubmit() {
+        
+    Swal.fire({
+      title: "לשלוח תשובה?",
+      text:'',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor:'#d33' ,
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'כן',
+    }).then((result) => {
+      if (result.value) { 
     this.answerTechnician.repairCode=this.requestCustomer.id;
     this.answerTechnician.repairInfo=this.requestCustomer.repairType;
-    this.answerTechnician.date=this.requestDate;
-    this.answerTechnicianService.addAnswerTechnician(this.answerTechnician).subscribe(res=>{ 
-      if(!res){    
-        
-             
-        Swal.fire({
-          icon: 'success',
-          title: 'התשובה נשלחה ',
-          text: 'בהצלחה',
+    this.answerTechnician.date=this.requestDate;   
+    this.answerTechnicianService.addAnswerTechnician(this.answerTechnician).subscribe(res=>{
+          if(!res){
+            Swal.fire('בהצלחה',' התשובה נשלחה', 'success');                
+          }
+        }) 
       }
+    });    
 
-      
-      );
-      }
-    })
-
-  }
+}
 }

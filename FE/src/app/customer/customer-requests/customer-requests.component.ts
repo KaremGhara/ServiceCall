@@ -18,7 +18,7 @@ import Swal from 'sweetalert2';
 export class CustomerRequestsComponent implements OnInit {
   requserCustomer:RequsetCustomer[];
   isTblLoading = true;
-  displayedColumns=['isComplete','id','deviceType','problemDescription','repairType','deviceName','action']
+  displayedColumns=['isComplete','id','date','deviceType','problemDescription','repairType','deviceName','Answerdate','action']
   RequserCustomerDatabase: RequserCustomerService | null;
   dataSource:MatTableDataSource<RequsetCustomer>;
   selection = new SelectionModel<RequsetCustomer>(true, []);

@@ -25,6 +25,7 @@ public class AnswerTechnicianService {
 		if(answerTechnician.isComplete()==true) {
 			RequestCustomer requestCustomer=requestCustomerRepo.findById(answerTechnician.getRepairCode());
 			requestCustomer.setComplete(true);
+			requestCustomer.setAnswerdate(answerTechnician.getAnswerdate());
 			requestCustomer.setId(requestCustomer.getId());
 			requestCustomerRepo.save(requestCustomer);
 			answerTechnicianRepo.save(answerTechnician);
@@ -32,6 +33,7 @@ public class AnswerTechnicianService {
 		else if(answerTechnician.isComplete()==false){
 			RequestCustomer requestCustomer=requestCustomerRepo.findById(answerTechnician.getRepairCode());
 			requestCustomer.setComplete(false);
+			requestCustomer.setAnswerdate(answerTechnician.getAnswerdate());
 			requestCustomer.setId(requestCustomer.getId());
 			requestCustomerRepo.save(requestCustomer);
 			answerTechnicianRepo.save(answerTechnician);

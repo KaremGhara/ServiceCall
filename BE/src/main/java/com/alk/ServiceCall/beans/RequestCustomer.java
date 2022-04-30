@@ -61,6 +61,8 @@ public class RequestCustomer {
 	
 	private boolean attach = false;
 	
+	private String Answerdate;
+	
 
 	@ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
 	@JoinColumn(name = "customer_id", referencedColumnName = "user_id")

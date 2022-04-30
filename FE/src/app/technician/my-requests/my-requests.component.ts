@@ -29,7 +29,7 @@ export class MyRequestsComponent implements OnInit {
   requsetCustomer:RequsetCustomer[];
   answerTechnician:AnswerTechnician;
   isTblLoading = true;
-  displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','problemDescription','id','Answerdate','action']
+  displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','problemDescription','date','id','Answerdate','action']
   CustomerDatabase: RequserCustomerService | null;
 dataSource:MatTableDataSource<RequsetCustomer>;
 selection = new SelectionModel<RequsetCustomer>(true, []);
@@ -51,10 +51,10 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
     const storedItems= JSON.parse(localStorage.getItem('currentUser'))
     this.idTech=storedItems.id;
     // this.idTech=this.route.snapshot.params['id'];
-    // this.getRequestByTechnicianId();
-    // this.answerTechnicianService.getByRepairCode(this.code).subscribe(data=>{
-    //   this.answerTechnician=data;
-    // })
+    this.getRequestByTechnicianId();
+    this.answerTechnicianService.getByRepairCode(this.code).subscribe(data=>{
+      this.answerTechnician=data; 
+    })
 
   }
 
@@ -72,7 +72,7 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
   }
 
   AnswerTechnician(row){
-    // this.code=row.id;
+    this.code=row.id;
     this.router.navigate(['technician/answerTechnician',row.id])
   }
 }

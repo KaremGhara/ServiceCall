@@ -90,6 +90,13 @@
             <mat-cell *matCellDef="let row">
                {{row.repairType}}</mat-cell>
           </ng-container>
+           <!-- date Column -->
+           <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>תאריך
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+             {{row.date}}</mat-cell>
+          </ng-container>
 
           <!-- deviceName Column -->
           <ng-container matColumnDef="deviceName">

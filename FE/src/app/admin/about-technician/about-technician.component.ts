@@ -25,7 +25,7 @@ export class AboutTechnicianComponent implements OnInit {
   idTech:number;
   requsetCustomer:RequsetCustomer[];
   isTblLoading = true;
-  displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','problemDescription','id','Answerdate']
+  displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','problemDescription','date','id','Answerdate']
   CustomerDatabase: RequserCustomerService | null;
 dataSource:MatTableDataSource<RequsetCustomer>;
 selection = new SelectionModel<RequsetCustomer>(true, []);

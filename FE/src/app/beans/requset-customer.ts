@@ -13,6 +13,7 @@ export class RequsetCustomer {
         public  repairType?: string,
         public technician?: Technician,
         public  attach?: boolean,
+        public  answerdate?: string,
 
        ){}
 }

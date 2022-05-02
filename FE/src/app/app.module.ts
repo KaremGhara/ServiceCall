@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { MatIconModule } from '@angular/material/icon';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -62,7 +63,8 @@ export function createTranslateLoader(http: HttpClient): any {
         HttpClientModule,
         PerfectScrollbarModule,
         ClickOutsideModule,
-        RouterModule, 
+        RouterModule,
+        MatIconModule, 
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -84,6 +86,8 @@ export function createTranslateLoader(http: HttpClient): any {
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         fakeBackendProvider,
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
 })
 export class AppModule {}

@@ -48,8 +48,7 @@
                 <mat-cell *matCellDef="let row"> {{row.id}}
                 </mat-cell>
               </ng-container>
-
-               <!-- date Column -->
+                   <!-- date Column -->
            <ng-container matColumnDef="date">
             <mat-header-cell *matHeaderCellDef mat-sort-header>תאריך
             </mat-header-cell>
@@ -85,14 +84,14 @@
             <mat-cell *matCellDef="let row">
               {{row.deviceName}}</mat-cell>
           </ng-container>
-
-           <!-- Answerdate Column -->
-           <ng-container matColumnDef="Answerdate">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>תשובה מעבדה
-            </mat-header-cell>
-            <mat-cell *matCellDef="let row">
-             {{row.answerdate}}</mat-cell>
-          </ng-container>
+             <!-- Answerdate Column -->
+             <ng-container matColumnDef="Answerdate">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>תשובה מעבדה
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row">
+               {{row.answerdate}}</mat-cell>
+            </ng-container>
+  
 
  <!-- actions -->
  <ng-container matColumnDef="action">

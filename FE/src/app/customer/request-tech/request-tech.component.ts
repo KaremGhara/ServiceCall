@@ -18,7 +18,8 @@ export class RequestTechComponent implements OnInit {
   requestDate=new Date(); 
   custId:number
   Customer:Customer=new Customer();
-
+  // minNumber=1000;
+  // maxNumber=5000;
   breadscrums = [
     {
       title: 'Request Technician',
@@ -55,29 +56,45 @@ export class RequestTechComponent implements OnInit {
   }
 
   Onsubmit() {
-    
-    console.log(this.requestCustomer);
     this.requestCustomer.customerName=this.Customer.userName;
     this.requestCustomer.email=this.Customer.email;
     this.requestCustomer.phone=this.Customer.userPhone;  
-    this.newRequest.addRequestCustomer(this.requestCustomer,this.custId).subscribe(res=>{
-      console.log(res);
+    Swal.fire({
+      title: 'לשלוח בקשה?',
+      text: "לא תוכל לעדעכן או למחוק אותה",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6' ,
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'כן לאשר'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.newRequest.addRequestCustomer(this.requestCustomer,this.custId).subscribe(res=>{
+     
       
-      if(res){
-        
+          if(res){
+            
+              
+            Swal.fire({
+              icon: 'success',
+              title: 'הבקשה נשלחה ',
+              text: 'להמתין לאישור המנהל',
+    
+          }
+    
           
-        Swal.fire({
-          icon: 'success',
-          title: 'הבקשה נשלחה ',
-          text: 'להמתין לאישור המנהל',
-
-      }
-
-      
-      );
-      this.router.navigate(['customer/requestTech'])
+          );
+          this.router.navigate(['customer/customerRequests'])
+          }
+        })
+    
       }
     })
 
+    
+
   }
+  // getRandomArbitrary(min, max) : number {
+  //   return Math.random() * (max - min) + min;
+  // }
 }

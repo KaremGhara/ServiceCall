@@ -34,7 +34,6 @@ public class Customer extends User {
 	@Column(name="customer_id")
 	private int id; 
 	
-	private String Image;
 
 
 	

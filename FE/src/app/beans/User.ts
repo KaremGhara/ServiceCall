@@ -10,4 +10,5 @@ export class User{
     public userAddress?: string
     public userRole?: string
     public email?: string
+    public image?:string
 }

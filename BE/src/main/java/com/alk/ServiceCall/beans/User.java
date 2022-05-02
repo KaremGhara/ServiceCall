@@ -1,5 +1,6 @@
 package com.alk.ServiceCall.beans;
 
+import java.io.File;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
@@ -58,6 +60,9 @@ public abstract class User {
 	@NotBlank(message = "Can't Enter Empty Email!")
 	private String email;
 	
+	@Lob
+	@Column(name="user_image")
+	private String image;
 	@JsonIgnore
     @OneToMany(cascade=CascadeType.ALL, mappedBy="customer")
 	private List<RequestCustomer> requestCustomer;

@@ -27,13 +27,15 @@ import { MatOptionModule } from '@angular/material/core';
 // import { MaterialFileInputModule } from 'ngx-material-file-input';
 // import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {CommonUtilsModule} from '../common-utils/common-utils.module';
-import { CustomerRequestsComponent } from './customer-requests/customer-requests.component'
+import { CustomerRequestsComponent } from './customer-requests/customer-requests.component';
+import { UpdateCustomerDetailsComponent } from './update-customer-details/update-customer-details.component'
 
 @NgModule({
   declarations: [
     CustomerDetailsComponent,
     RequestTechComponent,
     CustomerRequestsComponent,
+    UpdateCustomerDetailsComponent,
   ],
   imports: [
     CommonModule,

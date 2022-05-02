@@ -82,7 +82,7 @@
         </li>
         <li class="nav-item user_profile" ngbDropdown>
           <div class="chip dropdown-toggle" ngbDropdownToggle class="nav-notification-icons pt-0">
-            <img src="{{userImg}}" class="user_img" width="32" height="32" alt="User">
+            <img src={{user.image}} class="user_img" width="32" height="32" alt="User">
             <span>{{user.userName}}</span>
           </div>
           <div ngbDropdownMenu class="notification-dropdown pullDown">
@@ -93,11 +93,6 @@
                     <li>
                       <a [routerLink]="['customer/customerDetails',user.id]">
                         <app-feather-icons [icon]="'user'" [class]="'user-menu-icons'"></app-feather-icons>Account
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" onClick="return false;">
-                        <app-feather-icons [icon]="'mail'" [class]="'user-menu-icons'"></app-feather-icons>Inbox
                       </a>
                     </li>
                     <li>

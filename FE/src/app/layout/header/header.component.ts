@@ -113,7 +113,7 @@ export class HeaderComponent
     console.log("Before-> "+this.loginService.loggedInUser);
 
     const userRole = this.loginService.loggedInUser.userRole
-    // this.userImg = this.loginService.loggedInUser.;
+     this.userImg = this.loginService.loggedInUser.image;
     console.log(this.loginService.loggedInUser);
     
     if (userRole === Role.Admin) {

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MaterialModule } from '../shared/material.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,9 @@ import { MatButtonModule } from '@angular/material/button';
     LockedComponent,
     ForgotPasswordComponent,
   ],
+  exports: [
+    MaterialModule
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -32,6 +36,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule
   ],
 })
 export class AuthenticationModule {}

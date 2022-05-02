@@ -26,6 +26,7 @@ import { FeatherIconsModule } from './components/feather-icons/feather-icons.mod
     NgxSpinnerModule,
     MaterialModule,
     FeatherIconsModule,
+    
   ],
 })
 export class SharedModule {}

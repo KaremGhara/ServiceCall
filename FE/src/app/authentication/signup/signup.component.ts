@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit {
   returnUrl: string;
   hide = true;
   chide = true;
+  public imageFiles: any = File;
   newCustomer: Customer=new Customer();
 
   constructor(
@@ -35,6 +36,7 @@ export class SignupComponent implements OnInit {
       userPassword: ['', Validators.required],
       userPhone: ['', Validators.required],
       userAddress: ['', Validators.required],
+      userImage: ['', Validators.required]
 
     });
     // get return url from route parameters or default to '/'
@@ -50,6 +52,38 @@ export class SignupComponent implements OnInit {
       return;
     } else {
       this.router.navigate(['/admin/dashboard/main']);
+    }
+  }
+  //  onFileInput(event){
+  //  const file: File=event.target.files[0];
+  //  console.log(file);
+   
+  // this.newCustomer.image=file.name;
+   
+  // }
+
+  async onFileInput()
+  {
+    const { value: file } = await Swal.fire({
+      title: 'Select image',
+      input: 'file',
+      inputAttributes: {
+        'accept': 'image/*',
+        'aria-label': 'Upload your profile picture'
+      }
+    })
+    
+    if (file) {
+      const reader = new FileReader()
+      reader.onload = (e) => {
+   
+        this.newCustomer.image= e.target.result as string;
+        console.log(this.newCustomer.image);
+        
+
+      
+      }
+      reader.readAsDataURL(file)
     }
   }
 

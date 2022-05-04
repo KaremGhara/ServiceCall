@@ -66,9 +66,9 @@ export class SigninComponent
             if (role === Role.All || role === Role.Admin) {
               this.router.navigate(['admin/allTechnician']);
             } else if (role === Role.Customer) {
-              this.router.navigate(["customer/customerDetails",res.id])
+              this.router.navigate(["customer/customerDetails"])
             } else if (role === Role.Technician) {
-              this.router.navigate(["technician/technicianDetails",res.id]);
+              this.router.navigate(["technician/technicianDetails"]);
             } else {
               this.router.navigate(['/authentication/signin']);
             }

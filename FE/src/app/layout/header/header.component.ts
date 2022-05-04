@@ -110,11 +110,9 @@ export class HeaderComponent
   ngOnInit() {
     this.user=this.loginService.loggedInUser;
     this.config = this.configService.configData;
-    console.log("Before-> "+this.loginService.loggedInUser);
 
     const userRole = this.loginService.loggedInUser.userRole
      this.userImg = this.loginService.loggedInUser.image;
-    console.log(this.loginService.loggedInUser);
     
     if (userRole === Role.Admin) {
       this.homePage = 'admin/dashboard/main';

@@ -73,19 +73,19 @@ export const ROUTES: RouteInfo[] = [
   
   // Customer Modules
 
-  // {
-  //   path:'/customer/customerDetails',
-  //   title: 'Profile',
-  //   moduleName: 'customer',
-  //   iconType: 'material-icons-two-tone',
-  //   icon: 'person',
-  //   class: '',
-  //   groupTitle: false,
-  //   badge: '',
-  //   badgeClass: '',
-  //   role: ['Customer'],
-  //   submenu: [],
-  // },
+  {
+    path:'/customer/customerDetails',
+    title: 'Profile',
+    moduleName: 'customer',
+    iconType: 'material-icons-two-tone',
+    icon: 'person',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    role: ['Customer'],
+    submenu: [],
+  },
   {
     path: '/customer/requestTech',
     title: 'Request Technician',
@@ -115,19 +115,19 @@ export const ROUTES: RouteInfo[] = [
 
   // Technician Modules
 
-// {
-//     path:'/technician/technicianDetails',
-//     title: 'פרטים',
-//     moduleName: 'technician',
-//     iconType: 'material-icons-two-tone',
-//     icon: 'person',
-//     class: '',
-//     groupTitle: false,
-//     badge: '',
-//     badgeClass: '',
-//     role: ['Technician'],
-//     submenu: [],
-//   },
+{
+    path:'/technician/technicianDetails',
+    title: 'פרטים',
+    moduleName: 'technician',
+    iconType: 'material-icons-two-tone',
+    icon: 'person',
+    class: '',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    role: ['Technician'],
+    submenu: [],
+  },
 
 // {
 //     path:'/technician/answerTechnician',

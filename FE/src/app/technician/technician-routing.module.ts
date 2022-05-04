@@ -5,7 +5,7 @@ import { MyRequestsComponent } from './my-requests/my-requests.component';
 import { TechnicianDetailsComponent } from './technician-details/technician-details.component';
 
 const routes: Routes = [
-  {path:"technicianDetails/:id",component:TechnicianDetailsComponent},
+  {path:"technicianDetails",component:TechnicianDetailsComponent},
   {path:"answerTechnician/:id",component:AnswerTechnicianComponent},
   {path:"myRequests",component:MyRequestsComponent},
 ];

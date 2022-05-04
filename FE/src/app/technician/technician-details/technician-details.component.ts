@@ -16,9 +16,10 @@ export class TechnicianDetailsComponent implements OnInit {
 
   constructor(private router: Router,private technicianService: TechnicianService,private route:ActivatedRoute){}
   ngOnInit(): void {
-       this.technicianId=this.route.snapshot.params['id'];
+       const storedItems= JSON.parse(localStorage.getItem('currentUser'))
+       this.technicianId=storedItems.id;
        this.technicianService.getTechnicianById(this.technicianId).subscribe(data=>{
-         this.technician=data;
+       this.technician=data;
          
        })
       

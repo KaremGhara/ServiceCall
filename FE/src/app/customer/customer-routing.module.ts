@@ -5,7 +5,7 @@ import { CustomerRequestsComponent } from './customer-requests/customer-requests
 import { RequestTechComponent } from './request-tech/request-tech.component';
 
 const routes: Routes = [
-  {path:"customerDetails/:id",component:CustomerDetailsComponent},
+  {path:"customerDetails",component:CustomerDetailsComponent},
   {path:"requestTech",component:RequestTechComponent},
   {path:"customerRequests",component:CustomerRequestsComponent}
 ];

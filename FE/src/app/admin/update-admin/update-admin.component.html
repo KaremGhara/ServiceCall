@@ -1,0 +1,71 @@
+<app-screen-cont [title]="'עדכון אדמין'" [breadscrums]="breadscrums">
+    <form #formInfo="ngForm" class="form m-4"  [formGroup]="AdminForm">
+        <div class="col-md-12 col-sm-12">
+          <mat-form-field style="margin:10px; width:250px" appearance="fill">
+            <mat-label>שם עובד</mat-label>
+            <input matInput [(ngModel)]="updateAdmin.userName" [formControl]="AdminForm.get('name')"   required>
+          </mat-form-field>
+          <mat-form-field class="" style="margin:10px; width:250px" appearance="fill" >
+              <mat-label class="">מס טלפון</mat-label>
+              <input matInput [(ngModel)]="updateAdmin.userPhone" [formControl]="AdminForm.get('phone')"  required>
+          </mat-form-field>
+
+          <mat-form-field style="margin:10px; width:250px" appearance="fill">
+              <mat-label>תעודת זהות</mat-label>
+              <input matInput [(ngModel)]="updateAdmin.socialId" [formControl]="AdminForm.get('socialId')"   required>
+            </mat-form-field>
+
+           
+
+           
+        </div>
+
+        <div class="col-md-12 col-sm-12">
+          <mat-form-field style="margin:10px; width:250px" appearance="fill">
+            <mat-label>כתובת מגורים</mat-label>
+            <input matInput [(ngModel)]="updateAdmin.userAddress" [formControl]="AdminForm.get('address')"   required>
+          </mat-form-field>
+          <!-- </div> -->
+
+
+
+          <mat-form-field style="margin:10px; width:250px" appearance="fill">
+              <mat-label>דואר אלקטורני</mat-label>
+              <input matInput [(ngModel)]="updateAdmin.email" [formControl]="AdminForm.get('email')"   required>
+            </mat-form-field>
+
+        </div>
+        <div class="col-md-12 col-sm-12" >
+          <mat-form-field style="margin:10px; width:250px" appearance="fill">
+            <mat-label>סיסמה</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="updateAdmin.userPassword" [formControl]="AdminForm.get('password')"   required>
+            <mat-icon matSuffix (click)="hide = !hide">
+              {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+
+          <mat-icon (click)="fileInput.click()">add_a_photo</mat-icon>
+          <input #fileInput formControlName="userImage" type="button" [(ngModel)]="updateAdmin.image" (click)="onFileInput()"  style="display:none;" />
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" style="margin:10px ;margin-left: 1800px;">
+          <button class="btn-space" (click)="UpdateAdmin()" [disabled]="AdminForm.invalid" mat-raised-button
+            color="primary">עדכון</button>
+            <button class="btn-space" (click)="backToList()"  mat-raised-button
+            color="warn">ביטול</button>
+
+        </div>
+      </div>
+    </form>
+
+
+</app-screen-cont>

@@ -67,6 +67,31 @@ export class AddTechnicianComponent implements OnInit {
     )
   }
 
+  async onFileInput()
+  {
+    const { value: file } = await Swal.fire({
+      title: 'Select image',
+      input: 'file',
+      inputAttributes: {
+        'accept': 'image/*',
+        'aria-label': 'Upload your profile picture'
+      }
+    })
+    
+    if (file) {
+      const reader = new FileReader()
+      reader.onload = (e) => {
+   
+        this.newtechnician.image= e.target.result as string;
+        console.log(this.newtechnician.image);
+        
+
+      
+      }
+      reader.readAsDataURL(file)
+    }
+  }
+
   
   backToList(){
     this.router.navigate(['/admin/allTechnician'])

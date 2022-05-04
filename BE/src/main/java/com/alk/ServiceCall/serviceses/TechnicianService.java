@@ -1,5 +1,7 @@
 package com.alk.ServiceCall.serviceses;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -7,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alk.ServiceCall.Helper.PasswordHelper;
 import com.alk.ServiceCall.beans.Customer;
 import com.alk.ServiceCall.beans.Technician;
 import com.alk.ServiceCall.repo.TechnicianRepo;
@@ -20,9 +23,20 @@ public class TechnicianService {
 	public boolean addTechnician(Technician technician) {
 		Technician exsitingTechnicianEmail=technicianRepo.findByEmail(technician.getEmail());
 		if(exsitingTechnicianEmail==null) {
-			technician.setUserRole("Technician");
-			technicianRepo.save(technician);
-			return true;
+			try {
+				String generatedPassword= PasswordHelper.generateStorngPasswordHash(technician.getUserPassword());
+				technician.setUserPassword(generatedPassword);
+				technician.setUserRole("Technician");
+				technicianRepo.save(technician);
+				return true;
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidKeySpecException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		return false;
 	}

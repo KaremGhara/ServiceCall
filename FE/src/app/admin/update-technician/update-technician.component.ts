@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { Technician } from 'src/app/beans/technician';
 import { TechnicianService } from 'src/app/services/technician.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update-technician',
@@ -48,13 +49,47 @@ export class UpdateTechnicianComponent implements OnInit {
 
   }
 
+  async onFileInput()
+  {
+    const { value: file } = await Swal.fire({
+      title: 'Select image',
+      input: 'file',
+      inputAttributes: {
+        'accept': 'image/*',
+        'aria-label': 'Upload your profile picture'
+      }
+    })
+    
+    if (file) {
+      const reader = new FileReader()
+      reader.onload = (e) => {
+   
+        this.updateTechnician.image= e.target.result as string;
+        console.log(this.updateTechnician.image);
+        
 
+      
+      }
+      reader.readAsDataURL(file)
+    }
+  }
 
   updateTechinician(){
     this.technicianService.updateTechnician(this.updateTechnician).subscribe(
       res=>{
         if(res){
-          this.router.navigate(['/admin/allTechnician'])        }
+             
+          Swal.fire({
+            icon: 'success',
+            title: 'עתקון',
+            text: 'עתקנתה פרטים תכנאי בהצלחה ',
+
+        }
+
+        
+        );
+        this.router.navigate(['/admin/allTechnician'])    
+           }
       }
     )
   }

@@ -30,7 +30,8 @@ import { AllRequestsComponent } from './all-requests/all-requests.component';
 import { AttachTechnicianToRequestsComponent } from './attach-technician-to-requests/attach-technician-to-requests.component';
 import {CommonUtilsModule} from '../common-utils/common-utils.module';
 import { TechniciansSelectorComponent } from './technicians-selector/technicians-selector.component';
-import { AboutTechnicianComponent } from './about-technician/about-technician.component'
+import { AboutTechnicianComponent } from './about-technician/about-technician.component';
+import { UpdateAdminComponent } from './update-admin/update-admin.component'
 @NgModule({
   declarations: [
     AllTechnicianComponent,
@@ -41,6 +42,7 @@ import { AboutTechnicianComponent } from './about-technician/about-technician.co
     AttachTechnicianToRequestsComponent,
     TechniciansSelectorComponent,
     AboutTechnicianComponent,
+    UpdateAdminComponent,
   ],
   imports: [CommonModule,
      AdminRoutingModule,

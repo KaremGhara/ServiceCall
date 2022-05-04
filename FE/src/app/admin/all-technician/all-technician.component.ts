@@ -17,9 +17,9 @@ import Swal from 'sweetalert2';
 export class AllTechnicianComponent implements OnInit {
   breadscrums = [
     {
-      title: 'Show technician',
-      items: ['technician'],
-      active: 'Show technician',
+      title: 'הצגת תכנאים',
+      items: ['תכנאי'],
+      active: 'הצגת תכנאים',
     },
   ];
   techinician:Technician[];

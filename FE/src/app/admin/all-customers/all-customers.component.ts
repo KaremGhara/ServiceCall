@@ -18,9 +18,9 @@ import Swal from 'sweetalert2';
 export class AllCustomersComponent implements OnInit {
   breadscrums = [
     {
-      title: 'All costomers',
-      items: ['costomers'],
-      active: 'All costomers',
+      title: 'הצגת לקחות',
+      items: ['לקחות'],
+      active: 'הצגת לקחות',
     },
   ];
 

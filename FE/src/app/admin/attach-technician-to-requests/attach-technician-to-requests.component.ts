@@ -19,9 +19,9 @@ import { TechnicianService } from 'src/app/services/technician.service';
 export class AttachTechnicianToRequestsComponent implements OnInit {
   breadscrums = [
     {
-      title: 'Attach techician',
-      items: ['techician'],
-      active: 'Attach techician',
+      title: 'הצטרף תכנאי',
+      items: ['תכנאי'],
+      active: 'הצטרף תכנאי',
     },
   ];
   technicians:Technician[];

@@ -19,9 +19,9 @@ import { RequserCustomerService } from 'src/app/services/requser-customer.servic
 export class MyRequestsComponent implements OnInit {
   breadscrums = [
     {
-      title: 'My requests',
-      items: ['requests'],
-      active: 'My requests',
+      title: 'פניות שלי',
+      items: ['פניות'],
+      active: 'פניות שלי',
     },
   ];
   idTech:number;

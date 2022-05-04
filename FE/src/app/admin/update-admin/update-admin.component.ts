@@ -14,9 +14,9 @@ import Swal from 'sweetalert2';
 export class UpdateAdminComponent implements OnInit {
   breadscrums = [
     {
-      title: 'Update admin',
-      items: ['admin'],
-      active: 'Update admin',
+      title: 'עתקון אדמין',
+      items: ['אדמין'],
+      active: 'עתקון אדמין',
     },
   ];
   hide = true;

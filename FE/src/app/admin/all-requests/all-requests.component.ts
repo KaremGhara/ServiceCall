@@ -17,9 +17,9 @@ import Swal from 'sweetalert2';
 export class AllRequestsComponent implements OnInit {
   breadscrums = [
     {
-      title: 'All requests',
-      items: ['requests'],
-      active: 'All requests',
+      title: 'הצגת פניות',
+      items: ['פניות'],
+      active: 'הצגת פניות',
     },
   ];
   requserCustomer:RequsetCustomer[];

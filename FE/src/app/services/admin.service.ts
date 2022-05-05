@@ -12,7 +12,7 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
 
-  updateTechnician(admin:Admin):Observable<Admin> {
+  updateAdmin(admin:Admin):Observable<Admin> {
     return this.http.put<Admin>(APP_URL+"admin/update-admin",admin)
   }
 

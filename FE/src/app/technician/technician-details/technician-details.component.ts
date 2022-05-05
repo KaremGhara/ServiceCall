@@ -34,6 +34,8 @@ export class TechnicianDetailsComponent implements OnInit {
   ];
   
 
-
+  updateProfileTechnician(){
+    this.router.navigate(['technician/updateProfileTechnician'])
+  }
 
 }

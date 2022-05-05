@@ -46,9 +46,20 @@ public class TechnicianService {
 	public boolean updateTechnician(Technician  technician) {
 		Technician exsitTechnician = technicianRepo.findById(technician.getId());
 		if(exsitTechnician!=null) {
-			technician.setId(exsitTechnician.getId());
-			technicianRepo.save(technician);
-			return true;
+			try {
+				String generatedPassword = PasswordHelper.generateStorngPasswordHash(technician.getUserPassword());
+				technician.setUserPassword(generatedPassword);
+				technician.setId(exsitTechnician.getId());
+				technicianRepo.save(technician);
+				return true;
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidKeySpecException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		return false;
 	}

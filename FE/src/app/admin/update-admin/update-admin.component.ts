@@ -54,7 +54,7 @@ export class UpdateAdminComponent implements OnInit {
 
 
   UpdateAdmin(){
-    this.adminService.updateTechnician(this.updateAdmin).subscribe(
+    this.adminService.updateAdmin(this.updateAdmin).subscribe(
       res=>{
         if(res){
              

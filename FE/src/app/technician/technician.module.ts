@@ -26,13 +26,15 @@ import { ComponentsModule } from '../shared/components/components.module';
 import { SharedModule } from '../shared/shared.module';
 import { AnswerTechnicianComponent } from './answer-technician/answer-technician.component';
 import { MyRequestsComponent } from './my-requests/my-requests.component';
+import { UpdateProfileTechnicianComponent } from './update-profile-technician/update-profile-technician.component';
 
 
 @NgModule({
   declarations: [
     TechnicianDetailsComponent,
     AnswerTechnicianComponent,
-    MyRequestsComponent
+    MyRequestsComponent,
+    UpdateProfileTechnicianComponent
   ],
   imports: [
     CommonModule,

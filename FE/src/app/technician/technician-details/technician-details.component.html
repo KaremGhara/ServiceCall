@@ -9,6 +9,10 @@
         <p>כתובת מגורים: {{technician.userAddress}}</p>
         <p>:טלפון {{technician.userPhone}}</p>
       </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="updateProfileTechnician()"><mat-icon aria-label="Edit">edit
+        </mat-icon></button>
+      </mat-card-actions>
       <mat-card-footer>
       </mat-card-footer>
     </mat-card>

@@ -75,7 +75,7 @@ export class UpdateAdminComponent implements OnInit {
 
 
   backToList(){
-    // this.router.navigate(['/admin/allTechnician'])
+    this.router.navigate(['/admin/allTechnician'])
   }
 
   async onFileInput()

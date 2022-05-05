@@ -72,8 +72,7 @@ public class ServiceCallApplication implements CommandLineRunner {
 	    	technician1.setSocialId("316185111");
 	    	technician1.setUserAddress("umm");	    	
 	    	technician1.setEmail("belal@gmail.com");
-			String custPass3=PasswordHelper.generateStorngPasswordHash("123456");
-	    	technician1.setUserPassword(custPass3);
+	    	technician1.setUserPassword("123456");
 	    	technician1.setJobRole("מתקין בבית");
 	    	technician1.setUserRole("Technician");
 	    	technicianService.addTechnician(technician1);
@@ -83,8 +82,7 @@ public class ServiceCallApplication implements CommandLineRunner {
 	    	technician2.setUserAddress("kforkree");
 	    	technician2.setSocialId("316185222");
 	    	technician2.setUserName("helal");
-			String custPass4=PasswordHelper.generateStorngPasswordHash("123456");
-	    	technician2.setUserPassword(custPass4);
+	    	technician2.setUserPassword("123456");
 	    	technician2.setUserPhone("0526682555");
 	    	technician2.setJobRole("מתקין בבית");
 	    	technician2.setUserRole("Technician");

@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { CommonUtilsRoutingModule } from './common-utils-routing.module';
 import { ScreenContComponent } from './screen-cont/screen-cont.component';
 import { ComponentsModule } from '../shared/components/components.module';
-import { CommonService }from './classes/common.service'
+import { CommonService }from './classes/common.service';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component'
 
 @NgModule({
   declarations: [
-    ScreenContComponent
+    ScreenContComponent,
+    WelcomePageComponent
   ],
   imports: [
     CommonModule,

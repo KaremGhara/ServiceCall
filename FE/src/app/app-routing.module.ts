@@ -39,6 +39,15 @@ const routes: Routes = [
         loadChildren: () =>
           import('./technician/technician.module').then((m) => m.TechnicianModule),
       },
+      {
+        path: 'common-utils',
+        canActivate: [AuthGuard],
+        data: {
+          role: Role.Technician,
+        },
+        loadChildren: () =>
+          import('./common-utils/common-utils.module').then((m) => m.CommonUtilsModule),
+      },
 
       // Extra components
       {

@@ -64,11 +64,11 @@ export class SigninComponent
           setTimeout(() => {
             const role = this.loginService.loggedInUser.userRole
             if (role === Role.All || role === Role.Admin) {
-              this.router.navigate(['admin/allTechnician']);
+              this.router.navigate(['common-utils/welcomePage']);
             } else if (role === Role.Customer) {
-              this.router.navigate(["customer/customerDetails"])
+              this.router.navigate(["common-utils/welcomePage"])
             } else if (role === Role.Technician) {
-              this.router.navigate(["technician/technicianDetails"]);
+              this.router.navigate(["common-utils/welcomePage"]);
             } else {
               this.router.navigate(['/authentication/signin']);
             }

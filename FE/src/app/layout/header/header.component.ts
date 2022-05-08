@@ -7,6 +7,7 @@ import {
   OnInit,
   Renderer2,
   AfterViewInit,
+  Input,
 } from '@angular/core';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { Router } from '@angular/router';
@@ -16,6 +17,10 @@ import { LanguageService } from 'src/app/core/service/language.service';
 import { UnsubscribeOnDestroyAdapter } from 'src/app/shared/UnsubscribeOnDestroyAdapter';
 import { LoginUsersService } from 'src/app/services/login-users.service'
 import { User } from 'src/app/beans/User';
+import { interval } from 'rxjs/internal/observable/interval';
+import { CustomerService } from 'src/app/services/customer.service';
+import { AdminService } from 'src/app/services/admin.service';
+import { TechnicianService } from 'src/app/services/technician.service';
 
 const document: any = window.document;
 
@@ -42,12 +47,15 @@ export class HeaderComponent
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
     public elementRef: ElementRef,
-    private rightSidebarService: RightSidebarService,
     private configService: ConfigService,
     private authService: AuthService,
     private router: Router,
     public languageService: LanguageService,
-    public loginService:LoginUsersService
+    public loginService:LoginUsersService,
+    private customerService:CustomerService,
+    private adminService: AdminService,
+    private technicianService: TechnicianService
+    
   ) {
     super();
   }
@@ -107,12 +115,52 @@ export class HeaderComponent
       status: 'msg-read',
     },
   ];
+  getData(){
+    switch (this.user.userRole) {
+      case "Customer":
+        this.customerService.getCustomerById(this.user.id).subscribe(res=>{
+          this.userImg=res.image
+          
+        })
+        break;
+        case "Admin":
+          this.adminService.getAdminById(this.user.id).subscribe(res=>{
+            this.userImg=res.image
+            
+          })
+          break;
+          case "Technician":
+          this.technicianService.getTechnicianById(this.user.id).subscribe(res=>{
+            this.userImg=res.image
+            
+          })
+          break;
+    
+      default:
+        break;
+    }  
+
+  }
+
   ngOnInit() {
     this.user=this.loginService.loggedInUser;
+
+    //Init Data
+    const storedItems= JSON.parse(localStorage.getItem('currentUser'))
+    this.userImg=storedItems.image
+    
+
+    //For Changes
+    interval(5000).subscribe(x => {
+        
+        this.getData();
+      
+
+  });
+  
     this.config = this.configService.configData;
 
-    const userRole = this.loginService.loggedInUser.userRole
-     this.userImg = this.loginService.loggedInUser.image;
+    const userRole = this.user.userRole
     
     if (userRole === Role.Admin) {
       this.homePage = 'admin/dashboard/main';
@@ -136,6 +184,11 @@ export class HeaderComponent
     }
     
   }
+  // try2(e:string){
+  //   console.log(e);
+    
+  //   this.userImg=e;
+  // }
   
   ngAfterViewInit() {
     // set theme on startup

@@ -78,7 +78,6 @@ export class SignupComponent implements OnInit {
       reader.onload = (e) => {
    
         this.newCustomer.image= e.target.result as string;
-        console.log(this.newCustomer.image);
         
 
       

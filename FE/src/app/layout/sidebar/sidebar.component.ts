@@ -13,6 +13,11 @@ import { ROUTES } from './sidebar-items';
 import { Role } from 'src/app/core/models/role';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { LoginUsersService } from 'src/app/services/login-users.service'
+import { CustomerService } from 'src/app/services/customer.service';
+import { AdminService } from 'src/app/services/admin.service';
+import { TechnicianService } from 'src/app/services/technician.service';
+import { User } from 'src/app/beans/User';
+import { interval } from 'rxjs/internal/observable/interval';
 
 @Component({
   selector: 'app-sidebar',
@@ -34,13 +39,18 @@ export class SidebarComponent implements OnInit, OnDestroy {
   headerHeight = 60;
   currentRoute: string;
   routerObj = null;
+  user: User=new User();
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
     public elementRef: ElementRef,
     private authService: AuthService,
     private router: Router,
-    private loginService: LoginUsersService
+    private loginService: LoginUsersService,
+    private customerService:CustomerService,
+    private adminService: AdminService,
+    private technicianService: TechnicianService
   ) {
     const body = this.elementRef.nativeElement.closest('body');
     this.routerObj = this.router.events.subscribe((event) => {
@@ -100,15 +110,61 @@ export class SidebarComponent implements OnInit, OnDestroy {
       this.level3Menu = element;
     }
   }
+
+
+getData(){
+    switch (this.user.userRole) {
+      case "Customer":
+        this.customerService.getCustomerById(this.user.id).subscribe(res=>{
+          this.userImg=res.image
+          
+        })
+        break;
+        case "Admin":
+          this.adminService.getAdminById(this.user.id).subscribe(res=>{
+            this.userImg=res.image
+            
+          })
+          break;
+          case "Technician":
+          this.technicianService.getTechnicianById(this.user.id).subscribe(res=>{
+            this.userImg=res.image
+            
+          })
+          break;
+    
+      default:
+        break;
+    }  
+
+  }
+
+
   ngOnInit() {
+
+    this.user=this.loginService.loggedInUser;
+
+    //Init Data
+    const storedItems= JSON.parse(localStorage.getItem('currentUser'))
+    this.userImg=storedItems.image
+    
+
+    //For Changes
+    interval(5000).subscribe(x => {
+        
+        this.getData();
+      
+
+  });
+
+
+
+
     if (this.loginService.loggedInUser) {
       const userRole = this.loginService.loggedInUser.userRole;
       this.userFullName =
         this.loginService.loggedInUser.userName;
        this.userImg = this.authService.currentUserValue.image;
-       console.log(this.userImg);
-       
-
       this.sidebarItems = ROUTES.filter(
         (x) => x.role.indexOf(userRole) !== -1 || x.role.indexOf('All') !== -1
       );

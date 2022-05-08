@@ -1,1 +1,58 @@
-<p>update-customer-details works!</p>
+<app-screen-cont [title]="'עדכון לקוח'" [breadscrums]="breadscrums">
+    <form #formInfo="ngForm" class="form m-4"  [formGroup]="custForm">
+        <div class="col-md-12 col-sm-12">
+          <mat-form-field style="margin:10px; width:250px" appearance="fill">
+            <mat-label>שם לקוח</mat-label>
+            <input matInput [(ngModel)]="updateCustomer.userName" [formControl]="custForm.get('CustomerName')"   required>
+          </mat-form-field>
+          <mat-form-field class="" style="margin:10px; width:250px" appearance="fill" >
+              <mat-label class="">מס טלפון</mat-label>
+              <input matInput [(ngModel)]="updateCustomer.userPhone" [formControl]="custForm.get('phone')"  required>
+          </mat-form-field>
+           
+        </div>
+
+        <div class="col-md-12 col-sm-12">
+          <mat-form-field style="margin:10px; width:250px" appearance="fill">
+            <mat-label>כתובת מגורים</mat-label>
+            <input matInput [(ngModel)]="updateCustomer.userAddress" [formControl]="custForm.get('address')"   required>
+          </mat-form-field>
+          <!-- </div> -->
+
+
+
+          <mat-form-field style="margin:10px; width:250px" appearance="fill">
+              <mat-label>דואר אלקטורני</mat-label>
+              <input matInput [(ngModel)]="updateCustomer.email" [formControl]="custForm.get('email')"   required>
+            </mat-form-field>
+
+        </div>
+        <div class="col-md-12 col-sm-12" >
+          
+
+          <mat-icon (click)="fileInput.click()">add_a_photo</mat-icon>
+          <input #fileInput formControlName="userImage" type="button" [(ngModel)]="updateCustomer.image" (click)="onFileInput()"  style="display:none;" />
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" style="margin:10px ;margin-left: 1800px;">
+          <button class="btn-space" (click)="SubmitupdateCustomer()" [disabled]="custForm.invalid" mat-raised-button
+            color="primary">עדכון</button>
+            <button class="btn-space" (click)="backToList()"  mat-raised-button
+            color="warn">ביטול</button>
+
+        </div>
+      </div>
+    </form>
+
+
+</app-screen-cont>

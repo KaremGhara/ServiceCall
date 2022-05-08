@@ -1,19 +1,21 @@
 
 <app-screen-cont [title]="'פרופיל'" [breadscrums]="breadscrums" >
-
-  <mat-card class="example-card">
-    <!-- <div mat-card-avatar class="example-header-image"></div> -->
-    <mat-card-subtitle>{{customer.email}}</mat-card-subtitle>
+  <!-- Cards with media area -->
+<mat-card class="example-card">
+  <mat-card-title-group>
     <mat-card-title>{{customer.userName}}</mat-card-title>
-    <mat-card-content>
-      <p>Address: {{customer.userAddress}}</p>
-      <p>Phone: {{customer.userPhone}}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button><mat-icon aria-label="Edit">edit
-      </mat-icon></button>
-    </mat-card-actions>
-    <mat-card-footer>
-    </mat-card-footer>
-  </mat-card>
+    <mat-card-subtitle>{{customer.email}}</mat-card-subtitle>
+    <img mat-card-sm-image src={{customer.image}} appearance="fill"alt="Photo of a Shiba Inu">
+  </mat-card-title-group>
+  <mat-card-content>
+    <p>Address: {{customer.userAddress}}</p>
+    <p>Phone: {{customer.userPhone}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="updateProfile()"><mat-icon aria-label="Edit">edit
+    </mat-icon></button>
+  </mat-card-actions>
+  <mat-card-footer>
+  </mat-card-footer>
+</mat-card>
 </app-screen-cont>

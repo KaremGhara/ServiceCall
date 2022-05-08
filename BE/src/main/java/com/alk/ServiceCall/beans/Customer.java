@@ -32,7 +32,7 @@ public class Customer extends User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="customer_id")
-	private int id; 
+	private int id;
 	
 
 

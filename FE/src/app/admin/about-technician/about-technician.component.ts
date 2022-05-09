@@ -2,7 +2,6 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -26,14 +25,11 @@ export class AboutTechnicianComponent implements OnInit {
   requsetCustomer:RequsetCustomer[];
   isTblLoading = true;
   displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','problemDescription','date','id','Answerdate']
-  CustomerDatabase: RequserCustomerService | null;
 dataSource:MatTableDataSource<RequsetCustomer>;
-selection = new SelectionModel<RequsetCustomer>(true, []);
 
   constructor(
     public dialog: MatDialog,
     private router:Router,
-    private snackBar: MatSnackBar,
     private route:ActivatedRoute,
     private requserCustomerService:RequserCustomerService
 

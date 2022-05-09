@@ -78,11 +78,16 @@ export class AnswerTechnicianComponent implements OnInit {
     this.answerTechnician.date=this.requestDate;   
     this.answerTechnicianService.addAnswerTechnician(this.answerTechnician).subscribe(res=>{
           if(!res){
+            this.router.navigate(['/technician/myRequests'])
             Swal.fire('בהצלחה',' התשובה נשלחה', 'success');                
           }
         }) 
       }
     });    
 
+}
+
+backToList(){
+  this.router.navigate(['/technician/myRequests'])
 }
 }

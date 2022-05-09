@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Admin } from 'src/app/beans/Admin';
 import { AdminService } from 'src/app/services/admin.service';
 import Swal from 'sweetalert2';
@@ -22,11 +22,10 @@ export class UpdateAdminComponent implements OnInit {
   hide = true;
   updateAdmin:Admin=new Admin();
   AdminForm: FormGroup;
-  idrow:number;
   adminId:number;
 
-  constructor(private fb: FormBuilder,
-    private route:ActivatedRoute,
+  constructor(
+    private fb: FormBuilder,
     private router:Router,
     private adminService:AdminService
     ) {

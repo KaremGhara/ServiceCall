@@ -69,7 +69,7 @@
           </mat-form-field>
         </div> 
         <button mat-raised-button style="margin:10px;" [disabled]="ReqForm.invalid" color="primary" type="submit" (click)="Onsubmit()">שלח</button>
-        <button mat-raised-button color="warn">ביטול</button>
+        <button mat-raised-button color="warn" (click)="backToList()">ביטול</button>
 
       </form>
 

@@ -23,7 +23,8 @@ export class UpdateTechnicianComponent implements OnInit {
   TechnicianForm: FormGroup;
   idrow:number;
 
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private route:ActivatedRoute,
     private router:Router,
     private technicianService:TechnicianService

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Admin } from 'src/app/beans/Admin';
 import { AdminService } from 'src/app/services/admin.service';
 
@@ -15,7 +15,10 @@ export class AdminDetailsComponent implements OnInit {
   admin:Admin=new Admin();
   
 
-  constructor(private router: Router,private adminService: AdminService,private route:ActivatedRoute){}
+  constructor(
+    private router: Router,
+    private adminService: AdminService,
+    ){}
   ngOnInit(): void {
        const storedItems= JSON.parse(localStorage.getItem('currentUser'))
        this.adminId=storedItems.id;

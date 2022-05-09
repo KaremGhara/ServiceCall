@@ -5,7 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Technician } from 'src/app/beans/technician';
 import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
-import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
 import Swal from 'sweetalert2';
 
@@ -25,14 +24,14 @@ export class AllTechnicianComponent implements OnInit {
   techinician:Technician[];
   isTblLoading = true;
   displayedColumns=['name','socialId','phone','address','email','jobRole','action']
-  techinicianDatabase: TechnicianService | null;
   dataSource:MatTableDataSource<Technician>;
-  selection = new SelectionModel<Technician>(true, []);
 
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private techinicianService:TechnicianService, 
-    public dialog: MatDialog) { }
+    public dialog: MatDialog
+    ) { }
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
   ngOnInit(): void {

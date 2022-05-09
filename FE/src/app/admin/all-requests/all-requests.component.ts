@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 import { RequserCustomerService } from '../../services/requser-customer.service';
 import { RequsetCustomer } from 'src/app/beans/requset-customer';
 import Swal from 'sweetalert2';
@@ -25,14 +24,13 @@ export class AllRequestsComponent implements OnInit {
   requserCustomer:RequsetCustomer[];
   isTblLoading = true;
   displayedColumns=['isComplete','CustomerName','phone','email','deviceType','deviceName','problemDescription','repairType','date','id','action']
-  RequserCustomerDatabase: RequserCustomerService | null;
   dataSource:MatTableDataSource<RequsetCustomer>;
-  selection = new SelectionModel<RequsetCustomer>(true, []);
 
 
-  constructor(private router: Router,
+  constructor(
     private requserCustomerService:RequserCustomerService, 
-    public dialog: MatDialog) { }
+    public dialog: MatDialog
+    ) { }
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
   

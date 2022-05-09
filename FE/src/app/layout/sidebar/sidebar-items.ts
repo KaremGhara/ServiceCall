@@ -128,19 +128,19 @@ export const ROUTES: RouteInfo[] = [
 
   // Technician Modules
 
-{
-    path:'/technician/technicianDetails',
-    title: 'פרטים',
-    moduleName: 'technician',
-    iconType: 'material-icons-two-tone',
-    icon: 'person',
-    class: '',
-    groupTitle: false,
-    badge: '',
-    badgeClass: '',
-    role: ['Technician'],
-    submenu: [],
-  },
+// {
+//     path:'/technician/technicianDetails',
+//     title: 'פרטים',
+//     moduleName: 'technician',
+//     iconType: 'material-icons-two-tone',
+//     icon: 'person',
+//     class: '',
+//     groupTitle: false,
+//     badge: '',
+//     badgeClass: '',
+//     role: ['Technician'],
+//     submenu: [],
+//   },
 
 // {
 //     path:'/technician/answerTechnician',

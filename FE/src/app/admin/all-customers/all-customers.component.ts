@@ -1,11 +1,8 @@
-import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from 'src/app/beans/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 import Swal from 'sweetalert2';
@@ -27,15 +24,10 @@ export class AllCustomersComponent implements OnInit {
   customers:Customer[];
   isTblLoading = true;
   displayedColumns=['name','phone','address','email','action']
-  CustomerDatabase: CustomerService | null;
-dataSource:MatTableDataSource<Customer>;
-selection = new SelectionModel<Customer>(true, []);
+  dataSource:MatTableDataSource<Customer>;
 
   constructor(
     public dialog: MatDialog,
-    private router:Router,
-    private snackBar: MatSnackBar,
-    private route:ActivatedRoute,
     private customerService:CustomerService
 
   ) { }

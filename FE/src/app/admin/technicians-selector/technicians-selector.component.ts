@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Technician } from 'src/app/beans/technician';
 import { TechnicianService } from 'src/app/services/technician.service';
 
@@ -21,7 +20,10 @@ export class TechniciansSelectorComponent implements OnInit {
   @Output()
   onTechnicianSelected : EventEmitter<Technician> = new EventEmitter<Technician>();
 
-  constructor(private fb : FormBuilder,private route: ActivatedRoute, private router:Router,private technicianService: TechnicianService) {
+  constructor(
+    private fb : FormBuilder,
+    private technicianService: TechnicianService
+     ) {
     this.stdForm = this.fb.group({});
    }
 

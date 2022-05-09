@@ -163,7 +163,7 @@ export class HeaderComponent
     const userRole = this.user.userRole
     
     if (userRole === Role.Admin) {
-      this.homePage = 'admin/dashboard/main';
+      this.homePage = 'admin/adminDetails';
     } else if (userRole === Role.Customer) {
       this.homePage = 'customer/customerDetails';
     } else if (userRole === Role.Technician) {
@@ -309,6 +309,17 @@ export class HeaderComponent
     }
     else if(this.user.userRole=='Admin'){
       this.router.navigate(['/admin/adminDetails']);
+    }
+  }
+  Settings(){
+    if(this.user.userRole=='Customer'){
+      this.router.navigate(['/customer/upateCustomer']);
+    }
+    else if(this.user.userRole=='Technician'){
+      this.router.navigate(['/technician/updateProfileTechnician']);
+    }
+    else if(this.user.userRole=='Admin'){
+      this.router.navigate(['/admin/updateAdmin']);
     }
   }
 }

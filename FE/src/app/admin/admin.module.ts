@@ -31,7 +31,10 @@ import { AttachTechnicianToRequestsComponent } from './attach-technician-to-requ
 import {CommonUtilsModule} from '../common-utils/common-utils.module';
 import { TechniciansSelectorComponent } from './technicians-selector/technicians-selector.component';
 import { AboutTechnicianComponent } from './about-technician/about-technician.component';
-import { UpdateAdminComponent } from './update-admin/update-admin.component'
+import { UpdateAdminComponent } from './update-admin/update-admin.component';
+import { AdminDetailsComponent } from './admin-details/admin-details.component'
+import { MatCardModule } from '@angular/material/card';
+
 @NgModule({
   declarations: [
     AllTechnicianComponent,
@@ -43,6 +46,7 @@ import { UpdateAdminComponent } from './update-admin/update-admin.component'
     TechniciansSelectorComponent,
     AboutTechnicianComponent,
     UpdateAdminComponent,
+    AdminDetailsComponent,
   ],
   imports: [CommonModule,
      AdminRoutingModule,
@@ -67,7 +71,8 @@ import { UpdateAdminComponent } from './update-admin/update-admin.component'
     MaterialFileInputModule,
     MatProgressSpinnerModule,
     ComponentsModule,
-    CommonUtilsModule
+    CommonUtilsModule,
+    MatCardModule
    
     ],
 })

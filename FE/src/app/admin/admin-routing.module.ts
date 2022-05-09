@@ -8,6 +8,7 @@ import { AllRequestsComponent } from './all-requests/all-requests.component';
 import { AttachTechnicianToRequestsComponent } from './attach-technician-to-requests/attach-technician-to-requests.component';
 import { AboutTechnicianComponent } from './about-technician/about-technician.component';
 import { UpdateAdminComponent } from './update-admin/update-admin.component';
+import { AdminDetailsComponent } from './admin-details/admin-details.component';
 
 const routes: Routes = [
   
@@ -43,6 +44,10 @@ const routes: Routes = [
     {
       path:"updateAdmin",
       component:UpdateAdminComponent
+    },
+    {
+      path:"adminDetails",
+      component:AdminDetailsComponent
     },
  
 ];

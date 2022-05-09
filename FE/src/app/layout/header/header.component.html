@@ -91,8 +91,8 @@
                 <li class="body">
                   <ul class="user_dw_menu">
                     <li>
-                      <a [routerLink]="['customer/customerDetails']">
-                        <app-feather-icons [icon]="'user'" [class]="'user-menu-icons'"></app-feather-icons>Account
+                      <a (click)="Account()">
+                        <app-feather-icons [icon]="'user'" [class]="'user-menu-icons'"></app-feather-icons>חשבון
                       </a>
                     </li>
                     <li>
@@ -102,7 +102,7 @@
                     </li>
                     <li>
                       <a href="javascript:void(0);" (click)="logout()">
-                        <app-feather-icons [icon]="'log-out'" [class]="'user-menu-icons'"></app-feather-icons>Logout
+                        <app-feather-icons [icon]="'log-out'" [class]="'user-menu-icons'"></app-feather-icons>התנתק
                       </a>
                     </li>
                   </ul>

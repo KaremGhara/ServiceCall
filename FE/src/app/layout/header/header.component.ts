@@ -300,4 +300,15 @@ export class HeaderComponent
       }
     });
   }
+  Account(){
+    if(this.user.userRole=='Customer'){
+      this.router.navigate(['/customer/customerDetails']);
+    }
+    else if(this.user.userRole=='Technician'){
+      this.router.navigate(['/technician/technicianDetails']);
+    }
+    else if(this.user.userRole=='Admin'){
+      this.router.navigate(['/admin/adminDetails']);
+    }
+  }
 }

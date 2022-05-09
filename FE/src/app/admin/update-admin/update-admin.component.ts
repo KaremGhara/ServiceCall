@@ -66,7 +66,7 @@ export class UpdateAdminComponent implements OnInit {
         this.adminService.updateAdmin(this.updateAdmin).subscribe(res =>{
           if(res){
 
-            this.router.navigate(['/admin/allTechnician'])
+            this.router.navigate(['/admin/adminDetails'])
             Swal.fire('עודכן!', storedItems.name+' עודכן.', 'success');
 
           }
@@ -78,7 +78,7 @@ export class UpdateAdminComponent implements OnInit {
 
 
   backToList(){
-    this.router.navigate(['/admin/allTechnician'])
+    this.router.navigate(['/admin/adminDetails'])
   }
 
   async onFileInput()

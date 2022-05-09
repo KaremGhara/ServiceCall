@@ -1,0 +1,22 @@
+
+<app-screen-cont [title]="'פרופיל'" [breadscrums]="breadscrums" >
+
+    <mat-card class="example-card">
+      <mat-card-title-group>
+        <mat-card-title>{{admin.userName}}</mat-card-title>
+        <mat-card-subtitle>{{admin.email}}</mat-card-subtitle>
+        <img mat-card-sm-image src={{admin.image}} appearance="fill"alt="Photo of a Shiba Inu">
+      </mat-card-title-group>
+      <mat-card-content>
+        <p>כתובת מגורים: {{admin.userAddress}}</p>
+        <p>טלפון נייד: {{admin.userPhone}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="updateProfileAdmin()"><mat-icon aria-label="Edit">edit
+        </mat-icon></button>
+      </mat-card-actions>
+      <mat-card-footer>
+      </mat-card-footer>
+    </mat-card>
+    </app-screen-cont>
+  

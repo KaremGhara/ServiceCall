@@ -45,27 +45,29 @@ export class UpdateProfileTechnicianComponent implements OnInit {
 
   }
 
-
-
   UpdateProfileTechnician(){
-    this.technicianService.updateTechnician(this.updateprofileTechnician).subscribe(
-      res=>{
-        if(res){
-             
-          Swal.fire({
-            icon: 'success',
-            title: 'עתקון',
-            text: 'עתקנתה פרטים שלך בהצלחה ',
+    const storedItems= JSON.parse(localStorage.getItem('currentUser'))
+    Swal.fire({
+      title: " עדכון",
+      text: " אתה רוצה לעדעכן?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor:'#d33' ,
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'כן',
+    }).then((result) => {
+      if (result.value) {            
+        this.technicianService.updateTechnician(this.updateprofileTechnician).subscribe(res =>{
+          if(res){
 
-        }
+            this.router.navigate(['/technician/technicianDetails'])
+            Swal.fire('עודכן!', storedItems.name+' עודכן.', 'success');
 
-        
-        );
-        this.router.navigate(['/technician/technicianDetails'])    
-           }
+          }
+        }) 
       }
-    )
-  }
+    });    
+}
 
 
   backToList(){

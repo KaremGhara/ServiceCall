@@ -30,7 +30,7 @@ export class UpdateTechnicianComponent implements OnInit {
     ) {
       this.TechnicianForm = this.fb.group({
       });
-      this.TechnicianForm.addControl("name", new FormControl('', [Validators.required]))
+      this.TechnicianForm.addControl("name",new FormControl({value: this.updateTechnician.userName,disabled:true}))
       this.TechnicianForm.addControl("socialId",new FormControl('', [Validators.required, Validators.minLength(9),Validators.maxLength(9)]))
       this.TechnicianForm.addControl("phone",new FormControl('',[Validators.required, Validators.minLength(10),Validators.maxLength(10)]))
       this.TechnicianForm.addControl("address", new FormControl('', [Validators.required]))
@@ -74,25 +74,30 @@ export class UpdateTechnicianComponent implements OnInit {
     }
   }
 
+ 
   updateTechinician(){
-    this.technicianService.updateTechnician(this.updateTechnician).subscribe(
-      res=>{
-        if(res){
-             
-          Swal.fire({
-            icon: 'success',
-            title: 'עתקון',
-            text: 'עתקנתה פרטים תכנאי בהצלחה ',
+    const storedItems= JSON.parse(localStorage.getItem('currentUser'))
+    Swal.fire({
+      title: " עדכון",
+      text: " אתה רוצה לעדעכן?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor:'#d33' ,
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'כן',
+    }).then((result) => {
+      if (result.value) {            
+        this.technicianService.updateTechnician(this.updateTechnician).subscribe(res =>{
+          if(res){
 
-        }
+            this.router.navigate(['/admin/allTechnician'])
+            Swal.fire('עודכן!', storedItems.name+' עודכן.', 'success');
 
-        
-        );
-        this.router.navigate(['/admin/allTechnician'])    
-           }
+          }
+        }) 
       }
-    )
-  }
+    });    
+}
 
 
   backToList(){

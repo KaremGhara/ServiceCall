@@ -1,19 +1,21 @@
 
 <app-screen-cont [title]="'פרופיל'" [breadscrums]="breadscrums" >
 
-    <mat-card class="example-card">
-      <!-- <div mat-card-avatar class="example-header-image"></div> -->
-      <mat-card-subtitle>{{technician.email}}</mat-card-subtitle>
+  <mat-card class="example-card">
+    <mat-card-title-group>
       <mat-card-title>{{technician.userName}}</mat-card-title>
-      <mat-card-content>
-        <p>כתובת מגורים: {{technician.userAddress}}</p>
-        <p>:טלפון {{technician.userPhone}}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button (click)="updateProfileTechnician()"><mat-icon aria-label="Edit">edit
-        </mat-icon></button>
-      </mat-card-actions>
-      <mat-card-footer>
-      </mat-card-footer>
-    </mat-card>
+      <mat-card-subtitle>{{technician.email}}</mat-card-subtitle>
+      <img mat-card-sm-image src={{technician.image}} appearance="fill"alt="Photo of a Shiba Inu">
+    </mat-card-title-group>
+    <mat-card-content>
+      <p>כתובת מגורים: {{technician.userAddress}}</p>
+      <p>טלפון נייד: {{technician.userPhone}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="updateProfileTechnician()"><mat-icon aria-label="Edit">edit
+      </mat-icon></button>
+    </mat-card-actions>
+    <mat-card-footer>
+    </mat-card-footer>
+  </mat-card>
   </app-screen-cont>

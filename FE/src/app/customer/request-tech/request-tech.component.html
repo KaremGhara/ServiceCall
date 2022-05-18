@@ -6,17 +6,14 @@
           <mat-form-field appearance="fill">
             <mat-label>שם פרטי</mat-label>
             <input matInput placeholder="שם פרטי" [(ngModel)]="Customer.userName"  [formControl]="ReqForm.get('CustomerName')" required>
-            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
           </mat-form-field>
           <mat-form-field style="margin:10px; width:250px" appearance="fill">
             <mat-label>מייל</mat-label>
             <input matInput placeholder="pat@example.com" [(ngModel)]="Customer.email"  [formControl]="ReqForm.get('email')" required>
-            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
           </mat-form-field>
           <mat-form-field style="margin:10px; width:250px" appearance="fill">
             <mat-label>טלפון</mat-label>
             <input matInput placeholder="pat@example.com" [(ngModel)]="Customer.userPhone"   [formControl]="ReqForm.get('phone')" required>
-            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
           </mat-form-field>
           </div>
           <div class="col-md-12 col-sm-12">
@@ -24,7 +21,6 @@
             <mat-form-field style="margin:10px; width:250px" appearance="fill">
               <mat-label>דגם מחשב</mat-label>
               <input matInput placeholder="HP/Lenovo..etc" [(ngModel)]="requestCustomer.deviceName" [formControl]="ReqForm.get('deviceName')" required>
-              <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
             </mat-form-field>
             <mat-form-field appearance="fill">
               

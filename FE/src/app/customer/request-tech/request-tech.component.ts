@@ -18,13 +18,12 @@ export class RequestTechComponent implements OnInit {
   requestDate=new Date(); 
   custId:number
   Customer:Customer=new Customer();
-  // minNumber=1000;
-  // maxNumber=5000;
+
   breadscrums = [
     {
-      title: 'Request Technician',
-      items: ['Customer'],
-      active: 'Request Technician',
+      title: 'בקשה חדשה',
+      items: ['לקוח'],
+      active: 'בקשה חדשה',
     },
   ];
   
@@ -94,7 +93,5 @@ export class RequestTechComponent implements OnInit {
     
 
   }
-  // getRandomArbitrary(min, max) : number {
-  //   return Math.random() * (max - min) + min;
-  // }
+ 
 }

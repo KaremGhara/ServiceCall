@@ -29,14 +29,13 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.authForm = this.formBuilder.group({
       userName: ['', Validators.required],
-      email: [
-        '',
-        [Validators.required, Validators.email, Validators.minLength(5)],
-      ],
+      email: ['',[Validators.required, Validators.email, Validators.minLength(5)],],
       userPassword: ['', Validators.required],
-      userPhone: ['', Validators.required],
+      userPhone: ['',[Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
       userAddress: ['', Validators.required],
-      userImage: ['', Validators.required]
+     
+
+
 
     });
     // get return url from route parameters or default to '/'

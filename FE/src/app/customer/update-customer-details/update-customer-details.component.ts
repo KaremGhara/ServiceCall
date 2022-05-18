@@ -13,9 +13,9 @@ import Swal from 'sweetalert2';
 export class UpdateCustomerDetailsComponent implements OnInit {
   breadscrums = [
     {
-      title: 'פרופיל שלי',
-      items: ["פרופיל"],
-      active: 'פרופיל שלי',
+      title: 'עתקון',
+      items: ["לקוח"],
+      active: 'פרופיל לעתקון',
     },
   ];
 
@@ -30,8 +30,8 @@ export class UpdateCustomerDetailsComponent implements OnInit {
   constructor(private fb: FormBuilder,private customerService:CustomerService,private router:Router) {
     this.custForm = this.fb.group({});
     this.custForm.addControl("CustomerName",new FormControl({value: this.updateCustomer.userName,disabled:true}))
-    this.custForm.addControl("email",new FormControl({value: this.updateCustomer.email,disabled:false}))
-    this.custForm.addControl("phone",new FormControl({value: this.updateCustomer.userPhone,disabled:false}))
+    this.custForm.addControl("email",new FormControl('',[Validators.required, Validators.email]))
+    this.custForm.addControl("phone",new FormControl('',[Validators.required, Validators.minLength(10),Validators.maxLength(10)]))
     this.custForm.addControl("address",new FormControl({value: this.updateCustomer.userAddress,disabled:false}))
     this.custForm.addControl("userImage",new FormControl({value: this.updateCustomer.userAddress,disabled:false}))
 

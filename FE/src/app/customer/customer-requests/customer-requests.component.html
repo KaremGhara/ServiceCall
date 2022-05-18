@@ -92,23 +92,6 @@
                {{row.answerdate}}</mat-cell>
             </ng-container>
   
-
- <!-- actions -->
- <ng-container matColumnDef="action">
-    <mat-header-cell *matHeaderCellDef>פעלות
-    </mat-header-cell>
-    <mat-cell *matCellDef="let row;">
-       
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <br>
-       <button mat-icon-button color="warn" 
-       (click)="deleteRequsetCustomer(row)">
-       
-        <mat-icon>delete</mat-icon>
-      </button> 
-     </div>
-    </mat-cell>
-  </ng-container>
                        <mat-header-row *matHeaderRowDef="displayedColumns">
                        </mat-header-row>
                        <!-- <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->

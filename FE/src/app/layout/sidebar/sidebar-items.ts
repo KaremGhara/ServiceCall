@@ -56,19 +56,6 @@ export const ROUTES: RouteInfo[] = [
     role: ['Admin'],
     submenu: [],
   },
-  // {
-  //   path: '/admin/updateAdmin',
-  //   title: 'עתקון פרטים',
-  //   moduleName: 'update Admin',
-  //   iconType: 'material-icons-two-tone',
-  //   icon: 'space_dashboard',
-  //   class: '',
-  //   groupTitle: false,
-  //   badge: '',
-  //   badgeClass: '',
-  //   role: ['Admin'],
-  //   submenu: [],
-  // },
   {
     path: '/admin/AttachTechician',
     title: 'לצרף טכנאי ל פניות',
@@ -87,21 +74,8 @@ export const ROUTES: RouteInfo[] = [
   // Customer Modules
 
   {
-    path:'/customer/customerDetails',
-    title: 'Profile',
-    moduleName: 'customer',
-    iconType: 'material-icons-two-tone',
-    icon: 'person',
-    class: '',
-    groupTitle: false,
-    badge: '',
-    badgeClass: '',
-    role: ['Customer'],
-    submenu: [],
-  },
-  {
     path: '/customer/requestTech',
-    title: 'Request Technician',
+    title: 'בקשה חדשה',
     moduleName: 'customer',
     iconType: 'material-icons-two-tone',
     icon: 'space_dashboard',
@@ -114,7 +88,7 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: '/customer/customerRequests',
-    title: 'My Requests',
+    title: 'בקשות שלי',
     moduleName: 'customer',
     iconType: 'material-icons-two-tone',
     icon: 'space_dashboard',
@@ -128,33 +102,6 @@ export const ROUTES: RouteInfo[] = [
 
   // Technician Modules
 
-// {
-//     path:'/technician/technicianDetails',
-//     title: 'פרטים',
-//     moduleName: 'technician',
-//     iconType: 'material-icons-two-tone',
-//     icon: 'person',
-//     class: '',
-//     groupTitle: false,
-//     badge: '',
-//     badgeClass: '',
-//     role: ['Technician'],
-//     submenu: [],
-//   },
-
-// {
-//     path:'/technician/answerTechnician',
-//     title: 'תשובה לפניה',
-//     moduleName: 'technician',
-//     iconType: 'material-icons-two-tone',
-//     icon: 'person',
-//     class: '',
-//     groupTitle: false,
-//     badge: '',
-//     badgeClass: '',
-//     role: ['Technician'],
-//     submenu: [],
-//   },
 
   {
     path:'/technician/myRequests',

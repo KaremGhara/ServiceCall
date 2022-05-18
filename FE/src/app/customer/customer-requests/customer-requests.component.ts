@@ -18,16 +18,16 @@ import Swal from 'sweetalert2';
 export class CustomerRequestsComponent implements OnInit {
   requserCustomer:RequsetCustomer[];
   isTblLoading = true;
-  displayedColumns=['isComplete','id','date','deviceType','problemDescription','repairType','deviceName','Answerdate','action']
+  displayedColumns=['isComplete','id','date','deviceType','problemDescription','repairType','deviceName','Answerdate',]
   RequserCustomerDatabase: RequserCustomerService | null;
   dataSource:MatTableDataSource<RequsetCustomer>;
   selection = new SelectionModel<RequsetCustomer>(true, []);
   custId:string;
   breadscrums = [
     {
-      title: 'Request Technician',
-      items: ['Customer'],
-      active: 'Request Technician',
+      title: 'בקשות',
+      items: ['לקוח'],
+      active: 'כל בקשות',
     },
   ];
 

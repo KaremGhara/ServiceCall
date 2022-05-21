@@ -34,6 +34,9 @@ public class Customer extends User {
 	@Column(name="customer_id")
 	private int id;
 	
+	@Column(name="messageForTech")
+	private String messageTech;
+	
 
 
 	

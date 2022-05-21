@@ -39,7 +39,7 @@
            <ng-container matColumnDef="isComplete">
             <mat-header-cell *matHeaderCellDef mat-sort-header>סטטוס פניה
             </mat-header-cell>
-            <mat-cell *matCellDef="let row" >{{row.complete ? 'טופלה':'בטיפול'}}</mat-cell>
+            <mat-cell *matCellDef="let row" >{{row.attach ? isComplete(row):'בהמתנה'}}</mat-cell>
           </ng-container>
             <!-- id Column -->
             <ng-container matColumnDef="id">
@@ -91,12 +91,20 @@
               <mat-cell *matCellDef="let row">
                {{row.answerdate}}</mat-cell>
             </ng-container>
+            <ng-container matColumnDef="chatWithTech">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>
+              </mat-header-cell>
+              <mat-cell  *matCellDef="let row" >
+               <button [disabled]="row.complete"(click)="openDialog()" class="btn btn-primary">דבר עם טכנאי</button>
+                </mat-cell>
+            </ng-container>
   
-                       <mat-header-row *matHeaderRowDef="displayedColumns">
+                       <mat-header-row *matHeaderRowDef="displayedColumns" >
                        </mat-header-row>
                        <!-- <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
-                       <mat-row *matRowDef="let row; columns: displayedColumns;"
-                         [style.cursor]="'pointer'" matRipple>
+                       <mat-row  *matRowDef="let row; columns: displayedColumns;" [ngStyle]="{'background-color':row.complete?'green':'red'}" >
+                         [style.cursor]="'pointer'" [style.background-color]="row.complete? 'green' : 'red'" matRipple>
+                         
                        </mat-row>
                      </mat-table>
   

@@ -28,5 +28,10 @@ public class Technician extends User {
 	
 	@NotBlank(message = "Can't Enter Empty Job Role!")
 	private String jobRole;
+	
+	@Column(name="messageForTech")
+	private String messageTech;
+	
+	
 
 }

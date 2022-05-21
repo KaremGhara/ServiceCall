@@ -2,6 +2,7 @@ package com.alk.ServiceCall.serviceses;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Collections;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.alk.ServiceCall.Helper.PasswordHelper;
 import com.alk.ServiceCall.beans.Customer;
+import com.alk.ServiceCall.beans.Technician;
 import com.alk.ServiceCall.repo.CustomerRepo;
 
 @Service
@@ -73,7 +75,9 @@ public class CustomerService {
 	}
 	
 	public List<Customer> getAllCustomer() {
-		return customerRepo.findAll();
+		List<Customer> allCustomers=customerRepo.findAll();
+        Collections.reverse(allCustomers);
+		return allCustomers;
 	}
 
 }

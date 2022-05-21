@@ -78,4 +78,9 @@ public class RequestCustomerController {
 	public List<RequestCustomer> getAllRequestCustomerNotLinked(){
 		return requestCustomerService.getAllRequestCustomerNotLinked();
 	}
+	
+	@GetMapping("get-all-request_customer-by-complete")
+	public List<Integer> getAllRequestCustomerByComplete(int techId){
+		return requestCustomerService.getAllRequestCustomerByComleted(techId);
+	}
 }

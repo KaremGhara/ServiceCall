@@ -33,7 +33,7 @@ export class RequserCustomerService {
     return this.http.get<RequsetCustomer>(APP_URL+'requestCustomer/get-request_customer-By-Id?id='+id);
   }
 
-  
+
   updateRequsetCustomer(requestCustomer: RequsetCustomer):Observable<RequsetCustomer> {
     return this.http.put<RequsetCustomer>(APP_URL+'requestCustomer/update-request_customer',requestCustomer)
   }
@@ -44,5 +44,9 @@ return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-request_cus
 
   getAllRequestCustomerNotLinked():Observable<RequsetCustomer[]> {   
   return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-all-request_customer-not-linked');
+  }
+
+  getRequsetCustomerBycompleteByIdTech(techId: number):Observable<number[]> {
+    return this.http.get<number[]>(APP_URL+'requestCustomer/get-all-request_customer-by-complete?techId='+techId)
   }
 }

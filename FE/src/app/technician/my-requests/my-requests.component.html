@@ -110,6 +110,13 @@
             <mat-cell *matCellDef="let row">
              {{row.answerdate}}</mat-cell>
           </ng-container>
+                <!-- Answerdate Column -->
+                <ng-container matColumnDef="MessageFromCust">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>הודעה מלקוח
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                   {{row.technician.messageTech}}</mat-cell>
+                </ng-container>
 
            <!-- actions -->
  <ng-container matColumnDef="action">

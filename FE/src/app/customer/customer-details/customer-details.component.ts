@@ -23,6 +23,7 @@ export class CustomerDetailsComponent implements OnInit {
          
        })
       
+      
   }
   updateProfile(){
     this.router.navigate(['customer/upateCustomer'])

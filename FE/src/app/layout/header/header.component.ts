@@ -116,6 +116,8 @@ export class HeaderComponent
     },
   ];
   getData(){
+    this.user=this.loginService.loggedInUser;
+
     switch (this.user.userRole) {
       case "Customer":
         this.customerService.getCustomerById(this.user.id).subscribe(res=>{

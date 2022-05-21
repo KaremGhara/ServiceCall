@@ -9,6 +9,7 @@ import { RequserCustomerService } from 'src/app/services/requser-customer.servic
 import { MatDialog } from '@angular/material/dialog';
 
 import Swal from 'sweetalert2';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-customer-requests',
@@ -18,11 +19,13 @@ import Swal from 'sweetalert2';
 export class CustomerRequestsComponent implements OnInit {
   requserCustomer:RequsetCustomer[];
   isTblLoading = true;
-  displayedColumns=['isComplete','id','date','deviceType','problemDescription','repairType','deviceName','Answerdate',]
+  messageText:string
+  displayedColumns=['isComplete','id','date','deviceType','problemDescription','repairType','deviceName','Answerdate','chatWithTech']
   RequserCustomerDatabase: RequserCustomerService | null;
   dataSource:MatTableDataSource<RequsetCustomer>;
   selection = new SelectionModel<RequsetCustomer>(true, []);
-  custId:string;
+  custemail:string;
+  custId:number;
   breadscrums = [
     {
       title: 'בקשות',
@@ -31,19 +34,23 @@ export class CustomerRequestsComponent implements OnInit {
     },
   ];
 
-  constructor(private requestCustomerService: RequserCustomerService,private route :Router,public dialog: MatDialog) { }
+  constructor(private requestCustomerService: RequserCustomerService,private route :Router,public dialog: MatDialog,private customerService: CustomerService) { }
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   ngOnInit(): void {
     const storedItems= JSON.parse(localStorage.getItem('currentUser'))
-    this.custId=storedItems.email;
+    this.custId=storedItems.id;
+    this.custemail=storedItems.email;
+    console.log(storedItems);
+   
+    
     this.getCustomerRequest();
   }
   getCustomerRequest()
   {
-    console.log(this.custId);
     
-        this.requestCustomerService.getAllRequestCustomerBycostomerId(this.custId).subscribe(res=>{          
+    
+        this.requestCustomerService.getAllRequestCustomerBycostomerId(this.custemail).subscribe(res=>{          
         this.isTblLoading = false;
         this.dataSource= new MatTableDataSource(res);
         this.dataSource.paginator=this.paginator;
@@ -77,4 +84,38 @@ export class CustomerRequestsComponent implements OnInit {
     });    
 
 }
+   openDialog(){
+  Swal.fire({
+    input: 'textarea',
+    inputLabel: 'Message',
+    inputPlaceholder: 'Type your message here...',
+    inputAttributes: {
+      'aria-label': 'Type your message here'
+    },
+    showCancelButton: true
+  }).then((res)=>{
+    if(res.value){
+      
+      this.customerService.getCustomerById(this.custId).subscribe(data=>{
+        data.messageTech=res.value;
+      this.customerService.updateCustomer(data).subscribe(data=>{
+        console.log(data);
+        
+      })  
+      })
+      
+      
+    }
+  })
+
+}
+  
+isComplete(row){
+  if(row.complete){
+    return 'טובלה'
+  }
+  else{
+    return 'בטיבול'
+  }
+  }
 }

@@ -9,11 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.alk.ServiceCall.Helper.PasswordHelper;
 import com.alk.ServiceCall.beans.Admin;
 import com.alk.ServiceCall.beans.Customer;
-import com.alk.ServiceCall.beans.RequestCustomer;
 import com.alk.ServiceCall.beans.Technician;
 import com.alk.ServiceCall.serviceses.AdminService;
 import com.alk.ServiceCall.serviceses.CustomerService;
-import com.alk.ServiceCall.serviceses.RequestCustomerService;
 import com.alk.ServiceCall.serviceses.TechnicianService;
 
 
@@ -35,8 +33,6 @@ public class ServiceCallApplication implements CommandLineRunner {
 	@Autowired
 	private TechnicianService technicianService;
 	
-	@Autowired
-	private RequestCustomerService requestCustomerService;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -87,20 +83,7 @@ public class ServiceCallApplication implements CommandLineRunner {
 	    	technician2.setJobRole("מתקין בבית");
 	    	technician2.setUserRole("Technician");
 	    	technicianService.addTechnician(technician2);
-	
-	    	 
-//	    	RequestCustomer RequestCustomer1=new RequestCustomer();
-//	    	RequestCustomer1.setCustomerName("karem");
-//	    	RequestCustomer1.setDate(null);
-//	    	RequestCustomer1.setEmail("karem@gmail.com");
-//	    	RequestCustomer1.setPhone("0526682215");
-//	    	RequestCustomer1.setDeviceName("hp");
-//	    	RequestCustomer1.setDeviceType("מחשב נייד");
-//	    	RequestCustomer1.setProblemDescription("broke the screen");
-//	    	RequestCustomer1.setRepairType("Onsite");
-//	    	requestCustomerService.addRequestCustomer(RequestCustomer1, 2);
-	    	
-	    	
+
 		
 		}
 		catch(Exception e )

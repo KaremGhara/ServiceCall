@@ -9,6 +9,7 @@ import { AttachTechnicianToRequestsComponent } from './attach-technician-to-requ
 import { AboutTechnicianComponent } from './about-technician/about-technician.component';
 import { UpdateAdminComponent } from './update-admin/update-admin.component';
 import { AdminDetailsComponent } from './admin-details/admin-details.component';
+import { GoogleCharmsToTechnicianComponent } from './google-charms-to-technician/google-charms-to-technician.component';
 
 const routes: Routes = [
   
@@ -48,6 +49,10 @@ const routes: Routes = [
     {
       path:"adminDetails",
       component:AdminDetailsComponent
+    },
+    {
+      path:"googleCharsToTechnician/:idrow",
+      component:GoogleCharmsToTechnicianComponent
     },
  
 ];

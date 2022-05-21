@@ -34,7 +34,9 @@ import { AboutTechnicianComponent } from './about-technician/about-technician.co
 import { UpdateAdminComponent } from './update-admin/update-admin.component';
 import { AdminDetailsComponent } from './admin-details/admin-details.component'
 import { MatCardModule } from '@angular/material/card';
-
+import { GoogleCharmsToTechnicianComponent } from './google-charms-to-technician/google-charms-to-technician.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AllTechnicianComponent,
@@ -47,6 +49,7 @@ import { MatCardModule } from '@angular/material/card';
     AboutTechnicianComponent,
     UpdateAdminComponent,
     AdminDetailsComponent,
+    GoogleCharmsToTechnicianComponent,
   ],
   imports: [CommonModule,
      AdminRoutingModule,
@@ -72,7 +75,11 @@ import { MatCardModule } from '@angular/material/card';
     MatProgressSpinnerModule,
     ComponentsModule,
     CommonUtilsModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgApexchartsModule,
+    ChartsModule
    
     ],
 })

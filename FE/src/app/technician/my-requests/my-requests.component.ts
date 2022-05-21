@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AnswerTechnician } from 'src/app/beans/answer-technician';
 import { RequsetCustomer } from 'src/app/beans/requset-customer';
 import { AnswerTechnicianService } from 'src/app/services/answer-technician.service';
+import { CustomerService } from 'src/app/services/customer.service';
 import { RequserCustomerService } from 'src/app/services/requser-customer.service';
 
 @Component({
@@ -29,7 +30,7 @@ export class MyRequestsComponent implements OnInit {
   requsetCustomer:RequsetCustomer[];
   answerTechnician:AnswerTechnician;
   isTblLoading = true;
-  displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','problemDescription','date','id','Answerdate','action']
+  displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','problemDescription','date','id','Answerdate','MessageFromCust','action']
   CustomerDatabase: RequserCustomerService | null;
 dataSource:MatTableDataSource<RequsetCustomer>;
 selection = new SelectionModel<RequsetCustomer>(true, []);
@@ -40,6 +41,7 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
     private snackBar: MatSnackBar,
     private route:ActivatedRoute,
     private requserCustomerService:RequserCustomerService,
+    private customerService:CustomerService,
     private answerTechnicianService:AnswerTechnicianService,
 
   ) { }
@@ -53,13 +55,19 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
     // this.idTech=this.route.snapshot.params['id'];
     this.getRequestByTechnicianId();
     this.answerTechnicianService.getByRepairCode(this.code).subscribe(data=>{
+      
       this.answerTechnician=data; 
+      
     })
 
   }
 
   getRequestByTechnicianId(){
     this.requserCustomerService.findRequestByTechnicianId(this.idTech).subscribe(data => {
+      
+      
+      
+      
       this.isTblLoading = false;
       this.dataSource= new MatTableDataSource(data);
       this.dataSource.paginator=this.paginator;

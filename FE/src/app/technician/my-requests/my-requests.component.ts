@@ -64,10 +64,6 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
 
   getRequestByTechnicianId(){
     this.requserCustomerService.findRequestByTechnicianId(this.idTech).subscribe(data => {
-      
-      
-      
-      
       this.isTblLoading = false;
       this.dataSource= new MatTableDataSource(data);
       this.dataSource.paginator=this.paginator;

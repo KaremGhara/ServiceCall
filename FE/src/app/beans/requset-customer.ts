@@ -10,11 +10,12 @@ export class RequsetCustomer {
         public deviceType?: string,
         public deviceName?: string,
         public  date?: Date,
-        public  complete: number=1,
+        public  complete?: boolean,
         public  repairType?: string,
         public technician?: Technician,
         public  attach?: boolean,
         public  answerdate?: string,
+        public messageTech?: string
 
 
        ){}

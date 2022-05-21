@@ -39,41 +39,41 @@
            <ng-container matColumnDef="isComplete">
             <mat-header-cell *matHeaderCellDef mat-sort-header>סטטוס פניה
             </mat-header-cell>
-            <mat-cell *matCellDef="let row" >{{row.attach ? isComplete(row):'בהמתנה'}}</mat-cell>
+            <mat-cell *matCellDef="let row" style="color:black;" >{{row.attach ? isComplete(row):'בהמתנה'}}</mat-cell>
           </ng-container>
             <!-- id Column -->
             <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>קוד פניה
                 </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.id}}
+                <mat-cell *matCellDef="let row" style="color:black;"> {{row.id}}
                 </mat-cell>
               </ng-container>
                    <!-- date Column -->
            <ng-container matColumnDef="date">
             <mat-header-cell *matHeaderCellDef mat-sort-header>תאריך
             </mat-header-cell>
-            <mat-cell *matCellDef="let row">
+            <mat-cell *matCellDef="let row" style="color:black;">
              {{row.date}}</mat-cell>
           </ng-container>
            <!-- deviceType Column -->
            <ng-container matColumnDef="deviceType">
             <mat-header-cell *matHeaderCellDef mat-sort-header>סוג מכשיר
             </mat-header-cell>
-            <mat-cell *matCellDef="let row">
+            <mat-cell *matCellDef="let row" style="color:black;">
              {{row.deviceType}}</mat-cell>
           </ng-container>
           <!-- problemDescription Column -->
           <ng-container matColumnDef="problemDescription">
             <mat-header-cell *matHeaderCellDef mat-sort-header>פירוט תקלה
             </mat-header-cell>
-            <mat-cell *matCellDef="let row">
+            <mat-cell *matCellDef="let row" style="color:black;">
                {{row.problemDescription}}</mat-cell>
           </ng-container>
 <!-- repairType Column -->
           <ng-container matColumnDef="repairType">
             <mat-header-cell *matHeaderCellDef mat-sort-header>מיקום תקלה
             </mat-header-cell>
-            <mat-cell *matCellDef="let row">
+            <mat-cell *matCellDef="let row" style="color:black;">
                {{row.repairType}}</mat-cell>
           </ng-container>
 
@@ -81,14 +81,14 @@
           <ng-container matColumnDef="deviceName">
             <mat-header-cell *matHeaderCellDef mat-sort-header>פרטי מכשיר
             </mat-header-cell>
-            <mat-cell *matCellDef="let row">
+            <mat-cell *matCellDef="let row" style="color:black;">
               {{row.deviceName}}</mat-cell>
           </ng-container>
              <!-- Answerdate Column -->
              <ng-container matColumnDef="Answerdate">
               <mat-header-cell *matHeaderCellDef mat-sort-header>תשובה מעבדה
               </mat-header-cell>
-              <mat-cell *matCellDef="let row">
+              <mat-cell *matCellDef="let row" style="color:black;">
                {{row.answerdate}}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="chatWithTech">
@@ -102,8 +102,8 @@
                        <mat-header-row *matHeaderRowDef="displayedColumns" >
                        </mat-header-row>
                        <!-- <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
-                       <mat-row  *matRowDef="let row; columns: displayedColumns;" [ngStyle]="{'background-color':row.complete?'green':'red'}" >
-                         [style.cursor]="'pointer'" [style.background-color]="row.complete? 'green' : 'red'" matRipple>
+                       <mat-row  *matRowDef="let row; columns: displayedColumns;" [ngStyle]="{'background-color':row.complete?'#59c95c':'#c0362c'}" >
+                         [style.cursor]="'pointer'" [style.background-color]="row.complete? '#59c95c' : '#c0362c'"
                          
                        </mat-row>
                      </mat-table>

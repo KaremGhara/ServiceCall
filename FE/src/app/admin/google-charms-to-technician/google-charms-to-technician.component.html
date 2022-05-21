@@ -1,0 +1,13 @@
+
+<app-screen-cont [title]="'אחוז בקשות לתכנאי'" [breadscrums]="breadscrums">
+<div id="chart" style="max-width:380px; margin:35px auto; padding:0;">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [labels]="chartOptions.labels"
+      [responsive]="chartOptions.responsive"
+    ></apx-chart>
+  </div>
+  <button class="btn-space" (click)="backToList()"  mat-raised-button
+            color="warn">לחזור</button>
+</app-screen-cont>

@@ -1,7 +1,8 @@
 package com.alk.ServiceCall.serviceses;
 
-import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchAlgorithmException; 
 import java.security.spec.InvalidKeySpecException;
+import java.util.Collections;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.alk.ServiceCall.Helper.PasswordHelper;
 import com.alk.ServiceCall.beans.Customer;
+import com.alk.ServiceCall.beans.RequestCustomer;
 import com.alk.ServiceCall.beans.Technician;
 import com.alk.ServiceCall.repo.TechnicianRepo;
 
@@ -77,14 +79,15 @@ public class TechnicianService {
 		return false;
 	}
 	
-	
 	public Technician findById(int id) {
 		return technicianRepo.findById(id);
 
 	}
 	
 	public List<Technician> getAllTechnician() {
-		return technicianRepo.findAll();
+		List<Technician> alltechncians=technicianRepo.findAll();
+        Collections.reverse(alltechncians);
+		return alltechncians;
 	}
 
 }

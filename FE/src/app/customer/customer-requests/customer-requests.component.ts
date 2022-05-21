@@ -77,4 +77,12 @@ export class CustomerRequestsComponent implements OnInit {
     });    
 
 }
+isComplete(row){
+if(row.complete){
+  return 'טובלה'
+}
+else{
+  return 'בטיבול'
+}
+}
 }

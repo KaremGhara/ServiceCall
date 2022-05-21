@@ -87,4 +87,8 @@ AboutTechnician(row){
 updateTechnician(row){
   this.router.navigate(['admin/updateTechnician',row.id])
 }
+ToGoogleChars(row){
+  this.router.navigate(['admin/googleCharsToTechnician',row.id])
+
+}
 }

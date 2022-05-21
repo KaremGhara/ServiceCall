@@ -40,7 +40,7 @@
            <ng-container matColumnDef="isComplete">
             <mat-header-cell *matHeaderCellDef mat-sort-header>סטטוס פניה
             </mat-header-cell>
-            <mat-cell *matCellDef="let row" >{{row.complete ? 'טובלה':'בטיפול'}}</mat-cell>
+            <mat-cell *matCellDef="let row" >{{row.attach ? isComplete(row):'בהמתנה'}}</mat-cell>
           </ng-container>
            <!--  CustomerName Column -->
            <ng-container matColumnDef="CustomerName">

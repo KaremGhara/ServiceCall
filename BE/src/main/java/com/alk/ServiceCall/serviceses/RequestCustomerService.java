@@ -1,6 +1,8 @@
 package com.alk.ServiceCall.serviceses;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List; 
 
 import javax.transaction.Transactional;
@@ -63,16 +65,27 @@ public class RequestCustomerService {
 
 	}
 	
+//	public List<RequestCustomer> getAllRequestCustomer() {
+//		return requestCustomerRepo.findAll();
+//	}
+	
 	public List<RequestCustomer> getAllRequestCustomer() {
-		return requestCustomerRepo.findAll();
+		List<RequestCustomer> allReq=requestCustomerRepo.findAll();
+        Collections.reverse(allReq);
+		return allReq;
 	}
 	
+	
 	public List<RequestCustomer> getAllRequestCustomerBycostomerId(String costumerEmail) {
-		return requestCustomerRepo.findByemail(costumerEmail);
+		List<RequestCustomer> allReq=requestCustomerRepo.findByemail(costumerEmail);
+		Collections.reverse(allReq);
+		return allReq;
 	}
 	
 	public List<RequestCustomer> getAllRequestCustomerByTechnicianId(int TechnicianId) {
-		return requestCustomerRepo.findBytechnician_id(TechnicianId);
+		List<RequestCustomer> allReq=requestCustomerRepo.findBytechnician_id(TechnicianId);
+		Collections.reverse(allReq);
+		return allReq;
 	}
 	
 	public List<RequestCustomer> getAllRequestCustomerNotLinked() {
@@ -84,6 +97,26 @@ public class RequestCustomerService {
 				newlistSt.add(list);
 			}
 		}
+		Collections.reverse(newlistSt);
+		return newlistSt;
+	}
+	
+	public List<Integer> getAllRequestCustomerByComleted(int  techId) {
+		List<RequestCustomer> all=requestCustomerRepo.findBytechnician_id(techId);
+		List<Integer> newlistSt=new ArrayList<Integer>();
+		
+		int isComlete=0;
+		int isNotComlete=0;
+		for(RequestCustomer list:all) {
+			if(list.isComplete()==true) {
+				isComlete++;
+			}
+			else {
+				isNotComlete++;
+			}
+		}
+		newlistSt.add(isComlete);
+		newlistSt.add(isNotComlete);
 		return newlistSt;
 	}
 

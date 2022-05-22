@@ -65,6 +65,14 @@ public class RequestCustomerService {
 
 	}
 	
+	
+	public RequestCustomer findByEmail(String email) {
+		if(email!=null) {
+			return requestCustomerRepo.findByEmail(email);
+		}
+		return null;
+	}
+	
 //	public List<RequestCustomer> getAllRequestCustomer() {
 //		return requestCustomerRepo.findAll();
 //	}

@@ -32,7 +32,9 @@ export class RequserCustomerService {
   getRequsetById(id:number):Observable<RequsetCustomer> {
     return this.http.get<RequsetCustomer>(APP_URL+'requestCustomer/get-request_customer-By-Id?id='+id);
   }
-
+  getRequsetByemail(email:string):Observable<RequsetCustomer> {
+    return this.http.get<RequsetCustomer>(APP_URL+'requestCustomer/get-request_customer-By-Email?email='+email);
+  }
 
   updateRequsetCustomer(requestCustomer: RequsetCustomer):Observable<RequsetCustomer> {
     return this.http.put<RequsetCustomer>(APP_URL+'requestCustomer/update-request_customer',requestCustomer)

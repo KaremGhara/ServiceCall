@@ -56,6 +56,11 @@ public class RequestCustomerController {
 	{
 		return requestCustomerService.findById(id);
 	}
+	@GetMapping("get-request_customer-By-Email")
+	public RequestCustomer findByEmail(String email)
+	{
+		return requestCustomerService.findByEmail(email);
+	}
 	@DeleteMapping("delete-request_customer")
 	public HttpStatus deleteRequestCustomer(int id) {
 		if(requestCustomerService.deleteRequestCustomer(id)==true) return HttpStatus.ACCEPTED;

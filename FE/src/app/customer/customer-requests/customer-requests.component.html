@@ -91,11 +91,18 @@
               <mat-cell *matCellDef="let row">
                {{row.answerdate}}</mat-cell>
             </ng-container>
+            <ng-container matColumnDef="fixingTech">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>מטופל על ידי
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row">
+               {{row.technician.userName}}</mat-cell>
+            </ng-container>
+
             <ng-container matColumnDef="chatWithTech">
               <mat-header-cell *matHeaderCellDef mat-sort-header>
               </mat-header-cell>
               <mat-cell  *matCellDef="let row" >
-               <button [disabled]="row.complete"(click)="openDialog()" class="btn btn-primary">דבר עם טכנאי</button>
+               <button [disabled]="!row.attach || row.complete && !row.chat"(click)="openDialog()" class="btn btn-primary">דבר עם טכנאי</button>
                 </mat-cell>
             </ng-container>
   

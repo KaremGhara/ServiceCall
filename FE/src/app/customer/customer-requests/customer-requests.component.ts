@@ -96,15 +96,11 @@ export class CustomerRequestsComponent implements OnInit {
   }).then((res)=>{
     if(res.value){
       
-      this.customerService.getCustomerById(this.custId).subscribe(data=>{
-        data.messageTech=res.value;
-      this.customerService.updateCustomer(data).subscribe(data=>{
-        console.log(data);
-        
-      })  
-      })
-      
-      
+     this.requestCustomerService.getRequsetByemail(this.custemail).subscribe(data=>{
+       data.messageTech=res.value;
+       this.requestCustomerService.updateRequsetCustomer(data);
+     })
+     Swal.fire("You Sent message to your Technician: "+res.value);
     }
   })
 

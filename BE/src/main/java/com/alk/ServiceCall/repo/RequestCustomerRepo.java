@@ -9,6 +9,7 @@ import com.alk.ServiceCall.beans.RequestCustomer;
 public interface RequestCustomerRepo extends JpaRepository<RequestCustomer,Integer>{
 
 	public RequestCustomer findById(int Id);
+	public RequestCustomer findByEmail(String email);
 //	public List<RequestCustomer> findById(int costumerId);
 	public List<RequestCustomer> findByemail(String costumerEmail);
 	public List<RequestCustomer> findBytechnician_id(int technicianId);

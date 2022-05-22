@@ -84,7 +84,7 @@ export class CustomerRequestsComponent implements OnInit {
     });    
 
 }
-   openDialog(){
+   openDialog(row){
   Swal.fire({
     input: 'textarea',
     inputLabel: 'Message',
@@ -96,9 +96,11 @@ export class CustomerRequestsComponent implements OnInit {
   }).then((res)=>{
     if(res.value){
       
-     this.requestCustomerService.getRequsetByemail(this.custemail).subscribe(data=>{
+     this.requestCustomerService.getRequsetById(row.id).subscribe(data=>{
        data.messageTech=res.value;
-       this.requestCustomerService.updateRequsetCustomer(data);
+       this.requestCustomerService.updateRequsetCustomer(data).subscribe(res=>{
+         
+       })
      })
      Swal.fire("You Sent message to your Technician: "+res.value);
     }

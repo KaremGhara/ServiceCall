@@ -102,7 +102,7 @@
               <mat-header-cell *matHeaderCellDef mat-sort-header>
               </mat-header-cell>
               <mat-cell  *matCellDef="let row" >
-               <button [disabled]="!row.attach || row.complete && !row.chat"(click)="openDialog()" class="btn btn-primary">דבר עם טכנאי</button>
+               <button [disabled]="!row.attach || row.complete && !row.chat"(click)="openDialog(row)" class="btn btn-primary">דבר עם טכנאי</button>
                 </mat-cell>
             </ng-container>
   

@@ -84,4 +84,13 @@ isComplete(row){
     return 'בטיבול'
   }
   }
+  isCompleteColor(row){
+    if(row.complete){
+      return 'green'
+    }
+    else{
+      return 'red'
+    }
+  
+  }
 }

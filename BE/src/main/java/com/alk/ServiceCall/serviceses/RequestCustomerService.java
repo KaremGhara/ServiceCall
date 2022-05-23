@@ -50,6 +50,11 @@ public class RequestCustomerService {
 	
 	public boolean deleteRequestCustomer(int id) {
 		RequestCustomer delRequestCustomer =  requestCustomerRepo.findById(id);
+		delRequestCustomer.setCustomer(null);
+		delRequestCustomer.setTechnician(null);
+		delRequestCustomer.setAttach(false);
+		delRequestCustomer.setComplete(false);
+		requestCustomerRepo.save(delRequestCustomer);
 
 		if(delRequestCustomer!=null)
 		{

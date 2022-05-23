@@ -14,6 +14,7 @@ import com.alk.ServiceCall.Helper.PasswordHelper;
 import com.alk.ServiceCall.beans.Customer;
 import com.alk.ServiceCall.beans.RequestCustomer;
 import com.alk.ServiceCall.beans.Technician;
+import com.alk.ServiceCall.repo.RequestCustomerRepo;
 import com.alk.ServiceCall.repo.TechnicianRepo;
 
 @Service
@@ -21,6 +22,9 @@ public class TechnicianService {
 
 	@Autowired
 	private TechnicianRepo technicianRepo;
+	
+	@Autowired
+	private RequestCustomerRepo requestCustomerRepo;
 	
 	public boolean addTechnician(Technician technician) {
 		Technician exsitingTechnicianEmail=technicianRepo.findByEmail(technician.getEmail());
@@ -70,9 +74,16 @@ public class TechnicianService {
 	
 	public boolean deleteTechnician(int id) {
 		Technician delTechnician =  technicianRepo.findById(id);
+		List<RequestCustomer> req=requestCustomerRepo.findBytechnician_id(id);
 
 		if(delTechnician!=null)
 		{
+			for(RequestCustomer re:req) {
+				re.setTechnician(null);
+				re.setAttach(false);
+				re.setComplete(false);
+				requestCustomerRepo.save(re);
+			}
 			technicianRepo.deleteById(id);
 			return true;
 		}

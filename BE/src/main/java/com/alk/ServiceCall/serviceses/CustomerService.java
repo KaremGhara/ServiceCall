@@ -12,8 +12,9 @@ import org.springframework.stereotype.Service;
 
 import com.alk.ServiceCall.Helper.PasswordHelper;
 import com.alk.ServiceCall.beans.Customer;
-import com.alk.ServiceCall.beans.Technician;
+import com.alk.ServiceCall.beans.RequestCustomer;
 import com.alk.ServiceCall.repo.CustomerRepo;
+import com.alk.ServiceCall.repo.RequestCustomerRepo;
 
 @Service
 public class CustomerService {
@@ -21,6 +22,9 @@ public class CustomerService {
 	
 	@Autowired
 	private CustomerRepo customerRepo;
+	
+	@Autowired
+	private RequestCustomerRepo requestCustomerRepo;
 	
 	public boolean addCustomer(Customer customer) {
 		Customer exsitingCustomer=customerRepo.findByEmail(customer.getEmail());
@@ -59,9 +63,13 @@ public class CustomerService {
 	
 	public boolean deleteCustomer(int id) {
 		Customer delCustomer =  customerRepo.findById(id);
-
+		List<RequestCustomer> req=requestCustomerRepo.findBycustomer_id(id);
 		if(delCustomer!=null)
 		{
+			for(RequestCustomer re:req) {
+				re.setTechnician(null);
+				requestCustomerRepo.save(re);
+			}
 			customerRepo.deleteById(id);
 			return true;
 		}

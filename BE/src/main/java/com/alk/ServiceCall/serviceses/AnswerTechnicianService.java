@@ -1,12 +1,9 @@
 package com.alk.ServiceCall.serviceses;
 
-import java.util.List;  
-
+import java.util.List;   
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.alk.ServiceCall.beans.AnswerTechnician;
 import com.alk.ServiceCall.beans.RequestCustomer;
 import com.alk.ServiceCall.repo.AnswerTechnicianRepo;

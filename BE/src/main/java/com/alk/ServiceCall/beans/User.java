@@ -1,8 +1,7 @@
 package com.alk.ServiceCall.beans;
 
-import java.io.File;
-import java.util.List;
 
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,8 +38,6 @@ public abstract class User {
 	@NotBlank (message = "password Can't be empty")
 	private String userPassword;
 	
-//	@Size(min = 9, max = 9)
-//	@NotBlank(message = "Can't Enter Empty Social ID Number!")
 	private String socialId;
 	
 	@Column(name="phone")

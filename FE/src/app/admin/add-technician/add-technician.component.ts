@@ -30,9 +30,6 @@ export class AddTechnicianComponent implements OnInit {
        ) {
     this.TechnicianForm = this.fb.group({
     });
-
-   
-    // positiveNumberValidator()
     this.TechnicianForm.addControl("name", new FormControl('', [Validators.required]))
     this.TechnicianForm.addControl("socialId",new FormControl('', [Validators.required, Validators.minLength(9),Validators.maxLength(9)]))
     this.TechnicianForm.addControl("phone",new FormControl('',[Validators.required, Validators.minLength(10),Validators.maxLength(10)]))

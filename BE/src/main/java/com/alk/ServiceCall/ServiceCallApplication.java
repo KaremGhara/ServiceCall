@@ -1,11 +1,9 @@
 package com.alk.ServiceCall;
 
-
 import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication; 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import com.alk.ServiceCall.Helper.PasswordHelper;
 import com.alk.ServiceCall.beans.Admin;
 import com.alk.ServiceCall.beans.Customer;

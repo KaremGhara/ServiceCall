@@ -1,5 +1,3 @@
-import { CommonModule } from "@angular/common";
-import { UserRole } from "../common-utils/classes/user-role";
 
 export class User{
     public id?:number

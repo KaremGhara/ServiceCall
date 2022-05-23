@@ -1,4 +1,3 @@
-import { Customer } from "./customer";
 import { Technician } from "./technician";
 
 export class RequsetCustomer {

@@ -6,11 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -28,10 +24,5 @@ public class Technician extends User {
 	
 	@NotBlank(message = "Can't Enter Empty Job Role!")
 	private String jobRole;
-	
-	@Column(name="messageForTech")
-	private String messageTech;
-	
-	
 
 }

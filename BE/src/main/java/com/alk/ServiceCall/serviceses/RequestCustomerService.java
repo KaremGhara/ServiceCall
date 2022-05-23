@@ -1,17 +1,11 @@
 package com.alk.ServiceCall.serviceses;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List; 
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.datetime.standard.DateTimeContext;
-import org.springframework.format.datetime.standard.DateTimeContextHolder;
 import org.springframework.stereotype.Service;
-
 import com.alk.ServiceCall.beans.Customer;
 import com.alk.ServiceCall.beans.RequestCustomer;
 import com.alk.ServiceCall.repo.CustomerRepo;
@@ -29,7 +23,6 @@ public class RequestCustomerService {
 	public boolean addRequestCustomer(RequestCustomer requestCustomer,int customerId) {
 		Customer eCustomer =  customerRepo.findById(customerId);
 		requestCustomer.setCustomer(eCustomer);
-//		requestCustomer.setCustomerName(eCustomer.getUserName());
 			requestCustomerRepo.save(requestCustomer);
 					return true;
 	}
@@ -77,11 +70,7 @@ public class RequestCustomerService {
 		}
 		return null;
 	}
-	
-//	public List<RequestCustomer> getAllRequestCustomer() {
-//		return requestCustomerRepo.findAll();
-//	}
-	
+
 	public List<RequestCustomer> getAllRequestCustomer() {
 		List<RequestCustomer> allReq=requestCustomerRepo.findAll();
         Collections.reverse(allReq);

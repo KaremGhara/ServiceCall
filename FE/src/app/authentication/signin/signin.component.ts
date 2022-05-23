@@ -5,8 +5,6 @@ import { Role } from 'src/app/core/models/role';
 import { UnsubscribeOnDestroyAdapter } from 'src/app/shared/UnsubscribeOnDestroyAdapter';
 import { Login } from 'src/app/beans/login';
 import { LoginUsersService } from 'src/app/services/login-users.service'
-import { Customer } from 'src/app/beans/customer';
-import { User } from 'src/app/beans/User';
 import { AuthService } from 'src/app/core/service/auth.service';
 @Component({
   selector: 'app-signin',
@@ -23,7 +21,6 @@ export class SigninComponent
   loading = false;
   error = '';
   hide = true;
-  // loginUser:Customer=new Customer();
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -57,9 +54,6 @@ export class SigninComponent
       loginUser.email=this.f.username.value;
       loginUser.password=this.f.password.value;
       this.authService.login(loginUser).subscribe(res=>{
-        // if(res==null){
-
-        // }
         if (res) {
           this.loginService.loggedInUser=res;
           setTimeout(() => {

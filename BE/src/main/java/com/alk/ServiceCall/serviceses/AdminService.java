@@ -1,11 +1,8 @@
 package com.alk.ServiceCall.serviceses;
 
 import javax.transaction.Transactional;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.alk.ServiceCall.beans.Admin;
 import com.alk.ServiceCall.repo.AdminRepo;
 

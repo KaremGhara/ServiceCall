@@ -49,15 +49,11 @@ public class AnswerTechnicianController {
 	{
 		return answerTechnicianService.findById(id);
 	}
+	
 	@DeleteMapping("delete-answer-technician")
 	public HttpStatus deleteAnswerTechnician(int id) {
 		if(answerTechnicianService.deleteAnswerTechnician(id)==true) return HttpStatus.ACCEPTED;
 		else {return HttpStatus.BAD_REQUEST;}
 	}
 	
-	@GetMapping("get-answer-technician-By-repair-code")
-	public AnswerTechnician findByRepairCode(int repairCode)
-	{
-		return answerTechnicianService.findByRepairCode(repairCode);
-	}
 }

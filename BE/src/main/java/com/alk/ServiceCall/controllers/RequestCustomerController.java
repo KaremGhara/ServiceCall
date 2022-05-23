@@ -28,8 +28,7 @@ public class RequestCustomerController {
 		if(this.requestCustomerService.addRequestCustomer(requestCustomer,customerId)) {
 			return true;
 		}
-		else {return false;}
-		
+		else {return false;}	
 	}
 	
 	
@@ -51,21 +50,23 @@ public class RequestCustomerController {
 	{
 		return requestCustomerService.findById(id);
 	}
+	
 	@GetMapping("get-request_customer-By-Email")
 	public RequestCustomer findByEmail(String email)
 	{
 		return requestCustomerService.findByEmail(email);
 	}
+	
 	@DeleteMapping("delete-request_customer")
 	public HttpStatus deleteRequestCustomer(int id) {
 		if(requestCustomerService.deleteRequestCustomer(id)==true) return HttpStatus.ACCEPTED;
 		else {return HttpStatus.BAD_REQUEST;}
 	}
 	
-	@GetMapping("get-request_customer-By-IdCostomer")
+	@GetMapping("get-request_customer-By-costumerEmail")
 	public List<RequestCustomer> findByCostomerId(String costumerEmail)
 	{
-		return requestCustomerService.getAllRequestCustomerBycostomerId(costumerEmail);
+		return requestCustomerService.getAllRequestCustomerBycostomerEmail(costumerEmail);
 	}
 	
 	@GetMapping("get-request_customer-By-technician-id")

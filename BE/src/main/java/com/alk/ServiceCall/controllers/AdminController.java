@@ -34,7 +34,6 @@ public class AdminController {
 	public HttpStatus editAdmin(@RequestBody Admin admin) {
 		if(adminService.updateAdmin(admin)==true) return HttpStatus.ACCEPTED;
 		else {return HttpStatus.BAD_REQUEST;}
-
 	}
 	
 	@GetMapping("get-admin-By-Id")

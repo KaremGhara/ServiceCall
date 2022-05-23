@@ -78,7 +78,7 @@ public class RequestCustomerService {
 	}
 	
 	
-	public List<RequestCustomer> getAllRequestCustomerBycostomerId(String costumerEmail) {
+	public List<RequestCustomer> getAllRequestCustomerBycostomerEmail(String costumerEmail) {
 		List<RequestCustomer> allReq=requestCustomerRepo.findByemail(costumerEmail);
 		Collections.reverse(allReq);
 		return allReq;

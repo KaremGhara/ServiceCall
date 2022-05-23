@@ -26,9 +26,7 @@ export class MyRequestsComponent implements OnInit {
     },
   ];
   idTech:number;
-  code:number;
   requsetCustomer:RequsetCustomer[];
-  answerTechnician:AnswerTechnician;
   isTblLoading = true;
   displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','problemDescription','date','id','Answerdate','MessageFromCust','action']
   CustomerDatabase: RequserCustomerService | null;
@@ -38,11 +36,7 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
   constructor(
     public dialog: MatDialog,
     private router:Router,
-    private snackBar: MatSnackBar,
-    private route:ActivatedRoute,
     private requserCustomerService:RequserCustomerService,
-    private customerService:CustomerService,
-    private answerTechnicianService:AnswerTechnicianService,
 
   ) { }
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -52,14 +46,7 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
   ngOnInit(): void {
     const storedItems= JSON.parse(localStorage.getItem('currentUser'))
     this.idTech=storedItems.id;
-    // this.idTech=this.route.snapshot.params['id'];
     this.getRequestByTechnicianId();
-    this.answerTechnicianService.getByRepairCode(this.code).subscribe(data=>{
-      
-      this.answerTechnician=data; 
-      
-    })
-
   }
 
   getRequestByTechnicianId(){
@@ -76,7 +63,6 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
   }
 
   AnswerTechnician(row){
-    this.code=row.id;
     this.router.navigate(['technician/answerTechnician',row.id])
   }
 }

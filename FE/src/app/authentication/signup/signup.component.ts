@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Customer } from '../../beans/customer';
 import { CustomerService } from '../../services/customer.service';
@@ -22,7 +22,6 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
     private customerService:CustomerService
   ) {}
@@ -33,33 +32,19 @@ export class SignupComponent implements OnInit {
       userPassword: ['', Validators.required],
       userPhone: ['',[Validators.required, Validators.minLength(10),Validators.maxLength(10)]],
       userAddress: ['', Validators.required],
-     
-
-
-
-    });
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    })
   }
   get f() {
     return this.authForm.controls;
   }
   onSubmit() {
     this.submitted = true;
-    // stop here if form is invalid
     if (this.authForm.invalid) {
       return;
     } else {
       this.router.navigate(['/admin/dashboard/main']);
     }
   }
-  //  onFileInput(event){
-  //  const file: File=event.target.files[0];
-  //  console.log(file);
-   
-  // this.newCustomer.image=file.name;
-   
-  // }
 
   async onFileInput()
   {

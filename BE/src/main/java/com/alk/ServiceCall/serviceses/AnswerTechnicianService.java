@@ -73,8 +73,4 @@ public class AnswerTechnicianService {
 		return answerTechnicianRepo.findAll();
 	}
 	
-	public AnswerTechnician findByRepairCode(int repairCode) {
-		return answerTechnicianRepo.findByRepairCode(repairCode);
-
-	}
 }

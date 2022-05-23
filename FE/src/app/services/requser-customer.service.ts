@@ -18,7 +18,7 @@ export class RequserCustomerService {
   getAllRequestCustomerBycostomerId(email:string):Observable<RequsetCustomer[]> {
     console.log(email);
     
-    return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-request_customer-By-IdCostomer?costumerEmail='+ email)
+    return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-request_customer-By-costumerEmail?costumerEmail='+ email)
   }
 
   getAllRequestCustomers():Observable<RequsetCustomer[]> {

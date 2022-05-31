@@ -3,7 +3,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from 'src/app/beans/customer';
 import { RequsetCustomer } from 'src/app/beans/requset-customer';
-import { CustomerService } from 'src/app/services/customer.service';
 import { RequserCustomerService } from 'src/app/services/requser-customer.service';
 import { AnswerTechnician } from 'src/app/beans/answer-technician';
 import { AnswerTechnicianService } from 'src/app/services/answer-technician.service';
@@ -18,9 +17,9 @@ import Swal from 'sweetalert2';
 export class AnswerTechnicianComponent implements OnInit {
   breadscrums = [
     {
-      title: 'ביקור תכנאי',
-      items: ['תכנאי'],
-      active: 'ביקור תכנאי',
+      title: 'ביקור טכנאי',
+      items: ['טכנאי'],
+      active: 'ביקור טכנאי',
     },
   ];
   answerTechnician:AnswerTechnician= new AnswerTechnician();
@@ -35,7 +34,6 @@ export class AnswerTechnicianComponent implements OnInit {
     private router:Router,
     private route:ActivatedRoute,
     private RequestService:RequserCustomerService,
-    private customerService:CustomerService,
     private answerTechnicianService:AnswerTechnicianService,
      ) {
     this.ReqForm = this.fb.group({});

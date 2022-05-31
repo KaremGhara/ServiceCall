@@ -19,7 +19,7 @@ export const ROUTES: RouteInfo[] = [
  
   {
     path: '/admin/allTechnician',
-    title: 'תכנאים',
+    title: 'טכנאי',
     moduleName: 'Show technician',
     iconType: 'material-icons-two-tone',
     icon: 'space_dashboard',

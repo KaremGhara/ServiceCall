@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { Customer } from 'src/app/beans/customer';
 import {RequsetCustomer} from 'src/app/beans/requset-customer';
 import { CustomerService } from 'src/app/services/customer.service';
@@ -30,7 +30,6 @@ export class RequestTechComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private router:Router,
-    private route:ActivatedRoute,
     private newRequest:RequserCustomerService,
     private customerService:CustomerService,
      ) {

@@ -1,5 +1,15 @@
 <app-screen-cont [title]="'פניות'" [breadscrums]="breadscrums" >
 
+  <mat-form-field style="margin:10px; width:250px" appearance="fill">
+    <mat-label>בחר סטטוס</mat-label>
+    <mat-select [(ngModel)]="selectedComplet" (ngModelChange)="getAllRequsetCustomers()" placeholder="סטטוס">
+        <mat-option value="בהמתנה">בהמתנה</mat-option>
+        <mat-option value="בטיפול">בטיפול</mat-option>
+        <mat-option value="טופלה">טופלה</mat-option>
+        <mat-option value="הכל">הכל</mat-option>
+    </mat-select>
+</mat-form-field>
+
     <div class="mat-elevation-z8">
         <div class="materialTableHeader">
             <div class="row">

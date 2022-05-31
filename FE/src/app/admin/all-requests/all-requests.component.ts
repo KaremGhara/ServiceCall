@@ -24,6 +24,8 @@ export class AllRequestsComponent implements OnInit {
   isTblLoading = true;
   displayedColumns=['isComplete','CustomerName','phone','email','deviceType','deviceName','problemDescription','repairType','openDate','closeDate','id','action']
   dataSource:MatTableDataSource<RequsetCustomer>;
+  selectedComplet:String=null;
+
 
 
   constructor(
@@ -40,12 +42,51 @@ export class AllRequestsComponent implements OnInit {
   
     
     getAllRequsetCustomers(){
-      this.requserCustomerService.getAllRequestCustomers().subscribe(data => {
+      console.log(this.selectedComplet)
+      if(this.selectedComplet==='בהמתנה'){
+        this.requserCustomerService.getAllRequestCustomersByAttach().subscribe(data => {
+          this.isTblLoading = false;
+          this.dataSource= new MatTableDataSource(data);
+          this.dataSource.paginator=this.paginator;
+          this.dataSource.sort=this.sort;
+        })
+
+      }
+      else if(this.selectedComplet==='בטיפול'){
+        this.requserCustomerService.getAllReqByCompletFalse().subscribe(data => {
+          this.isTblLoading = false;
+          this.dataSource= new MatTableDataSource(data);
+          this.dataSource.paginator=this.paginator;
+          this.dataSource.sort=this.sort;
+        })
+
+      }
+     else if(this.selectedComplet==='טופלה'){
+      this.requserCustomerService.getAllReqByCompletTrue().subscribe(data => {
         this.isTblLoading = false;
         this.dataSource= new MatTableDataSource(data);
         this.dataSource.paginator=this.paginator;
         this.dataSource.sort=this.sort;
       })
+
+      }
+      else if(this.selectedComplet==='הכל'){
+        this.requserCustomerService.getAllRequestCustomers().subscribe(data => {
+          this.isTblLoading = false;
+          this.dataSource= new MatTableDataSource(data);
+          this.dataSource.paginator=this.paginator;
+          this.dataSource.sort=this.sort;
+        })
+      }
+      else{
+        this.requserCustomerService.getAllRequestCustomers().subscribe(data => {
+          this.isTblLoading = false;
+          this.dataSource= new MatTableDataSource(data);
+          this.dataSource.paginator=this.paginator;
+          this.dataSource.sort=this.sort;
+        })
+      }
+     
     }
   applyFilter($event:any){
     this.dataSource.filter=$event.target.value;
@@ -77,10 +118,10 @@ export class AllRequestsComponent implements OnInit {
 
 isComplete(row){
   if(row.complete){
-    return 'טובלה'
+    return 'טופלה'
   }
   else{
-    return 'בטיבול'
+    return 'בטיפול'
   }
   }
   isCompleteColor(row){
@@ -91,5 +132,8 @@ isComplete(row){
       return 'red'
     }
   
+  }
+  selectComplet(){
+
   }
 }

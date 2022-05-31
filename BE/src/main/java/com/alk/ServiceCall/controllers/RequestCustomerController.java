@@ -84,4 +84,20 @@ public class RequestCustomerController {
 	public List<Integer> getAllRequestCustomerByComplete(int techId){
 		return requestCustomerService.getAllRequestCustomerByComleted(techId);
 	}
+	
+	@GetMapping("get-all-request_customer-by-attach")
+	public List<RequestCustomer> getAllReqByAttach(){
+		return requestCustomerService.getAllRequestCustomerByAttach();
+	}
+	
+	@GetMapping("get-all-request_customer-by-complet-false")
+	public List<RequestCustomer> getAllReqByCompletFalse(){
+		return requestCustomerService.getAllRequestCustomerByIsCompletFalse();
+	}
+	
+	@GetMapping("get-all-request_customer-by-complet-true")
+	public List<RequestCustomer> getAllReqByCompletTrue(){
+		return requestCustomerService.getAllRequestCustomerByIsCompletTrue();
+	}
+
 }

@@ -7,7 +7,6 @@ import {
   } from "ng-apexcharts";
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequserCustomerService } from 'src/app/services/requser-customer.service';
-import { RequsetCustomer } from 'src/app/beans/requset-customer';
   export type ChartOptions = {
     series: ApexNonAxisChartSeries;
     chart: ApexChart;
@@ -22,9 +21,9 @@ import { RequsetCustomer } from 'src/app/beans/requset-customer';
 export class GoogleCharmsToTechnicianComponent implements OnInit {
     breadscrums = [
         {
-          title: 'אחוז בקשות לתכנאי',
-          items: ['תכנאי'],
-          active: 'אחוז בקשות לתכנאי ',
+          title: 'אחוז בקשות לטכנאי',
+          items: ['טכנאי'],
+          active: 'אחוז בקשות לטכנאי ',
         },
       ];
       idTech:number;

@@ -77,6 +77,24 @@ public class RequestCustomerService {
 		return allReq;
 	}
 	
+	public List<RequestCustomer> getAllRequestCustomerByAttach() {
+		List<RequestCustomer> allReq=requestCustomerRepo.findByattach(false);
+        Collections.reverse(allReq);
+		return allReq;
+	}
+	
+	public List<RequestCustomer> getAllRequestCustomerByIsCompletFalse() {
+		List<RequestCustomer> allReq=requestCustomerRepo.findByisCompleteAndAttach(false,true);
+        Collections.reverse(allReq);
+		return allReq;
+	}
+	
+	public List<RequestCustomer> getAllRequestCustomerByIsCompletTrue() {
+		List<RequestCustomer> allReq=requestCustomerRepo.findByisComplete(true);
+        Collections.reverse(allReq);
+		return allReq;
+	}
+	
 	
 	public List<RequestCustomer> getAllRequestCustomerBycostomerEmail(String costumerEmail) {
 		List<RequestCustomer> allReq=requestCustomerRepo.findByemail(costumerEmail);

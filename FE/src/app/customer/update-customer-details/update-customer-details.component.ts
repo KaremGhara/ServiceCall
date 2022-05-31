@@ -27,7 +27,11 @@ export class UpdateCustomerDetailsComponent implements OnInit {
   ReqForm: any;
   custId:number;
 
-  constructor(private fb: FormBuilder,private customerService:CustomerService,private router:Router) {
+  constructor(
+    private fb: FormBuilder,
+    private customerService:CustomerService,
+    private router:Router
+    ) {
     this.custForm = this.fb.group({});
     this.custForm.addControl("CustomerName",new FormControl({value: this.updateCustomer.userName,disabled:true}))
     this.custForm.addControl("email",new FormControl('',[Validators.required, Validators.email]))

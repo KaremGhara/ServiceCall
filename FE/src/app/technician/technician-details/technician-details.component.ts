@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { Technician } from 'src/app/beans/technician';
 import { TechnicianService } from 'src/app/services/technician.service';
 
@@ -14,7 +14,10 @@ export class TechnicianDetailsComponent implements OnInit {
   technician:Technician=new Technician();
   
 
-  constructor(private router: Router,private technicianService: TechnicianService,private route:ActivatedRoute){}
+  constructor(
+    private router: Router,
+    private technicianService: TechnicianService,
+    ){}
   ngOnInit(): void {
        const storedItems= JSON.parse(localStorage.getItem('currentUser'))
        this.technicianId=storedItems.id;

@@ -2,14 +2,10 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AnswerTechnician } from 'src/app/beans/answer-technician';
+import {  Router } from '@angular/router';
 import { RequsetCustomer } from 'src/app/beans/requset-customer';
-import { AnswerTechnicianService } from 'src/app/services/answer-technician.service';
-import { CustomerService } from 'src/app/services/customer.service';
 import { RequserCustomerService } from 'src/app/services/requser-customer.service';
 
 @Component({
@@ -37,7 +33,6 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
     public dialog: MatDialog,
     private router:Router,
     private requserCustomerService:RequserCustomerService,
-    private answerTechnicianService:AnswerTechnicianService,
 
   ) { }
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;

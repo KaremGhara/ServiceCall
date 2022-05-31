@@ -51,4 +51,16 @@ return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-request_cus
   getRequsetCustomerBycompleteByIdTech(techId: number):Observable<number[]> {
     return this.http.get<number[]>(APP_URL+'requestCustomer/get-all-request_customer-by-complete?techId='+techId)
   }
+
+  getAllRequestCustomersByAttach():Observable<RequsetCustomer[]> {
+    return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-all-request_customer-by-attach')
+  }
+
+  getAllReqByCompletFalse():Observable<RequsetCustomer[]> {
+    return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-all-request_customer-by-complet-false')
+  }
+
+  getAllReqByCompletTrue():Observable<RequsetCustomer[]> {
+    return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-all-request_customer-by-complet-true')
+  }
 }

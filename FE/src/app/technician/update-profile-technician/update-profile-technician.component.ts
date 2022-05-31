@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Technician } from 'src/app/beans/technician';
 import { TechnicianService } from 'src/app/services/technician.service';
 import Swal from 'sweetalert2';
@@ -25,7 +25,6 @@ export class UpdateProfileTechnicianComponent implements OnInit {
   technicianId:number;
 
   constructor(private fb: FormBuilder,
-    private route:ActivatedRoute,
     private router:Router,
     private technicianService:TechnicianService
     ) {

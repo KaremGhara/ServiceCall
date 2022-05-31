@@ -3,13 +3,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 import { RequsetCustomer } from 'src/app/beans/requset-customer';
 import { RequserCustomerService } from 'src/app/services/requser-customer.service';
 import { MatDialog } from '@angular/material/dialog';
 
 import Swal from 'sweetalert2';
-import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-customer-requests',
@@ -34,7 +32,10 @@ export class CustomerRequestsComponent implements OnInit {
     },
   ];
 
-  constructor(private requestCustomerService: RequserCustomerService,private route :Router,public dialog: MatDialog,private customerService: CustomerService) { }
+  constructor(
+    private requestCustomerService: RequserCustomerService,
+    public dialog: MatDialog,
+    ) { }
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   ngOnInit(): void {
@@ -110,10 +111,10 @@ export class CustomerRequestsComponent implements OnInit {
   
 isComplete(row){
   if(row.complete){
-    return 'טובלה'
+    return 'טופלה'
   }
   else{
-    return 'בטיבול'
+    return 'בטיפול'
   }
   }
   isCompleteColor(row){

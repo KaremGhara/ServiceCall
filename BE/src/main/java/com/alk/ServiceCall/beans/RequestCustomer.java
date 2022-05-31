@@ -50,6 +50,8 @@ public class RequestCustomer {
 	
 	private String messageTech;
 	
+	private LocalDate closedate;
+	
 
 	@ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
 	@JoinColumn(name = "customer_id", referencedColumnName = "user_id")

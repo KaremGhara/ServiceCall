@@ -81,15 +81,15 @@
           </ng-container>
 
           <!-- problemDescription Column -->
-          <ng-container matColumnDef="problemDescription">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>פירוט תקלה
+          <ng-container matColumnDef="closeDate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>תאריך סגירה
             </mat-header-cell>
             <mat-cell *matCellDef="let row">
-             {{row.problemDescription}}</mat-cell>
+             {{row.closedate}}</mat-cell>
           </ng-container>
               <!-- date Column -->
-              <ng-container matColumnDef="date">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>תאריך
+              <ng-container matColumnDef="openDate">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>תאריך פתיחה
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row">
                  {{row.date}}</mat-cell>

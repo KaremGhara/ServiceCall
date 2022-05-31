@@ -28,7 +28,7 @@ export class MyRequestsComponent implements OnInit {
   idTech:number;
   requsetCustomer:RequsetCustomer[];
   isTblLoading = true;
-  displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','problemDescription','date','id','Answerdate','MessageFromCust','action']
+  displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','openDate','closeDate','id','Answerdate','MessageFromCust','action']
   CustomerDatabase: RequserCustomerService | null;
 dataSource:MatTableDataSource<RequsetCustomer>;
 selection = new SelectionModel<RequsetCustomer>(true, []);
@@ -37,6 +37,7 @@ selection = new SelectionModel<RequsetCustomer>(true, []);
     public dialog: MatDialog,
     private router:Router,
     private requserCustomerService:RequserCustomerService,
+    private answerTechnicianService:AnswerTechnicianService,
 
   ) { }
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;

@@ -24,6 +24,7 @@ public class AnswerTechnicianService {
 			requestCustomer.setComplete(true);
 			requestCustomer.setAnswerdate(answerTechnician.getAnswerdate());
 			requestCustomer.setId(requestCustomer.getId());
+			requestCustomer.setClosedate(answerTechnician.getDate());
 			requestCustomerRepo.save(requestCustomer);
 			answerTechnicianRepo.save(answerTechnician);
 		}
@@ -32,6 +33,7 @@ public class AnswerTechnicianService {
 			requestCustomer.setComplete(false);
 			requestCustomer.setAnswerdate(answerTechnician.getAnswerdate());
 			requestCustomer.setId(requestCustomer.getId());
+			requestCustomer.setClosedate(answerTechnician.getDate());
 			requestCustomerRepo.save(requestCustomer);
 			answerTechnicianRepo.save(answerTechnician);
 		}

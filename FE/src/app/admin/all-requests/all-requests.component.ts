@@ -22,7 +22,7 @@ export class AllRequestsComponent implements OnInit {
   ];
   requserCustomer:RequsetCustomer[];
   isTblLoading = true;
-  displayedColumns=['isComplete','CustomerName','phone','email','deviceType','deviceName','problemDescription','repairType','date','id','action']
+  displayedColumns=['isComplete','CustomerName','phone','email','deviceType','deviceName','problemDescription','repairType','openDate','closeDate','id','action']
   dataSource:MatTableDataSource<RequsetCustomer>;
 
 

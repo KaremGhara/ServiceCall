@@ -31,7 +31,7 @@ export class UpdateTechnicianComponent implements OnInit {
     ) {
       this.TechnicianForm = this.fb.group({
       });
-      this.TechnicianForm.addControl("name",new FormControl({value: this.updateTechnician.userName,disabled:true}))
+      this.TechnicianForm.addControl("name",new FormControl({value: this.updateTechnician.userName,disabled:false}))
       this.TechnicianForm.addControl("socialId",new FormControl('', [Validators.required, Validators.minLength(9),Validators.maxLength(9)]))
       this.TechnicianForm.addControl("phone",new FormControl('',[Validators.required, Validators.minLength(10),Validators.maxLength(10)]))
       this.TechnicianForm.addControl("address", new FormControl('', [Validators.required]))

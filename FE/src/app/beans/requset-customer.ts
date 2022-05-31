@@ -14,7 +14,9 @@ export class RequsetCustomer {
         public technician?: Technician,
         public  attach?: boolean,
         public  answerdate?: string,
-        public messageTech?: string
+        public messageTech?: string,
+        public  closedate?: Date,
+        
 
 
        ){}

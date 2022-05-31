@@ -30,7 +30,8 @@ export class AnswerTechnicianComponent implements OnInit {
   requestDate=new Date(); 
   techtId:number
   Customer:Customer=new Customer();
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private router:Router,
     private route:ActivatedRoute,
     private RequestService:RequserCustomerService,

@@ -49,7 +49,7 @@
           </mat-form-field>
 
           <mat-icon (click)="fileInput.click()">add_a_photo</mat-icon>
-          <input #fileInput formControlName="userImage" type="button" [(ngModel)]="updateTechnician.image" (click)="onFileInput()"  style="display:none;" />
+          <input #fileInput type="button" [(ngModel)]="updateTechnician.image" (click)="onFileInput()"  style="display:none;" />
 
 
 
@@ -64,7 +64,7 @@
 
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" style="margin:10px ;margin-left: 1800px;">
-          <button class="btn-space" (click)="updateTechinician()" [disabled]="TechnicianForm.invalid" mat-raised-button
+          <button class="btn-space" (click)="updateTechinician()"  mat-raised-button
             color="primary">עדכון</button>
             <button class="btn-space" (click)="backToList()"  mat-raised-button
             color="warn">ביטול</button>

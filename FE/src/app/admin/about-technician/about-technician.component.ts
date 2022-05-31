@@ -23,7 +23,7 @@ export class AboutTechnicianComponent implements OnInit {
   idTech:number;
   requsetCustomer:RequsetCustomer[];
   isTblLoading = true;
-  displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','problemDescription','date','id','messageTech','Answerdate']
+  displayedColumns=['isComplete','CustomerName','phone','email','deviceName','deviceType','problemDescription','openDate','closeDate','id','messageTech','Answerdate']
 dataSource:MatTableDataSource<RequsetCustomer>;
 
   constructor(

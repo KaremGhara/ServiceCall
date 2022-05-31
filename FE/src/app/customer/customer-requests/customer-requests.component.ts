@@ -20,7 +20,7 @@ export class CustomerRequestsComponent implements OnInit {
   requserCustomer:RequsetCustomer[];
   isTblLoading = true;
   messageText:string
-  displayedColumns=['isComplete','id','date','deviceType','problemDescription','repairType','deviceName','Answerdate','chatWithTech']
+  displayedColumns=['isComplete','id','openDate','closeDate','deviceType','problemDescription','repairType','deviceName','Answerdate','chatWithTech']
   RequserCustomerDatabase: RequserCustomerService | null;
   dataSource:MatTableDataSource<RequsetCustomer>;
   selection = new SelectionModel<RequsetCustomer>(true, []);

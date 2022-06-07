@@ -9,21 +9,16 @@ import com.alk.ServiceCall.beans.LoginUsers;
 import com.alk.ServiceCall.beans.User;
 import com.alk.ServiceCall.repo.UserRepo;
 
-
 @Service
 public class LoginService {
 
-
-	
 	@Autowired
 	private UserRepo userRepo;
-	
-	
+
 	public User userLogin1(LoginUsers users) {
 		User user = userRepo.findByEmail(users.getEmail());
 		try {
-			if(PasswordHelper.validatePassword(users.getPassword(),user.getUserPassword()))
-			{
+			if (PasswordHelper.validatePassword(users.getPassword(), user.getUserPassword())) {
 				return user;
 			}
 		} catch (NoSuchAlgorithmException e) {
@@ -34,6 +29,4 @@ public class LoginService {
 		return null;
 	}
 
-	
-	
 }

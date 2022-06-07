@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.alk.ServiceCall.beans.Admin;
 import com.alk.ServiceCall.serviceses.AdminService;
 
@@ -17,28 +16,30 @@ import com.alk.ServiceCall.serviceses.AdminService;
 @RestController
 @RequestMapping("api/admin")
 public class AdminController {
-	
+
 	@Autowired
 	private AdminService adminService;
 
-	
 	@PostMapping("add-admin")
-	public boolean addAdmin(@RequestBody Admin  admin) {
-		if(this.adminService.addAdmin(admin)) {
+	public boolean addAdmin(@RequestBody Admin admin) {
+		if (this.adminService.addAdmin(admin)) {
 			return true;
+		} else {
+			return false;
 		}
-		else {return false;}
 	}
-	
+
 	@PutMapping("update-admin")
 	public HttpStatus editAdmin(@RequestBody Admin admin) {
-		if(adminService.updateAdmin(admin)==true) return HttpStatus.ACCEPTED;
-		else {return HttpStatus.BAD_REQUEST;}
+		if (adminService.updateAdmin(admin) == true)
+			return HttpStatus.ACCEPTED;
+		else {
+			return HttpStatus.BAD_REQUEST;
+		}
 	}
-	
+
 	@GetMapping("get-admin-By-Id")
-	public Admin findById(int id)
-	{
+	public Admin findById(int id) {
 		return adminService.findById(id);
 	}
 }

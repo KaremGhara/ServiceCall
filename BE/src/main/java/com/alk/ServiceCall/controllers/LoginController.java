@@ -10,20 +10,18 @@ import com.alk.ServiceCall.beans.LoginUsers;
 import com.alk.ServiceCall.beans.User;
 import com.alk.ServiceCall.serviceses.LoginService;
 
-
 @CrossOrigin
 @RestController
 @RequestMapping("api/login")
 public class LoginController {
 
-	
 	@Autowired
 	private LoginService loginService;
 
-	  @PostMapping("login")
-	    public User login(@RequestBody LoginUsers user) {
-	       return loginService.userLogin1(user);
-	      
-	    }
+	@PostMapping("login")
+	public User login(@RequestBody LoginUsers user) {
+		return loginService.userLogin1(user);
+
+	}
 
 }

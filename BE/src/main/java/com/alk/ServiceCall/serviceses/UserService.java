@@ -1,6 +1,6 @@
 package com.alk.ServiceCall.serviceses;
 
-import java.security.NoSuchAlgorithmException; 
+import java.security.NoSuchAlgorithmException;  
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.alk.ServiceCall.beans.User;
 import com.alk.ServiceCall.repo.UserRepo;
-
+ 
 @Service
 public class UserService {
 
@@ -29,20 +29,20 @@ public class UserService {
 					existUser.get().getUserName() +" Already Exists!");
 		}
 		else {
-			try {
-				String generatedPassword=PasswordHelper.generateStorngPasswordHash(user.getUserPassword());
-				user.setUserPassword(generatedPassword);
-				userRepo.save(user);
-				return true;
-			} catch (NoSuchAlgorithmException e) {
-				e.printStackTrace();
-			} catch (InvalidKeySpecException e) {
-				e.printStackTrace();
-			}
-			
+//			try {
+//				String generatedPassword=PasswordHelper.generateStorngPasswordHash(user.getUserPassword());
+//				user.setUserPassword(generatedPassword);
+//				userRepo.save(user);
+//				return true;
+//			} catch (NoSuchAlgorithmException e) {
+//				e.printStackTrace();
+//			} catch (InvalidKeySpecException e) {
+//				e.printStackTrace();
+//			}
 		}
 		return false;
 	}
+	
 	
 	@Transactional
 	public boolean editUser(@RequestBody  User user) {

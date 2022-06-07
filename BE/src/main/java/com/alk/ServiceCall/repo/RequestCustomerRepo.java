@@ -1,18 +1,24 @@
 package com.alk.ServiceCall.repo;
 
-import java.util.List; 
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.alk.ServiceCall.beans.RequestCustomer;
 
-
-public interface RequestCustomerRepo extends JpaRepository<RequestCustomer,Integer>{
+public interface RequestCustomerRepo extends JpaRepository<RequestCustomer, Integer> {
 
 	public RequestCustomer findById(int Id);
+
 	public RequestCustomer findByEmail(String email);
+
 	public List<RequestCustomer> findByemail(String costumerEmail);
+
 	public List<RequestCustomer> findBytechnician_id(int technicianId);
+
 	public List<RequestCustomer> findBycustomer_id(int customerId);
+
 	public List<RequestCustomer> findByattach(boolean attach);
+
 	public List<RequestCustomer> findByisComplete(boolean isComplete);
-	public List<RequestCustomer> findByisCompleteAndAttach(boolean isComplete,boolean attach);
+
+	public List<RequestCustomer> findByisCompleteAndAttach(boolean isComplete, boolean attach);
 }

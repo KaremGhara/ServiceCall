@@ -11,31 +11,29 @@ public class AdminService {
 
 	@Autowired
 	private AdminRepo adminRepo;
-	
+
 	public boolean addAdmin(Admin admin) {
-		Admin exsitingAdmin=adminRepo.findByEmail(admin.getEmail());
-		if(exsitingAdmin==null) {
+		Admin exsitingAdmin = adminRepo.findByEmail(admin.getEmail());
+		if (exsitingAdmin == null) {
 			admin.setUserRole("Admin");
 			adminRepo.save(admin);
 			return true;
 		}
 		return false;
 	}
-	
-	
+
 	@Transactional
-	public boolean updateAdmin(Admin  admin) {
+	public boolean updateAdmin(Admin admin) {
 		Admin exsitAdmin = adminRepo.findById(admin.getId());
-		if(exsitAdmin!=null) {
+		if (exsitAdmin != null) {
 			admin.setId(exsitAdmin.getId());
 			adminRepo.save(admin);
 			return true;
 		}
 		return false;
 	}
-	
+
 	public Admin findById(int id) {
 		return adminRepo.findById(id);
-
 	}
 }

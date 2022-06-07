@@ -10,6 +10,7 @@ import { AboutTechnicianComponent } from './about-technician/about-technician.co
 import { UpdateAdminComponent } from './update-admin/update-admin.component';
 import { AdminDetailsComponent } from './admin-details/admin-details.component';
 import { GoogleCharmsToTechnicianComponent } from './google-charms-to-technician/google-charms-to-technician.component';
+import { GoogleCharsToAllRequestsComponent } from './google-chars-to-all-requests/google-chars-to-all-requests.component';
 
 const routes: Routes = [
   
@@ -53,6 +54,10 @@ const routes: Routes = [
     {
       path:"googleCharsToTechnician/:idrow",
       component:GoogleCharmsToTechnicianComponent
+    },
+    {
+      path:"googleCharsToAllReq",
+      component:GoogleCharsToAllRequestsComponent
     },
  
 ];

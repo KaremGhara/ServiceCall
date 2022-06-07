@@ -5,7 +5,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.Collections;
 import java.util.List;
 import javax.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired; 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.alk.ServiceCall.Helper.PasswordHelper;
 import com.alk.ServiceCall.beans.Customer;
@@ -15,19 +15,18 @@ import com.alk.ServiceCall.repo.RequestCustomerRepo;
 
 @Service
 public class CustomerService {
-	
-	
+
 	@Autowired
 	private CustomerRepo customerRepo;
-	
+
 	@Autowired
 	private RequestCustomerRepo requestCustomerRepo;
-	
+
 	public boolean addCustomer(Customer customer) {
-		Customer exsitingCustomer=customerRepo.findByEmail(customer.getEmail());
-		if(exsitingCustomer==null) {
+		Customer exsitingCustomer = customerRepo.findByEmail(customer.getEmail());
+		if (exsitingCustomer == null) {
 			try {
-				String generatedPassword= PasswordHelper.generateStorngPasswordHash(customer.getUserPassword());
+				String generatedPassword = PasswordHelper.generateStorngPasswordHash(customer.getUserPassword());
 				customer.setUserPassword(generatedPassword);
 				customer.setUserRole("Customer");
 				customerRepo.save(customer);
@@ -37,16 +36,14 @@ public class CustomerService {
 			} catch (InvalidKeySpecException e) {
 				e.printStackTrace();
 			}
-			
 		}
 		return false;
 	}
-	
-	
+
 	@Transactional
-	public boolean updateCustomer(Customer  customer) {
+	public boolean updateCustomer(Customer customer) {
 		Customer exsitCustomer = customerRepo.findById(customer.getId());
-		if(exsitCustomer!=null) {
+		if (exsitCustomer != null) {
 			customer.setId(exsitCustomer.getId());
 			customerRepo.save(customer);
 			return true;
@@ -54,14 +51,11 @@ public class CustomerService {
 		return false;
 	}
 
-
-	
 	public boolean deleteCustomer(int id) {
-		Customer delCustomer =  customerRepo.findById(id);
-		List<RequestCustomer> req=requestCustomerRepo.findBycustomer_id(id);
-		if(delCustomer!=null)
-		{
-			for(RequestCustomer re:req) {
+		Customer delCustomer = customerRepo.findById(id);
+		List<RequestCustomer> req = requestCustomerRepo.findBycustomer_id(id);
+		if (delCustomer != null) {
+			for (RequestCustomer re : req) {
 				re.setTechnician(null);
 				requestCustomerRepo.save(re);
 			}
@@ -70,16 +64,15 @@ public class CustomerService {
 		}
 		return false;
 	}
-	
-	
+
 	public Customer findById(int id) {
 		return customerRepo.findById(id);
 
 	}
-	
+
 	public List<Customer> getAllCustomer() {
-		List<Customer> allCustomers=customerRepo.findAll();
-        Collections.reverse(allCustomers);
+		List<Customer> allCustomers = customerRepo.findAll();
+		Collections.reverse(allCustomers);
 		return allCustomers;
 	}
 

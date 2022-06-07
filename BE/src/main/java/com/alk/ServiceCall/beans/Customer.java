@@ -12,13 +12,12 @@ import lombok.EqualsAndHashCode;
 @Data
 @Entity
 @Table(name = "customers")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 public class Customer extends User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="customer_id")
+	@Column(name = "customer_id")
 	private int id;
-	
-	
+
 }

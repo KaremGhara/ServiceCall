@@ -14,7 +14,11 @@ export class CustomerDetailsComponent implements OnInit {
   customer:Customer=new Customer();
   
 
-  constructor(private router: Router,private customerService: CustomerService,private route:ActivatedRoute){}
+  constructor(
+    private router: Router,
+    private customerService: CustomerService,
+    private route:ActivatedRoute
+    ){}
   ngOnInit(): void {
        const storedItems= JSON.parse(localStorage.getItem('currentUser'))
        this.custId=storedItems.id;

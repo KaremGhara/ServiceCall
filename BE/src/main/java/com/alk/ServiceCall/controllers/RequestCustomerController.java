@@ -21,83 +21,87 @@ public class RequestCustomerController {
 
 	@Autowired
 	private RequestCustomerService requestCustomerService;
-	
 
 	@PostMapping("add-request_customer")
-	public boolean addRequestCustomer(@RequestBody RequestCustomer  requestCustomer, int customerId) {
-		if(this.requestCustomerService.addRequestCustomer(requestCustomer,customerId)) {
+	public boolean addRequestCustomer(@RequestBody RequestCustomer requestCustomer, int customerId) {
+		if (this.requestCustomerService.addRequestCustomer(requestCustomer, customerId)) {
 			return true;
+		} else {
+			return false;
 		}
-		else {return false;}	
 	}
-	
-	
+
 	@GetMapping("get-all-request_customer")
-	public List<RequestCustomer> getAll(){
+	public List<RequestCustomer> getAll() {
 		return requestCustomerService.getAllRequestCustomer();
 	}
 
 	@PutMapping("update-request_customer")
 	public HttpStatus editRequestCustomer(@RequestBody RequestCustomer requestCustomer) {
-		if(requestCustomerService.updateRequestCustomer(requestCustomer)==true) return HttpStatus.ACCEPTED;
-		else {return HttpStatus.BAD_REQUEST;}
-
+		if (requestCustomerService.updateRequestCustomer(requestCustomer) == true)
+			return HttpStatus.ACCEPTED;
+		else {
+			return HttpStatus.BAD_REQUEST;
+		}
 	}
-	
-	
+
 	@GetMapping("get-request_customer-By-Id")
-	public RequestCustomer findById(int id)
-	{
+	public RequestCustomer findById(int id) {
 		return requestCustomerService.findById(id);
 	}
-	
+
 	@GetMapping("get-request_customer-By-Email")
-	public RequestCustomer findByEmail(String email)
-	{
+	public RequestCustomer findByEmail(String email) {
 		return requestCustomerService.findByEmail(email);
 	}
-	
+
 	@DeleteMapping("delete-request_customer")
 	public HttpStatus deleteRequestCustomer(int id) {
-		if(requestCustomerService.deleteRequestCustomer(id)==true) return HttpStatus.ACCEPTED;
-		else {return HttpStatus.BAD_REQUEST;}
+		if (requestCustomerService.deleteRequestCustomer(id) == true)
+			return HttpStatus.ACCEPTED;
+		else {
+			return HttpStatus.BAD_REQUEST;
+		}
 	}
-	
+
 	@GetMapping("get-request_customer-By-costumerEmail")
-	public List<RequestCustomer> findByCostomerId(String costumerEmail)
-	{
+	public List<RequestCustomer> findByCostomerId(String costumerEmail) {
 		return requestCustomerService.getAllRequestCustomerBycostomerEmail(costumerEmail);
 	}
-	
+
 	@GetMapping("get-request_customer-By-technician-id")
-	public List<RequestCustomer> findByReqByTechnId(int technicianId)
-	{
+	public List<RequestCustomer> findByReqByTechnId(int technicianId) {
 		return requestCustomerService.getAllRequestCustomerByTechnicianId(technicianId);
 	}
-	
+
 	@GetMapping("get-all-request_customer-not-linked")
-	public List<RequestCustomer> getAllRequestCustomerNotLinked(){
+	public List<RequestCustomer> getAllRequestCustomerNotLinked() {
 		return requestCustomerService.getAllRequestCustomerNotLinked();
 	}
-	
+
 	@GetMapping("get-all-request_customer-by-complete")
-	public List<Integer> getAllRequestCustomerByComplete(int techId){
+	public List<Integer> getAllRequestCustomerByComplete(int techId) {
 		return requestCustomerService.getAllRequestCustomerByComleted(techId);
 	}
-	
+
 	@GetMapping("get-all-request_customer-by-attach")
-	public List<RequestCustomer> getAllReqByAttach(){
+	public List<RequestCustomer> getAllReqByAttach() {
 		return requestCustomerService.getAllRequestCustomerByAttach();
 	}
-	
+
 	@GetMapping("get-all-request_customer-by-complet-false")
-	public List<RequestCustomer> getAllReqByCompletFalse(){
+	public List<RequestCustomer> getAllReqByCompletFalse() {
 		return requestCustomerService.getAllRequestCustomerByIsCompletFalse();
 	}
-	
+
 	@GetMapping("get-all-request_customer-by-complet-true")
-	public List<RequestCustomer> getAllReqByCompletTrue(){
+	public List<RequestCustomer> getAllReqByCompletTrue() {
 		return requestCustomerService.getAllRequestCustomerByIsCompletTrue();
+	}
+
+	@GetMapping("get-all-request_customer-by-complet-or-not-or-attach")
+	public List<Integer> getAllRequestCustomerByComletedOrNotOrAttach() {
+		return requestCustomerService.getAllRequestCustomerByComletedOrNotOrAttach();
 	}
 
 }

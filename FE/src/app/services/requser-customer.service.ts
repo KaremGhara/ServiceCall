@@ -63,4 +63,8 @@ return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-request_cus
   getAllReqByCompletTrue():Observable<RequsetCustomer[]> {
     return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-all-request_customer-by-complet-true')
   }
+
+  getAllRequestCustomerByComletedOrNotOrAttach():Observable<number[]> {
+    return this.http.get<number[]>(APP_URL+'requestCustomer/get-all-request_customer-by-complet-or-not-or-attach')
+  }
 }

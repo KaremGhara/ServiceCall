@@ -37,6 +37,7 @@ import { MatCardModule } from '@angular/material/card';
 import { GoogleCharmsToTechnicianComponent } from './google-charms-to-technician/google-charms-to-technician.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ChartsModule } from 'ng2-charts';
+import { GoogleCharsToAllRequestsComponent } from './google-chars-to-all-requests/google-chars-to-all-requests.component';
 @NgModule({
   declarations: [
     AllTechnicianComponent,
@@ -50,6 +51,7 @@ import { ChartsModule } from 'ng2-charts';
     UpdateAdminComponent,
     AdminDetailsComponent,
     GoogleCharmsToTechnicianComponent,
+    GoogleCharsToAllRequestsComponent,
   ],
   imports: [CommonModule,
      AdminRoutingModule,

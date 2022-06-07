@@ -15,13 +15,12 @@ import lombok.EqualsAndHashCode;
 @Table(name = "technicians")
 @EqualsAndHashCode(callSuper = false)
 public class Technician extends User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="technician_id")
-	private int id; 
-	
-	
+	@Column(name = "technician_id")
+	private int id;
+
 	@NotBlank(message = "Can't Enter Empty Job Role!")
 	private String jobRole;
 

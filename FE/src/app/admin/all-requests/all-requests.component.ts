@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { RequserCustomerService } from '../../services/requser-customer.service';
 import { RequsetCustomer } from 'src/app/beans/requset-customer';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-requests',
@@ -30,7 +31,9 @@ export class AllRequestsComponent implements OnInit {
 
   constructor(
     private requserCustomerService:RequserCustomerService, 
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router, 
+
     ) { }
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -133,7 +136,7 @@ isComplete(row){
     }
   
   }
-  selectComplet(){
-
+  ToGoogleChars(){
+    this.router.navigate(['/admin/googleCharsToAllReq'])
   }
 }

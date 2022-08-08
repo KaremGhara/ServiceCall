@@ -40,17 +40,19 @@ public class RequestCustomerService {
 
 	public boolean deleteRequestCustomer(int id) {
 		RequestCustomer delRequestCustomer = requestCustomerRepo.findById(id);
-		delRequestCustomer.setCustomer(null);
-		delRequestCustomer.setTechnician(null);
-		delRequestCustomer.setAttach(false);
-		delRequestCustomer.setComplete(false);
+//		delRequestCustomer.setCustomer(null);
+//		delRequestCustomer.setTechnician(null);
+//		delRequestCustomer.setAttach(false);
+//		delRequestCustomer.setComplete(false);
+		delRequestCustomer.setDelRequest(true);
 		requestCustomerRepo.save(delRequestCustomer);
+		return true;
 
-		if (delRequestCustomer != null) {
-			requestCustomerRepo.deleteById(id);
-			return true;
-		}
-		return false;
+//		if (delRequestCustomer != null) {
+//			requestCustomerRepo.deleteById(id);
+//			return true;
+//		}
+//		return false;
 	}
 
 	public RequestCustomer findById(int id) {
@@ -65,40 +67,40 @@ public class RequestCustomerService {
 	}
 
 	public List<RequestCustomer> getAllRequestCustomer() {
-		List<RequestCustomer> allReq = requestCustomerRepo.findAll();
+		List<RequestCustomer> allReq = requestCustomerRepo.findBydelRequest(false);
 		Collections.reverse(allReq);
 		return allReq;
 	}
 
 	// when the admin not attach the request
 	public List<RequestCustomer> getAllRequestCustomerByAttach() {
-		List<RequestCustomer> allReq = requestCustomerRepo.findByattach(false);
+		List<RequestCustomer> allReq = requestCustomerRepo.findByattachAndDelRequest(false,false);
 		Collections.reverse(allReq);
 		return allReq;
 	}
 
 	// the request is (not completed by technician)
 	public List<RequestCustomer> getAllRequestCustomerByIsCompletFalse() {
-		List<RequestCustomer> allReq = requestCustomerRepo.findByisCompleteAndAttach(false, true);
+		List<RequestCustomer> allReq = requestCustomerRepo.findByisCompleteAndAttachAndDelRequest(false, true,false);
 		Collections.reverse(allReq);
 		return allReq;
 	}
 
 	// the request is completed
 	public List<RequestCustomer> getAllRequestCustomerByIsCompletTrue() {
-		List<RequestCustomer> allReq = requestCustomerRepo.findByisComplete(true);
+		List<RequestCustomer> allReq = requestCustomerRepo.findByisCompleteAndDelRequest(true,false);
 		Collections.reverse(allReq);
 		return allReq;
 	}
 
-	public List<RequestCustomer> getAllRequestCustomerBycostomerEmail(String costumerEmail) {
-		List<RequestCustomer> allReq = requestCustomerRepo.findByemail(costumerEmail);
+	public List<RequestCustomer> getAllRequestCustomerBycostomerId(int costumerId) {
+		List<RequestCustomer> allReq = requestCustomerRepo.findBycustomer_idAndDelRequest(costumerId,false);
 		Collections.reverse(allReq);
 		return allReq;
 	}
 
 	public List<RequestCustomer> getAllRequestCustomerByTechnicianId(int TechnicianId) {
-		List<RequestCustomer> allReq = requestCustomerRepo.findBytechnician_id(TechnicianId);
+		List<RequestCustomer> allReq = requestCustomerRepo.findBytechnician_idAndDelRequest(TechnicianId,false);
 		Collections.reverse(allReq);
 		return allReq;
 	}
@@ -106,7 +108,7 @@ public class RequestCustomerService {
 	// if the admin attach request to technician
 	public List<RequestCustomer> getAllRequestCustomerNotLinked() {
 		List<RequestCustomer> newlistSt = new ArrayList<RequestCustomer>();
-		List<RequestCustomer> listSt1 = requestCustomerRepo.findAll();
+		List<RequestCustomer> listSt1 = requestCustomerRepo.findBydelRequest(false);
 
 		for (RequestCustomer list : listSt1) {
 			if (list.isAttach() == false) {
@@ -119,7 +121,7 @@ public class RequestCustomerService {
 
 	// for google chars to technician request
 	public List<Integer> getAllRequestCustomerByComleted(int techId) {
-		List<RequestCustomer> all = requestCustomerRepo.findBytechnician_id(techId);
+		List<RequestCustomer> all = requestCustomerRepo.findBytechnician_idAndDelRequest(techId,false);
 		List<Integer> newlistSt = new ArrayList<Integer>();
 
 		int isComlete = 0;
@@ -138,7 +140,7 @@ public class RequestCustomerService {
 
 	// for google chars to all requests
 	public List<Integer> getAllRequestCustomerByComletedOrNotOrAttach() {
-		List<RequestCustomer> all = requestCustomerRepo.findAll();
+		List<RequestCustomer> all = requestCustomerRepo.findBydelRequest(false);
 		List<Integer> newlistSt = new ArrayList<Integer>();
 
 		int isComlete = 0;

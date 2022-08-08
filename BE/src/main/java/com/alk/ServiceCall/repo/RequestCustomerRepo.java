@@ -12,13 +12,15 @@ public interface RequestCustomerRepo extends JpaRepository<RequestCustomer, Inte
 
 	public List<RequestCustomer> findByemail(String costumerEmail);
 
-	public List<RequestCustomer> findBytechnician_id(int technicianId);
+	public List<RequestCustomer> findBytechnician_idAndDelRequest(int technicianId,boolean delRequest);
 
-	public List<RequestCustomer> findBycustomer_id(int customerId);
+	public List<RequestCustomer> findBycustomer_idAndDelRequest(int customerId,boolean delRequest);
 
-	public List<RequestCustomer> findByattach(boolean attach);
+	public List<RequestCustomer> findByattachAndDelRequest(boolean attach,boolean delRequest);
 
-	public List<RequestCustomer> findByisComplete(boolean isComplete);
+	public List<RequestCustomer> findByisCompleteAndDelRequest(boolean isComplete,boolean delRequest);
 
-	public List<RequestCustomer> findByisCompleteAndAttach(boolean isComplete, boolean attach);
+	public List<RequestCustomer> findByisCompleteAndAttachAndDelRequest(boolean isComplete, boolean attach,boolean delRequest);
+	
+	public List<RequestCustomer> findBydelRequest(boolean delRequest);
 }

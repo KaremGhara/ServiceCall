@@ -68,9 +68,12 @@ public class TechnicianService {
 				re.setTechnician(null);
 				re.setAttach(false);
 				re.setComplete(false);
+				re.setDelRequest(false);
 				requestCustomerRepo.save(re);
 			}
-			technicianRepo.deleteById(id);
+			delTechnician.setDelTechnician(true);
+//			technicianRepo.deleteById(id);
+			technicianRepo.save(delTechnician);
 			return true;
 		}
 		return false;
@@ -82,7 +85,7 @@ public class TechnicianService {
 	}
 
 	public List<Technician> getAllTechnician() {
-		List<Technician> alltechncians = technicianRepo.findAll();
+		List<Technician> alltechncians = technicianRepo.findBydelTechnician(false);
 		Collections.reverse(alltechncians);
 		return alltechncians;
 	}

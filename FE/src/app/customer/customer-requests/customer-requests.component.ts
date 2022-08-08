@@ -43,15 +43,12 @@ export class CustomerRequestsComponent implements OnInit {
     this.custId=storedItems.id;
     this.custemail=storedItems.email;
     console.log(storedItems);
-   
-    
     this.getCustomerRequest();
   }
+
   getCustomerRequest()
   {
-    
-    
-        this.requestCustomerService.getAllRequestCustomerBycostomerId(this.custemail).subscribe(res=>{          
+        this.requestCustomerService.getAllRequestCustomerBycostomerId(this.custId).subscribe(res=>{          
         this.isTblLoading = false;
         this.dataSource= new MatTableDataSource(res);
         this.dataSource.paginator=this.paginator;
@@ -59,11 +56,12 @@ export class CustomerRequestsComponent implements OnInit {
 
     })
   }
+
   applyFilter($event:any){
     this.dataSource.filter=$event.target.value;
   }
+
   deleteRequsetCustomer(row) {
-        
     Swal.fire({
       title: "?אתה בטוח רוצה למחוק ",
       text: row.id,
@@ -83,8 +81,8 @@ export class CustomerRequestsComponent implements OnInit {
       }
       this.getCustomerRequest();
     });    
-
 }
+
    openDialog(row){
   Swal.fire({
     input: 'textarea',

@@ -23,5 +23,7 @@ public class Technician extends User {
 
 	@NotBlank(message = "Can't Enter Empty Job Role!")
 	private String jobRole;
+	
+	private boolean delTechnician = false; // to soft delete
 
 }

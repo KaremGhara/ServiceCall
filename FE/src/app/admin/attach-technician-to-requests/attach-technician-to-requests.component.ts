@@ -7,6 +7,7 @@ import { RequsetCustomer } from 'src/app/beans/requset-customer';
 import { Technician } from 'src/app/beans/technician';
 import { RequserCustomerService } from 'src/app/services/requser-customer.service';
 import { TechnicianService } from 'src/app/services/technician.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-attach-technician-to-requests',
@@ -45,6 +46,9 @@ export class AttachTechnicianToRequestsComponent implements OnInit {
 
   technician:Technician =new Technician;
   requests_ids:number[] = [];
+
+  //new te
+  selectedRequsetIdlink:RequsetCustomer= new RequsetCustomer;
   
   ngOnInit(): void {
     }
@@ -70,16 +74,44 @@ export class AttachTechnicianToRequestsComponent implements OnInit {
     })
     }
 
-    attachReqToTechni(){
+    // attachReqToTechni(){
 
-      this.selectedRequsetId.technician=this.technician;
-      this.selectedRequsetId.attach=true;
-      this.requserCustomerService.updateRequsetCustomer(this.selectedRequsetId).subscribe(data => {
-        this.selectedRequsetId=data;
-        this.findAllRequestNotLink();
-        this.findRequestByTechnicianId();
-    })
-    }
+    //   this.selectedRequsetId.technician=this.technician;
+    //   this.selectedRequsetId.attach=true;
+    //   this.requserCustomerService.updateRequsetCustomer(this.selectedRequsetId).subscribe(data => {
+    //     this.selectedRequsetId=data;
+    //     this.findAllRequestNotLink();
+    //     this.findRequestByTechnicianId();
+    // })
+    // }
+
+
+    attachReqToTechni() {
+      Swal.fire({
+        title: "אתה בטוח רוצה לצרף הפניה?",
+        text: '',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor:'#d33' ,
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'כן',
+      }).then((result) => {
+        if (result.value) {  
+          this.selectedRequsetId.technician=this.technician;
+          this.selectedRequsetId.attach=true;
+          this.requserCustomerService.updateRequsetCustomer(this.selectedRequsetId).subscribe(data => {
+            this.selectedRequsetId=data;
+            if(data){
+              this.findAllRequestNotLink();
+              this.findRequestByTechnicianId();
+              Swal.fire('מצרף!',' הצרף  בהצלחה', 'success');                
+            }
+          }) 
+        }
+          this.findAllRequestNotLink();
+          this.findRequestByTechnicianId();
+      });   
+  }
 
 
     public technicianWasSelected(technician : Technician)
@@ -87,9 +119,56 @@ export class AttachTechnicianToRequestsComponent implements OnInit {
       this.technician=technician;
      this.findAllRequestNotLink();
      this.findRequestByTechnicianId();
-    
     }
+
+//fun to remove request to request not link
+    selectRequestLink(id:number){
+      this.requserCustomerService.getRequsetById(id).subscribe(data => {
+        this.selectedRequsetIdlink=data;  
+    })
+    }
+
+    removeAttachReqToTechni(){
+      if(this.selectedRequsetIdlink.complete==true){
+        Swal.fire({
+          title: "אתה לא יכול לבטל הפניה",
+          text: 'כי הפניה סגורה',
+          icon: 'error',
+          showCancelButton: false,
+          confirmButtonColor:'#d33' ,
+          cancelButtonColor: '#3085d6',
+          confirmButtonText: 'בסדר',
+        })   
+      }
+      else{
+        Swal.fire({
+          title: "אתה בטוח רוצה לבטל הפניה?",
+          text: '',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor:'#d33' ,
+          cancelButtonColor: '#3085d6',
+          confirmButtonText: 'כן',
+        }).then((result) => {
+          if (result.value) {  
+            this.selectedRequsetIdlink.technician=null;
+            this.selectedRequsetIdlink.attach=false;
+            this.requserCustomerService.updateRequsetCustomer(this.selectedRequsetIdlink).subscribe(data => {
+              this.selectedRequsetIdlink=data;
+              if(data){
+                this.findAllRequestNotLink();
+                this.findRequestByTechnicianId();
+                Swal.fire('מבטל!',' בטל בהצלחה','success');                
+              }
+            }) 
+          }
+            this.findAllRequestNotLink();
+            this.findRequestByTechnicianId();
+        }); 
+      }
+    }
+
+     
   
-   
    
 }

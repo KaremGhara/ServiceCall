@@ -47,13 +47,14 @@ export class RequestTechComponent implements OnInit {
     
     const storedItems= JSON.parse(localStorage.getItem('currentUser'))
     this.custId=storedItems.id;
-    this.requestCustomer.date=this.requestDate;
+    
     this.customerService.getCustomerById(this.custId).subscribe(data =>{
       this.Customer = data;
      });
   }
 
   Onsubmit() {
+    this.requestCustomer.date=this.requestDate;
     this.requestCustomer.customerName=this.Customer.userName;
     this.requestCustomer.email=this.Customer.email;
     this.requestCustomer.phone=this.Customer.userPhone;  

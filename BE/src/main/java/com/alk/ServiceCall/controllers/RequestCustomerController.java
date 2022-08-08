@@ -64,9 +64,9 @@ public class RequestCustomerController {
 		}
 	}
 
-	@GetMapping("get-request_customer-By-costumerEmail")
-	public List<RequestCustomer> findByCostomerId(String costumerEmail) {
-		return requestCustomerService.getAllRequestCustomerBycostomerEmail(costumerEmail);
+	@GetMapping("get-request_customer-By-costumerId")
+	public List<RequestCustomer> findByCostomerId(int costumerId) {
+		return requestCustomerService.getAllRequestCustomerBycostomerId(costumerId);
 	}
 
 	@GetMapping("get-request_customer-By-technician-id")

@@ -56,10 +56,16 @@ public class CustomerService {
 		List<RequestCustomer> req = requestCustomerRepo.findBycustomer_id(id);
 		if (delCustomer != null) {
 			for (RequestCustomer re : req) {
-				re.setTechnician(null);
+//				re.setTechnician(null);
+//				re.setAttach(false);
+//				re.setComplete(false);
+				re.setDelRequest(true);
+//				re.setCustomer(null);
 				requestCustomerRepo.save(re);
 			}
-			customerRepo.deleteById(id);
+			delCustomer.setDelCustomer(true);
+//			customerRepo.deleteById(id);
+			customerRepo.save(delCustomer);
 			return true;
 		}
 		return false;
@@ -71,7 +77,7 @@ public class CustomerService {
 	}
 
 	public List<Customer> getAllCustomer() {
-		List<Customer> allCustomers = customerRepo.findAll();
+		List<Customer> allCustomers = customerRepo.findBydelCustomer(false);
 		Collections.reverse(allCustomers);
 		return allCustomers;
 	}

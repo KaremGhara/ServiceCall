@@ -19,5 +19,8 @@ public class Customer extends User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customer_id")
 	private int id;
+	
+	private boolean delCustomer = false; // to soft delete
+
 
 }

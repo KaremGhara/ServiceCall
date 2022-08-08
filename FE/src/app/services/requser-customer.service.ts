@@ -15,10 +15,8 @@ export class RequserCustomerService {
     return this.http.post<RequsetCustomer>(APP_URL+'requestCustomer/add-request_customer?customerId='+customerId,requestCustomer)
   }
 
-  getAllRequestCustomerBycostomerId(email:string):Observable<RequsetCustomer[]> {
-    console.log(email);
-    
-    return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-request_customer-By-costumerEmail?costumerEmail='+ email)
+  getAllRequestCustomerBycostomerId(id:number):Observable<RequsetCustomer[]> {    
+    return this.http.get<RequsetCustomer[]>(APP_URL+'requestCustomer/get-request_customer-By-costumerId?costumerId='+ id)
   }
 
   getAllRequestCustomers():Observable<RequsetCustomer[]> {

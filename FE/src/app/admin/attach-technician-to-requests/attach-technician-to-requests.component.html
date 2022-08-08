@@ -20,7 +20,7 @@
                     <div class="container"  (click)="selectRequest(Requset.id)" [value]=requsetCustomer.id *ngFor="let Requset of requsetCustomer">                          
                       <div class="drop-card" >                        
                           <span class="table-img msg-user">  </span>                    
-                        <span class="cardtitle noselect"> {{Requset.deviceType}}-{{Requset.id}}-{{Requset.customerName}}</span></div>    
+                        <span class="cardtitle noselect" [ngStyle]="{'color':'yellow'}">{{Requset.deviceType}}-{{Requset.id}}-{{Requset.customerName}}</span></div>    
                     </div>            
                   </div> 
                 </div>
@@ -39,6 +39,15 @@
                   </div>          
                   <button class="btn-space"   style="margin-left:50% ;" mat-raised-button
                         color="primary" (click)="attachReqToTechni()">לְצרף</button>
+
+                        <br/>
+                        <br/><br/>
+
+                        <div  style="margin-left:30% ; width:1500px">  
+                          בטל בקשה: {{selectedRequsetIdlink.id}}  
+                        </div>          
+                        <button class="btn-space"   style="margin-left:50% ;" mat-raised-button
+                              color="primary" (click)="removeAttachReqToTechni()">בטל</button>
   
               
           </div>
@@ -46,10 +55,10 @@
                   <h4 style="margin-right: 100px">בקשות לינקדאין</h4>
                 <div class="board" style="margin-left:30%;width:250px;height:300px;background-color: rgb(245, 248, 250);border: 0.1px solid #078fae45">
                   <div class="cards" id="left" >
-                    <div class="container"  *ngFor="let Requsets of requestsLinked">
+                    <div class="container" (click)="selectRequestLink(Requsets.id)" [value]=requestsLinked.id   *ngFor="let Requsets of requestsLinked">
                       <div class="drop-card" >                        
                           <span class="table-img msg-user">  </span>                    
-                        <span class="cardtitle noselect"> {{Requsets.deviceType}}-{{Requsets.id}}-{{Requsets.customerName}}</span></div>    
+                        <span class="cardtitle noselect" [ngStyle]="{'color':Requsets.complete? 'green':'red'}" > {{Requsets.deviceType}}-{{Requsets.id}}-{{Requsets.customerName}}</span></div>    
                     </div>
                   </div>
                 </div>

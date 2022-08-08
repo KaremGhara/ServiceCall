@@ -55,6 +55,7 @@ public abstract class User {
 	@Lob
 	@Column(name = "user_image")
 	private String image;
+	
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
 	private List<RequestCustomer> requestCustomer;

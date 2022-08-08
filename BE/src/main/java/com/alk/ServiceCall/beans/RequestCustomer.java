@@ -50,6 +50,8 @@ public class RequestCustomer {
 	private String messageTech;
 
 	private LocalDate closedate;
+	
+	private boolean delRequest = false; // to soft delete
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
 	@JoinColumn(name = "customer_id", referencedColumnName = "user_id")

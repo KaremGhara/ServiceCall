@@ -17,14 +17,14 @@
           </mat-form-field>
           </div>
           <div class="col-md-12 col-sm-12">
-            <h6 >  סוג מכשיר</h6>
+            <h6 >פרטי מכשיר</h6>
             <mat-form-field style="margin:10px; width:250px" appearance="fill">
               <mat-label>דגם מחשב</mat-label>
               <input matInput placeholder="HP/Lenovo..etc" [(ngModel)]="requestCustomer.deviceName" [formControl]="ReqForm.get('deviceName')" required>
             </mat-form-field>
             <mat-form-field appearance="fill">
               
-              <mat-label>Select</mat-label>
+              <mat-label>סוג מכשיר</mat-label>
               <mat-select [(ngModel)]="requestCustomer.deviceType" [formControl]="ReqForm.get('deviceType')">
                 <mat-option value="מחשב נייד">מחשב נייד</mat-option>
                 <mat-option value="מחשב נייח">מחשב נייח</mat-option>

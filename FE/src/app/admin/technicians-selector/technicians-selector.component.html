@@ -1,7 +1,7 @@
 <mat-form-field style=" width:250px" appearance="fill">
     <mat-label>בחר טכנאי</mat-label>            
         <mat-select [(ngModel)]="selectedTechnician" (selectionChange)="selectTechnician()"  placeholder="Technician Name">
-            <mat-option *ngFor="let technician of technicians" [value]="technician">{{technician.userName}}</mat-option>
+            <mat-option *ngFor="let technician of technicians" [value]="technician">{{technician.userName}}--{{technician.jobRole}}</mat-option>
             
         </mat-select>
     </mat-form-field>

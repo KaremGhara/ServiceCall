@@ -103,5 +103,17 @@ public class RequestCustomerController {
 	public List<Integer> getAllRequestCustomerByComletedOrNotOrAttach() {
 		return requestCustomerService.getAllRequestCustomerByComletedOrNotOrAttach();
 	}
+	
+	//**************************************************************************//
+	
+	@GetMapping("get-all-request_customer-not-linked-home")
+	public List<RequestCustomer> getAllRequestCustomerNotLinkedHome() {
+		return requestCustomerService.getAllRequestCustomerNotLinkedHome();
+	}
+	
+	@GetMapping("get-all-request_customer-not-linked-work")
+	public List<RequestCustomer> getAllRequestCustomerNotLinkedWork() {
+		return requestCustomerService.getAllRequestCustomerNotLinkedWork();
+	}
 
 }

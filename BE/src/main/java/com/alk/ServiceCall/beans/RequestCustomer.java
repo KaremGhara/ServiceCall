@@ -14,8 +14,8 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
-@Data
-@Entity
+@Data  //to get/set
+@Entity  //Connections between object and dataBase
 @Table(name = "requestCustomer")
 public class RequestCustomer {
 

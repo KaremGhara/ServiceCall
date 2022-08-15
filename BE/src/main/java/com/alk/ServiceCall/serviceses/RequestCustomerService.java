@@ -74,38 +74,38 @@ public class RequestCustomerService {
 
 	// when the admin not attach the request
 	public List<RequestCustomer> getAllRequestCustomerByAttach() {
-		List<RequestCustomer> allReq = requestCustomerRepo.findByattachAndDelRequest(false,false);
+		List<RequestCustomer> allReq = requestCustomerRepo.findByattachAndDelRequest(false, false);
 		Collections.reverse(allReq);
 		return allReq;
 	}
 
 	// the request is (not completed by technician)
 	public List<RequestCustomer> getAllRequestCustomerByIsCompletFalse() {
-		List<RequestCustomer> allReq = requestCustomerRepo.findByisCompleteAndAttachAndDelRequest(false, true,false);
+		List<RequestCustomer> allReq = requestCustomerRepo.findByisCompleteAndAttachAndDelRequest(false, true, false);
 		Collections.reverse(allReq);
 		return allReq;
 	}
 
 	// the request is completed
 	public List<RequestCustomer> getAllRequestCustomerByIsCompletTrue() {
-		List<RequestCustomer> allReq = requestCustomerRepo.findByisCompleteAndDelRequest(true,false);
+		List<RequestCustomer> allReq = requestCustomerRepo.findByisCompleteAndDelRequest(true, false);
 		Collections.reverse(allReq);
 		return allReq;
 	}
 
 	public List<RequestCustomer> getAllRequestCustomerBycostomerId(int costumerId) {
-		List<RequestCustomer> allReq = requestCustomerRepo.findBycustomer_idAndDelRequest(costumerId,false);
+		List<RequestCustomer> allReq = requestCustomerRepo.findBycustomer_idAndDelRequest(costumerId, false);
 		Collections.reverse(allReq);
 		return allReq;
 	}
 
 	public List<RequestCustomer> getAllRequestCustomerByTechnicianId(int TechnicianId) {
-		List<RequestCustomer> allReq = requestCustomerRepo.findBytechnician_idAndDelRequest(TechnicianId,false);
+		List<RequestCustomer> allReq = requestCustomerRepo.findBytechnician_idAndDelRequest(TechnicianId, false);
 		Collections.reverse(allReq);
 		return allReq;
 	}
 
-	// if the admin attach request to technician
+	
 	public List<RequestCustomer> getAllRequestCustomerNotLinked() {
 		List<RequestCustomer> newlistSt = new ArrayList<RequestCustomer>();
 		List<RequestCustomer> listSt1 = requestCustomerRepo.findBydelRequest(false);
@@ -121,7 +121,7 @@ public class RequestCustomerService {
 
 	// for google chars to technician request
 	public List<Integer> getAllRequestCustomerByComleted(int techId) {
-		List<RequestCustomer> all = requestCustomerRepo.findBytechnician_idAndDelRequest(techId,false);
+		List<RequestCustomer> all = requestCustomerRepo.findBytechnician_idAndDelRequest(techId, false);
 		List<Integer> newlistSt = new ArrayList<Integer>();
 
 		int isComlete = 0;
@@ -158,6 +158,38 @@ public class RequestCustomerService {
 		newlistSt.add(isComlete);
 		newlistSt.add(isNotComlete);
 		newlistSt.add(notAttach);
+		return newlistSt;
+	}
+
+	// *************************************************************************//
+
+	// if the admin attach request to technician home
+	public List<RequestCustomer> getAllRequestCustomerNotLinkedHome() {
+		List<RequestCustomer> newlistSt = new ArrayList<RequestCustomer>();
+		List<RequestCustomer> listSt1 = requestCustomerRepo.findBydelRequest(false);
+		for (RequestCustomer list : listSt1) {
+			if (list.isAttach() == false) {
+				if (list.getRepairType().equals("תיקון בבית")) {
+					newlistSt.add(list);
+				}
+			}
+		}
+		Collections.reverse(newlistSt);
+		return newlistSt;
+	}
+
+	// if the admin attach request to technician Work
+	public List<RequestCustomer> getAllRequestCustomerNotLinkedWork() {
+		List<RequestCustomer> newlistSt = new ArrayList<RequestCustomer>();
+		List<RequestCustomer> listSt1 = requestCustomerRepo.findBydelRequest(false);
+		for (RequestCustomer list : listSt1) {
+			if (list.isAttach() == false) {
+				if (list.getRepairType().equals("תיקון במעבדה")) {
+					newlistSt.add(list);
+				}
+			}
+		}
+		Collections.reverse(newlistSt);
 		return newlistSt;
 	}
 

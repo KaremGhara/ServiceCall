@@ -11,4 +11,6 @@ public interface TechnicianRepo extends JpaRepository<Technician, Integer> {
 	public Technician findByEmail(String email);
 	
 	public List<Technician> findBydelTechnician(boolean delTechnician);
+	
+	public Technician findByEmailAndDelTechnician(String email,boolean delTechnician);
 }

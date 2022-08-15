@@ -44,30 +44,45 @@ public class TechnicianService {
 	public boolean updateTechnician(Technician technician) {
 		Technician exsitTechnician = technicianRepo.findById(technician.getId());
 		if (exsitTechnician != null) {
+			String generatedPassword;
 			try {
-				String generatedPassword = PasswordHelper.generateStorngPasswordHash(technician.getUserPassword());
-				technician.setUserPassword(generatedPassword);
-				technician.setId(exsitTechnician.getId());
-				technicianRepo.save(technician);
-				return true;
+				if(technician.getUserPassword().equals(exsitTechnician.getUserPassword())) {
+					technician.setId(exsitTechnician.getId());
+					technicianRepo.save(technician);
+					return true;
+				}
+				else {
+					 generatedPassword = PasswordHelper.generateStorngPasswordHash(technician.getUserPassword());
+						technician.setUserPassword(generatedPassword);
+						technician.setId(exsitTechnician.getId());
+						technicianRepo.save(technician);
+						return true;
+				}
+				
+				
 			} catch (NoSuchAlgorithmException e) {
 				e.printStackTrace();
 			} catch (InvalidKeySpecException e) {
 				e.printStackTrace();
 			}
+			
 		}
+		
 		return false;
 	}
 
 	public boolean deleteTechnician(int id) {
 		Technician delTechnician = technicianRepo.findById(id);
-		List<RequestCustomer> req = requestCustomerRepo.findBytechnician_id(id);
+		List<RequestCustomer> req = requestCustomerRepo.findBytechnician_idAndDelRequest(id, false);
 
 		if (delTechnician != null) {
 			for (RequestCustomer re : req) {
-				re.setTechnician(null);
-				re.setAttach(false);
-				re.setComplete(false);
+				if (re.isComplete() == false && re.isAttach() == true) {
+					re.setAttach(false);
+				}
+//				re.setTechnician(null);
+//				re.setAttach(false);
+//				re.setComplete(false);
 				re.setDelRequest(false);
 				requestCustomerRepo.save(re);
 			}

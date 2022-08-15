@@ -34,10 +34,13 @@ export class UpdateCustomerDetailsComponent implements OnInit {
     ) {
     this.custForm = this.fb.group({});
     this.custForm.addControl("CustomerName",new FormControl({value: this.updateCustomer.userName,disabled:true}))
-    this.custForm.addControl("email",new FormControl('',[Validators.required, Validators.email]))
+    this.custForm.addControl("email",new FormControl({value: this.updateCustomer.email,disabled:true}))
     this.custForm.addControl("phone",new FormControl('',[Validators.required, Validators.minLength(10),Validators.maxLength(10)]))
     this.custForm.addControl("address",new FormControl({value: this.updateCustomer.userAddress,disabled:false}))
     this.custForm.addControl("userImage",new FormControl({value: this.updateCustomer.userAddress,disabled:false}))
+    this.custForm.addControl("password", new FormControl('', [Validators.required]))
+    // this.custForm.addControl("password",new FormControl('',[Validators.required, Validators.minLength(6),Validators.maxLength(10)]))
+
 
    }
 

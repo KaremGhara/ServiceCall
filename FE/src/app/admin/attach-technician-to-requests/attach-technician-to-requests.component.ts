@@ -47,14 +47,29 @@ export class AttachTechnicianToRequestsComponent implements OnInit {
   technician:Technician =new Technician;
   requests_ids:number[] = [];
 
-  //new te
+  
   selectedRequsetIdlink:RequsetCustomer= new RequsetCustomer;
   
   ngOnInit(): void {
     }
 
+    
     public findAllRequestNotLink(){
       this.requserCustomerService.getAllRequestCustomerNotLinked().subscribe(data => {    
+        this.requsetCustomer=data
+      })
+    }
+
+    //fix in home(not used)
+    public findAllRequestNotLinkHome(){
+      this.requserCustomerService.getAllRequestCustomerNotLinkedHome().subscribe(data => {    
+        this.requsetCustomer=data
+      })
+    }
+
+     //fix in work(not used)
+     public findAllRequestNotLinkWork(){
+      this.requserCustomerService.getAllRequestCustomerNotLinkedWork().subscribe(data => {    
         this.requsetCustomer=data
       })
     }
@@ -68,14 +83,13 @@ export class AttachTechnicianToRequestsComponent implements OnInit {
 
       
     selectRequest(id:number){
-   
       this.requserCustomerService.getRequsetById(id).subscribe(data => {
         this.selectedRequsetId=data;  
     })
     }
 
+    //attach request to technician v1
     // attachReqToTechni(){
-
     //   this.selectedRequsetId.technician=this.technician;
     //   this.selectedRequsetId.attach=true;
     //   this.requserCustomerService.updateRequsetCustomer(this.selectedRequsetId).subscribe(data => {
@@ -117,6 +131,12 @@ export class AttachTechnicianToRequestsComponent implements OnInit {
     public technicianWasSelected(technician : Technician)
     {
       this.technician=technician;
+      // if(this.technician.jobRole=="מתקין בבית"){
+      //   this.findAllRequestNotLinkHome();
+      // }
+      // else if(this.technician.jobRole=="מתקין מעבדה"){
+      //   this.findAllRequestNotLinkWork();
+      // }
      this.findAllRequestNotLink();
      this.findRequestByTechnicianId();
     }

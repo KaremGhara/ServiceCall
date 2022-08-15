@@ -44,8 +44,29 @@ public class CustomerService {
 	public boolean updateCustomer(Customer customer) {
 		Customer exsitCustomer = customerRepo.findById(customer.getId());
 		if (exsitCustomer != null) {
-			customer.setId(exsitCustomer.getId());
-			customerRepo.save(customer);
+			String generatedPassword;
+			try {
+				if(customer.getUserPassword().equals(exsitCustomer.getUserPassword())) {
+					customer.setId(exsitCustomer.getId());
+					customerRepo.save(customer);
+					return true;
+				}
+				else {
+					 generatedPassword = PasswordHelper.generateStorngPasswordHash(customer.getUserPassword());
+					 customer.setUserPassword(generatedPassword);
+					 customer.setId(exsitCustomer.getId());
+					 customerRepo.save(customer);
+						return true;
+				}
+
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidKeySpecException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			return true;
 		}
 		return false;
@@ -53,13 +74,18 @@ public class CustomerService {
 
 	public boolean deleteCustomer(int id) {
 		Customer delCustomer = customerRepo.findById(id);
-		List<RequestCustomer> req = requestCustomerRepo.findBycustomer_id(id);
+		List<RequestCustomer> req = requestCustomerRepo.findBycustomer_idAndDelRequest(id,false);
 		if (delCustomer != null) {
 			for (RequestCustomer re : req) {
+				if (re.isComplete() == true && re.isAttach() == true) {
+					re.setDelRequest(false);
+				}else {
+					re.setDelRequest(true);
+				}
 //				re.setTechnician(null);
 //				re.setAttach(false);
 //				re.setComplete(false);
-				re.setDelRequest(true);
+//				re.setDelRequest(true);
 //				re.setCustomer(null);
 				requestCustomerRepo.save(re);
 			}

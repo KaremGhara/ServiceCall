@@ -20,7 +20,7 @@
                     <div class="container"  (click)="selectRequest(Requset.id)" [value]=requsetCustomer.id *ngFor="let Requset of requsetCustomer">                          
                       <div class="drop-card" >                        
                           <span class="table-img msg-user">  </span>                    
-                        <span class="cardtitle noselect" [ngStyle]="{'color':'yellow'}">{{Requset.deviceType}}-{{Requset.id}}-{{Requset.customerName}}</span></div>    
+                        <span class="cardtitle noselect" [ngStyle]="{'color':'yellow'}">{{Requset.repairType}}-{{Requset.id}}-{{Requset.customerName}}</span></div>    
                     </div>            
                   </div> 
                 </div>
@@ -58,7 +58,7 @@
                     <div class="container" (click)="selectRequestLink(Requsets.id)" [value]=requestsLinked.id   *ngFor="let Requsets of requestsLinked">
                       <div class="drop-card" >                        
                           <span class="table-img msg-user">  </span>                    
-                        <span class="cardtitle noselect" [ngStyle]="{'color':Requsets.complete? 'green':'red'}" > {{Requsets.deviceType}}-{{Requsets.id}}-{{Requsets.customerName}}</span></div>    
+                        <span class="cardtitle noselect" [ngStyle]="{'color':Requsets.complete? 'green':'red'}" > {{Requsets.repairType}}-{{Requsets.id}}-{{Requsets.customerName}}</span></div>    
                     </div>
                   </div>
                 </div>

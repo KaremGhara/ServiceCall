@@ -12,5 +12,8 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
 	public Customer findByEmail(String email);
 	
 	public List<Customer> findBydelCustomer(boolean delCustomer);
+	
+	public Customer findByEmailAndDelCustomer(String email,boolean delCustomer);
+
 
 }

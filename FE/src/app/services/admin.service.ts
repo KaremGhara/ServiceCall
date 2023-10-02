@@ -13,6 +13,8 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   updateAdmin(admin:Admin):Observable<Admin> {
+
+    console.log("Alo")
     return this.http.put<Admin>(APP_URL+"admin/update-admin",admin)
   }
 

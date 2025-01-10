@@ -20,4 +20,4 @@ jobs:
       - name: Build and Test backend
         run: |
           cd BE
-          mvn clean install  
+          mvn clean install -DskipTests

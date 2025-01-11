@@ -21,3 +21,17 @@ jobs:
         run: |
           cd BE
           mvn clean install -DskipTests
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: FE/node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('FE/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Build Frontend
+        run: |
+          cd FE
+          npm install
+          npx ng build --configuration=production
+          
